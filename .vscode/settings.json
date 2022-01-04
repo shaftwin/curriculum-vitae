@@ -1,0 +1,4 @@
+{
+  "eslint.options": { "configFile": "/Users/shaft/Documents/Projects/tekyn/tekyn-react-webapp/configs/eslint/.eslintrc.js" },
+  "javascript.preferences.importModuleSpecifier": "non-relative",
+}

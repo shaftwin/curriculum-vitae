@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Link Default link 1`] = `
+.emotion-0 {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: #00DBC7;
+  font-size: 0.813rem;
+  font-weight: 700;
+}
+
+.emotion-0:hover {
+  color: #00C6B3;
+}
+
+.emotion-0:visited: {
+  color: #A4AAC0;
+}
+
+<div>
+  <a
+    class="emotion-0"
+    href="https://www.google.com/"
+  >
+    testLink
+  </a>
+</div>
+`;
+
+exports[`Link Link clicked 1`] = `
+.emotion-0 {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: #00DBC7;
+  font-size: 0.813rem;
+  font-weight: 700;
+}
+
+.emotion-0:hover {
+  color: #00C6B3;
+}
+
+.emotion-0:visited: {
+  color: #A4AAC0;
+}
+
+<div>
+  <a
+    class="emotion-0"
+    href="https://www.google.com/"
+  >
+    testLink
+  </a>
+</div>
+`;
+
+exports[`Link Link hovered 1`] = `
+.emotion-0 {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: #00DBC7;
+  font-size: 0.813rem;
+  font-weight: 700;
+}
+
+.emotion-0:hover {
+  color: #00C6B3;
+}
+
+.emotion-0:visited: {
+  color: #A4AAC0;
+}
+
+<div>
+  <a
+    class="emotion-0"
+    href="https://www.google.com/"
+  >
+    testLink
+  </a>
+</div>
+`;

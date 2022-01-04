@@ -1,0 +1,75 @@
+image: node:16.10
+stages:
+    - uploadToS3
+    - uploadToS3Dev
+    - cleanS3Dev
+
+uploadToS3:
+    stage: uploadToS3
+    script:
+        - echo "Setup apt-get"
+        - rm -rf /var/lib/apt/lists/*
+        - apt-get update
+        - apt-cache gencaches
+        - echo "Install zip cmd"
+        - apt-get install zip
+        - echo "Zip sources"
+        - zip source -r .
+        - echo "Download awscli2"
+        - curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+        - echo "Unzip awscli2"
+        - unzip awscliv2.zip
+        - echo "install awscli2"
+        - ./aws/install
+        - echo "Deploying to server"
+        - aws s3 sync ./ s3://$S3_BUCKET_NAME_DEV --exclude='*' --include='source.zip'
+        - echo "Deployed"
+    only:
+        - main
+
+uploadToS3Dev:
+    stage: uploadToS3Dev
+    script:
+        - echo "Setup apt-get"
+        - rm -rf /var/lib/apt/lists/*
+        - apt-get update
+        - apt-cache gencaches
+        - echo "Install zip cmd"
+        - apt-get install zip
+        - echo "Zip sources"
+        - zip source -r .
+        - echo "Download awscli2"
+        - curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+        - echo "Unzip awscli2"
+        - unzip awscliv2.zip
+        - echo "install awscli2"
+        - ./aws/install
+        - npm install
+        - npm run build
+        - aws s3 cp build s3://${S3_BUCKET_NAME_FEATURES}/${CI_COMMIT_REF_SLUG} --recursive
+    environment:
+        name: ${CI_COMMIT_REF_SLUG}
+        url: http://${S3_BUCKET_NAME_FEATURES}.s3-website.eu-west-3.amazonaws.com/${CI_COMMIT_REF_SLUG}  # This is the url of the bucket we saved before
+        on_stop: cleanS3Dev # When the branch is merged, we clean up after ourself
+    rules:
+      - if: '($CI_COMMIT_BRANCH != "development" && $CI_COMMIT_BRANCH != "main")'
+        when: manual
+      - if: '($CI_COMMIT_BRANCH == "development")'
+        when: on_success
+      - if: '($CI_COMMIT_BRANCH == "main")'
+        when: never
+
+cleanS3Dev:
+  image: "python:latest"
+  stage: cleanS3Dev
+  variables:
+    GIT_STRATEGY: none
+  before_script:
+    - pip install awscli
+  script:
+    - aws s3 rm s3://${S3_BUCKET_NAME_FEATURES}/${CI_COMMIT_REF_SLUG} --recursive
+  environment:
+    name: ${CI_COMMIT_REF_SLUG}
+    action: stop
+  when: manual
+    

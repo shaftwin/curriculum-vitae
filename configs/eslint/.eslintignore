@@ -1,0 +1,25 @@
+# Modules
+node_modules
+# Production
+dist
+# Yarn
+yarn-error.log
+yarn.lock
+# Test coverage
+coverage/**/*
+# Storybook
+storybook-static
+# README
+README.md
+# HTML
+index.html
+# package.json
+package.json
+# JSON files
+*.json
+# Test Snapshot
+*.snap
+# Feature files
+*.feature
+# GraphQL files
+*.graphql
