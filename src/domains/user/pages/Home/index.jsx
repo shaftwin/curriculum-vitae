@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import Skills from 'src/domains/user/components';
 import { Container } from './styled';
@@ -14,8 +13,6 @@ function Home() {
   );
 }
 
-Home.propTypes = {
-  children: PropTypes.node.isRequired,
-};
+Home.propTypes = {};
 
 export default Home;
