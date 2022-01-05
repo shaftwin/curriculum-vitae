@@ -12,11 +12,22 @@ const config = {
 };
 
 const Skills = ({
-  words = ['toto', 'coucou', 'cloup'],
-  wordsCallback = [
-    'https://www.google.fr/search?q=toto',
-    'https://www.google.fr/search?q=coucou',
-    'https://www.google.fr/search?q=cloup',
+  words = [
+    {
+      label: 'toto',
+      callback: () =>
+        window.open('https://www.google.fr/search?q=toto', '_blank'),
+    },
+    {
+      label: 'coucou',
+      callback: () =>
+        window.open('https://www.google.fr/search?q=coucou', '_blank'),
+    },
+    {
+      label: 'cloup',
+      callback: () =>
+        window.open('https://www.google.fr/search?q=cloup', '_blank'),
+    },
   ],
 }) => {
   const refArray = useRef([]);
@@ -36,16 +47,14 @@ const Skills = ({
 
     return newArray;
   });
+
   const [mouseX0] = useState(
     config.initSpeed * Math.sin(config.direction * (Math.PI / 180)),
   );
-  // const mouseX0 =
-  //   config.initSpeed * Math.sin(config.direction * (Math.PI / 180)); // init distance between the mouse and rolling center x axis
   const [mouseY0] = useState(
     -config.initSpeed * Math.cos(config.direction * (Math.PI / 180)),
   );
-  // const mouseY0 =
-  //   -config.initSpeed * Math.cos(config.direction * (Math.PI / 180)); // init distance between the mouse and rolling center y axis
+
   const [mouseX, setMouseX] = useState(
     config.initSpeed * Math.cos(config.direction * (Math.PI / 180)),
   ); // current distance between the mouse and rolling center x axis
@@ -139,9 +148,9 @@ const Skills = ({
             ref={(el) => {
               refArray.current[index] = el;
             }}
-            onClick={() => window.open(wordsCallback[index], '_blank')}
+            onClick={word.callback}
           >
-            <FloatingText>{word}</FloatingText>
+            <FloatingText>{word.label}</FloatingText>
           </FloatingContainer>
         );
       })}
@@ -150,7 +159,7 @@ const Skills = ({
 };
 
 Skills.propTypes = {
-  words: PropTypes.arrayOf(PropTypes.string),
+  words: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default Skills;
