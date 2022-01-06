@@ -63,22 +63,52 @@ class LivingCell {
     });
   }
 
-  findXPath() {
-    // go Left
-    if (opts.mouseX < this.absoluteX) return -1;
-    // go Right
-    if (opts.mouseX > this.absoluteX) return 1;
-
-    return 0;
+  randomMove() {
+    this.addedX = Math.cos(this.rad);
+    this.addedY = Math.sin(this.rad);
   }
 
-  findYPath() {
-    // go Top
-    if (opts.mouseY < this.absoluteY) return -1;
-    // go Bottom
-    if (opts.mouseY > this.absoluteY) return 1;
+  moveX() {
+    // go Left
+    if (opts.mouseX < this.absoluteX) this.addedX = -1;
+    // go Right
+    if (opts.mouseX > this.absoluteX) this.addedX = 1;
 
-    return 0;
+    this.addedY = 0;
+  }
+
+  moveY() {
+    // go Top
+    if (opts.mouseY < this.absoluteY) this.addedY = -1;
+    // go Bottom
+    if (opts.mouseY > this.absoluteY) this.addedY = 1;
+
+    this.addedX = 0;
+  }
+
+  generateNewPosition() {
+    const delta = Math.abs(opts.mouseX - this.absoluteX) / opts.mouseX;
+    if (!opts.mouseX || !opts.mouseY) {
+      this.randomMove();
+    } else if (
+      Math.abs(opts.mouseX - this.absoluteX) >
+      Math.abs(opts.mouseY - this.absoluteY)
+    ) {
+      if (delta < 0.1) {
+        this.randomMove();
+      } else {
+        this.moveX();
+      }
+    } else if (
+      Math.abs(opts.mouseX - this.absoluteX) <
+      Math.abs(opts.mouseY - this.absoluteY)
+    ) {
+      if (delta < 0.125) {
+        this.randomMove();
+      } else {
+        this.moveY();
+      }
+    }
   }
 
   reset() {
@@ -114,19 +144,7 @@ class LivingCell {
     this.rad += opts.baseRad * (Math.random() < 0.5 ? 1 : -1);
 
     // Generate next position
-    if (!opts.mouseX || !opts.mouseY) {
-      this.addedX = Math.cos(this.rad);
-      this.addedY = Math.sin(this.rad);
-    } else if (
-      Math.abs(opts.mouseX - this.absoluteX) >
-      Math.abs(opts.mouseY - this.absoluteY)
-    ) {
-      this.addedX = this.findXPath();
-      this.addedY = 0;
-    } else {
-      this.addedX = 0;
-      this.addedY = this.findYPath();
-    }
+    this.generateNewPosition();
 
     if (
       Math.random() < opts.dieChance ||
