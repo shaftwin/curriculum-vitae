@@ -19,18 +19,26 @@ const opts = {
   baseLightInputMultiplier: 0.01,
   addedLightInputMultiplier: 0.02,
 
+  // cx and cy aim screen center
   cx: window.innerWidth / 2,
   cy: window.innerHeight / 2,
+
   repaintAlpha: 0.04,
   hueChange: 0.1,
 
+  // angle in rad
   baseRad: Math.PI / 2, // Hexagonal = Math.PI * 2 / 6
   tick: 0,
 
-  dieX: window.innerWidth / 2 / 20, // 20 <=> opts.len !!!
-  dieY: window.innerHeight / 2 / 20, // 20 <=> opts.len !!!
+  dieX: window.innerWidth,
+  dieY: window.innerHeight,
+
+  // Mouse
+  mouseX: null,
+  mouseY: null,
 };
 
+// TODO resize is broken
 class LivingCell {
   constructor(ctx) {
     this.reset();
@@ -48,12 +56,36 @@ class LivingCell {
       opts.cx = w / 2;
       opts.cy = h / 2;
 
-      opts.dieX = w / 2 / opts.len;
-      opts.dieY = h / 2 / opts.len;
+      // opts.dieX = w / 2 / opts.len;
+      // opts.dieY = h / 2 / opts.len;
+      opts.dieX = window.innerWidth;
+      opts.dieY = window.innerHeight;
     });
   }
 
+  findXPath() {
+    // go Left
+    if (opts.mouseX < this.absoluteX) return -1;
+    // go Right
+    if (opts.mouseX > this.absoluteX) return 1;
+
+    return 0;
+  }
+
+  findYPath() {
+    // go Top
+    if (opts.mouseY < this.absoluteY) return -1;
+    // go Bottom
+    if (opts.mouseY > this.absoluteY) return 1;
+
+    return 0;
+  }
+
   reset() {
+    this.spawnX = Math.floor(Math.random() * window.innerWidth) + 1;
+    this.spawnY = Math.floor(Math.random() * window.innerHeight) + 1;
+    this.absoluteX = 0;
+    this.absoluteY = 0;
     this.x = 0;
     this.y = 0;
     this.addedX = 0;
@@ -80,15 +112,28 @@ class LivingCell {
     this.targetTime = (opts.baseTime + opts.addedTime * Math.random()) | 0;
 
     this.rad += opts.baseRad * (Math.random() < 0.5 ? 1 : -1);
-    this.addedX = Math.cos(this.rad);
-    this.addedY = Math.sin(this.rad);
+
+    // Generate next position
+    if (!opts.mouseX || !opts.mouseY) {
+      this.addedX = Math.cos(this.rad);
+      this.addedY = Math.sin(this.rad);
+    } else if (
+      Math.abs(opts.mouseX - this.absoluteX) >
+      Math.abs(opts.mouseY - this.absoluteY)
+    ) {
+      this.addedX = this.findXPath();
+      this.addedY = 0;
+    } else {
+      this.addedX = 0;
+      this.addedY = this.findYPath();
+    }
 
     if (
       Math.random() < opts.dieChance ||
-      this.x > opts.dieX ||
-      this.x < -opts.dieX ||
-      this.y > opts.dieY ||
-      this.y < -opts.dieY
+      this.absoluteX > opts.dieX ||
+      this.absoluteX < -opts.dieX ||
+      this.absoluteY > opts.dieY ||
+      this.absoluteY < -opts.dieY
     )
       this.reset();
   }
@@ -101,8 +146,11 @@ class LivingCell {
 
     const prop = this.time / this.targetTime;
     const wave = Math.sin((prop * Math.PI) / 2);
-    const x = this.addedX * wave;
-    const y = this.addedY * wave;
+    const newX = this.addedX * wave;
+    const newY = this.addedY * wave;
+    // Reset coordinates in canvas of the cell point
+    this.absoluteX = this.spawnX + (this.x + newX) * opts.len;
+    this.absoluteY = this.spawnY + (this.y + newY) * opts.len;
 
     this.ctx.shadowBlur = prop * opts.shadowToTimePropMult;
     this.ctx.fillStyle = this.color.replace(
@@ -117,21 +165,14 @@ class LivingCell {
         opts.addedLight *
           Math.sin(this.cumulativeTime * this.lightInputMultiplier),
     );
-    this.ctx.fillRect(
-      opts.cx + (this.x + x) * opts.len,
-      opts.cy + (this.y + y) * opts.len,
-      2,
-      2,
-    );
+    this.ctx.fillRect(this.absoluteX, this.absoluteY, 2, 2);
 
     if (Math.random() < opts.sparkChance)
       this.ctx.fillRect(
-        opts.cx +
-          (this.x + x) * opts.len +
+        this.absoluteX +
           Math.random() * opts.sparkDist * (Math.random() < 0.5 ? 1 : -1) -
           opts.sparkSize / 2,
-        opts.cy +
-          (this.y + y) * opts.len +
+        this.absoluteY +
           Math.random() * opts.sparkDist * (Math.random() < 0.5 ? 1 : -1) -
           opts.sparkSize / 2,
         opts.sparkSize,
@@ -140,10 +181,11 @@ class LivingCell {
   }
 }
 
-const LivingHexagone = () => {
+const CellAnimation = () => {
   useEffect(() => {
-    const canvas = document.getElementById('LivingHexagone');
+    const canvas = document.getElementById('CellAnimation');
 
+    // TODO can be improved / Refactored with resize event
     const w = window.innerWidth;
     canvas.width = window.innerWidth;
     const h = window.innerHeight;
@@ -174,15 +216,25 @@ const LivingHexagone = () => {
     };
 
     loop();
+
+    canvas.onmousemove = function onmousemove(e) {
+      opts.mouseX = e.clientX;
+      opts.mouseY = e.clientY;
+    };
+
+    canvas.onmouseleave = function onmouseleave() {
+      opts.mouseX = null;
+      opts.mouseY = null;
+    };
   }, []);
 
   return (
     <Container>
-      <canvas id="LivingHexagone"></canvas>
+      <canvas id="CellAnimation"></canvas>
     </Container>
   );
 };
 
-LivingHexagone.propTypes = {};
+CellAnimation.propTypes = {};
 
-export default LivingHexagone;
+export default CellAnimation;

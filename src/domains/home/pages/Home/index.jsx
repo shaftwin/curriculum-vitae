@@ -1,11 +1,11 @@
 import React from 'react';
-import LivingCell from 'src/components/LivingCell';
+import CellAnimation from 'src/components/CellAnimation';
 import { Container } from './styled';
 
 function Home() {
   return (
     <Container>
-      <LivingCell />
+      <CellAnimation />
     </Container>
   );
 }
