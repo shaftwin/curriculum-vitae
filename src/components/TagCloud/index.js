@@ -11,7 +11,7 @@ const config = {
   maxSpeed: 1,
 };
 
-const Skills = ({
+const TagCloud = ({
   words = [
     {
       label: 'toto',
@@ -158,8 +158,8 @@ const Skills = ({
   );
 };
 
-Skills.propTypes = {
+TagCloud.propTypes = {
   words: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
-export default Skills;
+export default TagCloud;

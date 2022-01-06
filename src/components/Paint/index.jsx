@@ -37,7 +37,7 @@ const Paint = () => {
     canvas.width = 600;
     canvas.height = 600;
 
-    canvas.onmousemove = function (e) {
+    canvas.onmousemove = function onmousemove(e) {
       drawPixels(e.clientX, e.clientY);
 
       // lastPoint = { x: e.clientX, y: e.clientY };

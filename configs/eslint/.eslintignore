@@ -23,3 +23,5 @@ package.json
 *.feature
 # GraphQL files
 *.graphql
+# CSS files
+*.css
