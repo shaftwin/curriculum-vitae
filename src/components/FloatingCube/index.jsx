@@ -8,7 +8,7 @@ function getRandomFloat(min, max) {
   return Math.random() * (max - min) + min;
 }
 
-const FloatingCube = () => {
+const FloatingCube = ({ className, shouldHide }) => {
   const [cubeRotationX, setCubeRotationX] = useState(0);
   const [cubeRotationY, setCubeRotationY] = useState(0);
   const [cubeX, setCubeX] = useState(1);
@@ -57,7 +57,7 @@ const FloatingCube = () => {
   };
 
   return (
-    <Container>
+    <Container className={className}>
       <Test
         onMouseDown={onMouseDown}
         cubeX={cubeX}
@@ -65,6 +65,7 @@ const FloatingCube = () => {
         draggable
         onDragStart={startDrag}
         onDrag={onDrag}
+        onDragEnd={(e) => shouldHide(e.clientX, e.clientY)}
       >
         <Cube
           // noShadow

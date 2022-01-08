@@ -2,16 +2,16 @@ import styled from '@emotion/styled';
 
 export const Container = styled.div`
   position: relative;
-  width: 500px;
-  height: 700px;
-  margin: 200px 200px;
-  background-color: grey;
+  /* width: 500px; */
+  /* height: 700px; */
   align-items: center;
   justify-content: center;
 `;
 
 export const FloatingText = styled.p`
-  margin: 5px;
+  font-size: 30px;
+  color: #08fdd8;
+  margin: 10px;
 `;
 
 export const FloatingContainer = styled.div`
@@ -26,6 +26,6 @@ export const FloatingContainer = styled.div`
     -moz-border-radius: 2px;
     border-radius: 2px;
     opacity: 1 !important;
-    z-index: 100 !important;
+    z-index: 1 !important;
   }
 `;

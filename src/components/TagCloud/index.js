@@ -29,6 +29,7 @@ const TagCloud = ({
         window.open('https://www.google.fr/search?q=cloup', '_blank'),
     },
   ],
+  className,
 }) => {
   const refArray = useRef([]);
   const [items, setItems] = useState(() => {
@@ -139,7 +140,7 @@ const TagCloud = ({
   }, [items, mouseX, mouseX0, mouseY, mouseY0]);
 
   return (
-    <Container onMouseMove={resetMousePos} id="container">
+    <Container className={className} onMouseMove={resetMousePos} id="container">
       {words.map((word, index) => {
         return (
           <FloatingContainer
