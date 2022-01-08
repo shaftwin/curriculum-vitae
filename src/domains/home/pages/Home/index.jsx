@@ -1,11 +1,12 @@
 import React from 'react';
-import CellAnimation from 'src/components/CellAnimation';
+import FloatingCube from 'src/components/FloatingCube';
 import { Container } from './styled';
 
 function Home() {
   return (
     <Container>
-      <CellAnimation />
+      {/* <CellAnimation /> */}
+      <FloatingCube />
     </Container>
   );
 }

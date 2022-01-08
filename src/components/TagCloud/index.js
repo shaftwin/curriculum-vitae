@@ -76,7 +76,7 @@ const TagCloud = ({
   };
 
   useEffect(() => {
-    const test = setInterval(() => {
+    const loop = setInterval(() => {
       const mX =
         Math.abs(mouseX - mouseX0) < 1 ? mouseX0 : (mouseX + mouseX0) / 2; // reset distance between the mouse and rolling center x axis
       const mY =
@@ -135,7 +135,7 @@ const TagCloud = ({
       setItems(newArray);
     }, 1);
 
-    return () => clearTimeout(test);
+    return () => clearTimeout(loop);
   }, [items, mouseX, mouseX0, mouseY, mouseY0]);
 
   return (
