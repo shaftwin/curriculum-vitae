@@ -8,7 +8,7 @@ function getRandomFloat(min, max) {
   return Math.random() * (max - min) + min;
 }
 
-const FloatingCube = ({ className, shouldHide }) => {
+const FloatingCube = ({ className, shouldHide, setDragging }) => {
   const [cubeRotationX, setCubeRotationX] = useState(0);
   const [cubeRotationY, setCubeRotationY] = useState(0);
   const [cubeX, setCubeX] = useState(1);
@@ -33,6 +33,7 @@ const FloatingCube = ({ className, shouldHide }) => {
   }, []);
 
   function startDrag(e) {
+    setDragging(true);
     e.dataTransfer.setDragImage(dragImage.current, 0, 0);
   }
 
@@ -65,7 +66,10 @@ const FloatingCube = ({ className, shouldHide }) => {
         draggable
         onDragStart={startDrag}
         onDrag={onDrag}
-        onDragEnd={(e) => shouldHide(e.clientX, e.clientY)}
+        onDragEnd={(e) => {
+          shouldHide(e.clientX, e.clientY);
+          setDragging(false);
+        }}
       >
         <Cube
           // noShadow
