@@ -4,8 +4,8 @@ import { Container, FloatingContainer, FloatingText } from './styled';
 
 const config = {
   radius: 100,
-  size: 1.5 * 100, // * radius
-  depth: 1.5 * 100, // * radius
+  size: 4 * 100, // * radius
+  depth: 4 * 100, // * radius
   direction: 135,
   initSpeed: 32,
   maxSpeed: 1,
@@ -14,17 +14,82 @@ const config = {
 const TagCloud = ({
   words = [
     {
-      label: 'toto',
+      label: 'React',
       callback: () =>
         window.open('https://www.google.fr/search?q=toto', '_blank'),
     },
     {
-      label: 'coucou',
+      label: 'React Native',
       callback: () =>
         window.open('https://www.google.fr/search?q=coucou', '_blank'),
     },
     {
-      label: 'cloup',
+      label: 'NodeJS',
+      callback: () =>
+        window.open('https://www.google.fr/search?q=cloup', '_blank'),
+    },
+    {
+      label: 'AWS',
+      callback: () =>
+        window.open('https://www.google.fr/search?q=cloup', '_blank'),
+    },
+    {
+      label: 'Styled Components',
+      callback: () =>
+        window.open('https://www.google.fr/search?q=cloup', '_blank'),
+    },
+    {
+      label: 'i18n',
+      callback: () =>
+        window.open('https://www.google.fr/search?q=cloup', '_blank'),
+    },
+    {
+      label: 'Python',
+      callback: () =>
+        window.open('https://www.google.fr/search?q=cloup', '_blank'),
+    },
+    {
+      label: 'Jest',
+      callback: () =>
+        window.open('https://www.google.fr/search?q=cloup', '_blank'),
+    },
+    {
+      label: 'RTL',
+      callback: () =>
+        window.open('https://www.google.fr/search?q=cloup', '_blank'),
+    },
+    {
+      label: 'Gherkins',
+      callback: () =>
+        window.open('https://www.google.fr/search?q=cloup', '_blank'),
+    },
+    {
+      label: 'Cucumber',
+      callback: () =>
+        window.open('https://www.google.fr/search?q=cloup', '_blank'),
+    },
+    {
+      label: 'Storybook',
+      callback: () =>
+        window.open('https://www.google.fr/search?q=cloup', '_blank'),
+    },
+    {
+      label: 'JSdoc',
+      callback: () =>
+        window.open('https://www.google.fr/search?q=cloup', '_blank'),
+    },
+    {
+      label: 'GraphQL',
+      callback: () =>
+        window.open('https://www.google.fr/search?q=cloup', '_blank'),
+    },
+    {
+      label: 'Teaching',
+      callback: () =>
+        window.open('https://www.google.fr/search?q=cloup', '_blank'),
+    },
+    {
+      label: 'TypeScript',
       callback: () =>
         window.open('https://www.google.fr/search?q=cloup', '_blank'),
     },
