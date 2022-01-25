@@ -14,7 +14,6 @@ const glow = keyframes`
 `;
 
 export const Container = styled.div`
-  max-width: 415px;
   display: flex;
   flex-direction: column;
 `;
