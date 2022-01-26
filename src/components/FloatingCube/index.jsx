@@ -15,14 +15,27 @@ const FloatingCube = ({
   setDragging,
   cubeType,
   color,
+  resetPos,
+  displayCube,
 }) => {
   const [cubeRotationX, setCubeRotationX] = useState(0);
   const [cubeRotationY, setCubeRotationY] = useState(0);
-  const [cubeX, setCubeX] = useState(1);
-  const [cubeY, setCubeY] = useState(1);
+  const [cubeX, setCubeX] = useState(100);
+  const [cubeY, setCubeY] = useState(1 + (cubeType + 1) * 100);
   const [deltaX, setDeltaX] = useState(0);
   const [deltaY, setDeltaY] = useState(0);
+  const [previousState, setPreviousState] = useState('visible');
   const dragImage = useRef(null);
+
+  useEffect(() => {
+    if (displayCube === 'none') {
+      setPreviousState(displayCube);
+    } else if (displayCube === 'visible' && previousState === 'none') {
+      setCubeX(100);
+      setCubeY(1 + (cubeType + 1) * 100);
+      setPreviousState('visible');
+    }
+  }, [cubeType, displayCube, previousState, resetPos]);
 
   useEffect(() => {
     dragImage.current = new Image();
