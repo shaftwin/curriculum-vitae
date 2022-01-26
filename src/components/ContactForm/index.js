@@ -1,11 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Network from 'src/components/Network';
+import { BsLinkedin, BsGithub } from 'react-icons/bs';
 import {
   Container,
   CustomInput,
   SendButton,
   CustomForm,
   CustomTextarea,
+  NetworkContainer,
 } from './styled';
 
 const ContactForm = ({ className }) => {
@@ -46,6 +49,16 @@ const ContactForm = ({ className }) => {
         />
         <SendButton type="submit" value="Send" />
       </CustomForm>
+      <NetworkContainer>
+        <Network
+          icon={<BsLinkedin size="2em" />}
+          link="https://www.linkedin.com/in/florian-champin-neault/"
+        />
+        <Network
+          icon={<BsGithub size="2em" />}
+          link="https://github.com/shaftwin"
+        />
+      </NetworkContainer>
     </Container>
   );
 };

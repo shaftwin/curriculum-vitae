@@ -2,6 +2,12 @@ import styled from '@emotion/styled';
 
 export const Container = styled.div``;
 
+export const NetworkContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+`;
+
 export const CustomForm = styled.form`
   display: flex;
   flex-direction: column;
@@ -45,4 +51,9 @@ export const SendButton = styled.input`
   line-height: 50px;
   text-align: center;
   margin-top: 20px;
+  &:hover {
+    transition: 0.5s ease-in all;
+    background-color: #08fdd8;
+    color: black;
+  }
 `;
