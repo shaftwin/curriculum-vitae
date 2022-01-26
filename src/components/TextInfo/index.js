@@ -1,27 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  Container,
-  Title,
-  Text,
-  Letter,
-  HiddenInput,
-  CustomLi,
-} from './styled';
+import Glowing from 'src/components/TextInfo/Glowing';
+import { Container, Text, BasicTitle } from './styled';
 
-const TextInfo = ({ className, texts, title }) => {
+const TextInfo = ({ className, texts, title, glowing }) => {
   return (
     <Container className={className}>
-      <Title>
-        {title.split('').map((letter, idx) => {
-          return (
-            <CustomLi key={idx}>
-              <HiddenInput type="checkbox" />
-              <Letter>{letter}</Letter>
-            </CustomLi>
-          );
-        })}
-      </Title>
+      {glowing && <Glowing title={title} />}
+      <BasicTitle>{title}</BasicTitle>
       {texts.map((text) => (
         <Text key={text}>{text}</Text>
       ))}
@@ -38,6 +24,10 @@ TextInfo.propTypes = {
    * Required text
    */
   texts: PropTypes.arrayOf(PropTypes.string).isRequired,
+  /**
+   * Optional glowing text
+   */
+  glowing: PropTypes.bool,
   /**
    * Optional custom style
    */
