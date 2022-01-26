@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
-import Cube, { Palette } from 'react-cube3d';
-import { Container, Test } from './styled';
+// import Cube, { Palette } from 'react-cube3d';
+import Cube from 'react-cube3d';
+import { Container, AbsoluteContainer } from './styled';
 
 const size = 35;
 
@@ -8,7 +9,13 @@ function getRandomFloat(min, max) {
   return Math.random() * (max - min) + min;
 }
 
-const FloatingCube = ({ className, shouldHide, setDragging }) => {
+const FloatingCube = ({
+  className,
+  shouldHide,
+  setDragging,
+  cubeType,
+  color,
+}) => {
   const [cubeRotationX, setCubeRotationX] = useState(0);
   const [cubeRotationY, setCubeRotationY] = useState(0);
   const [cubeX, setCubeX] = useState(1);
@@ -59,7 +66,7 @@ const FloatingCube = ({ className, shouldHide, setDragging }) => {
 
   return (
     <Container className={className}>
-      <Test
+      <AbsoluteContainer
         onMouseDown={onMouseDown}
         cubeX={cubeX}
         cubeY={cubeY}
@@ -67,7 +74,7 @@ const FloatingCube = ({ className, shouldHide, setDragging }) => {
         onDragStart={startDrag}
         onDrag={onDrag}
         onDragEnd={(e) => {
-          shouldHide(e.clientX, e.clientY);
+          shouldHide(e.clientX, e.clientY, cubeType);
           setDragging(false);
         }}
       >
@@ -84,9 +91,12 @@ const FloatingCube = ({ className, shouldHide, setDragging }) => {
           }}
           x={cubeRotationX}
           y={cubeRotationY}
-          palette={Palette.green}
+          palette={{
+            color: color || [190, 10, 0],
+            shading: [200, 250, 200],
+          }}
         />
-      </Test>
+      </AbsoluteContainer>
     </Container>
   );
 };

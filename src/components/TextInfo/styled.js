@@ -9,6 +9,7 @@ export const Container = styled.div`
 export const BasicTitle = styled.h2`
   color: #08fdd8;
   font-size: 4.4rem;
+  margin-bottom: 30px;
 `;
 
 export const Text = styled.p`

@@ -11,10 +11,10 @@ export const Container = styled.div`
 `;
 
 export const CustomTagCloud = styled(TagCloud)`
-  display: ${({ displayTagCloud }) => displayTagCloud};
   margin-left: 20%;
 `;
 
 export const CustomTextInfo = styled(TextInfo)`
+  max-width: 475px;
   margin-left: -10%;
 `;
