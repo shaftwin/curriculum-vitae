@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 export const Container = styled.div`
+  max-width: 415px;
   display: flex;
   flex-direction: column;
 `;
@@ -11,7 +12,6 @@ export const BasicTitle = styled.h2`
 `;
 
 export const Text = styled.p`
-  max-width: 415px;
   color: white;
   font-size: 1rem;
   line-height: 1.5;

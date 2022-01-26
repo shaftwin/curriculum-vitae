@@ -5,7 +5,6 @@ export const Container = styled.div`
   min-width: 415px;
   display: flex;
   flex-direction: column;
-  margin-left: 5rem;
 `;
 
 export const SkillName = styled.h2`
@@ -18,7 +17,6 @@ export const SkillName = styled.h2`
 export const Progress = styled.div`
   background-color: #373737;
   height: 2px;
-  min-width: 415px;
 `;
 
 const growing = keyframes`

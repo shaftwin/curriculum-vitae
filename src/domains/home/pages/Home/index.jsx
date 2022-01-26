@@ -1,5 +1,6 @@
 import React from 'react';
-import Contact from 'src/domains/home/pages/Contact';
+import About from 'src/domains/home/pages/About';
+// import Contact from 'src/domains/home/pages/Contact';
 // import CellAnimation from 'src/components/CellAnimation';
 // import TextInfo from 'src/components/TextInfo';
 // import About from 'src/domains/home/pages/About';
@@ -43,8 +44,9 @@ function Home() {
         // setDisplayCube('visible');
       }}
     >
+      <About />
       {/* <Skills /> */}
-      <Contact />
+      {/* <Contact /> */}
       {/* <CellAnimation /> */}
       {/* <CustomFloatingCube
         setDragging={setDragging}
