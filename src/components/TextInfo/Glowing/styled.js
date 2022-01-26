@@ -13,7 +13,7 @@ const glow = keyframes`
   }
 `;
 
-export const Title = styled.div`
+export const GlowingContainer = styled.div`
   display: flex;
   flex: row;
 `;
