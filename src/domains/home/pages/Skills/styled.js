@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import TagCloud from 'src/components/TagCloud';
-import TextInfo from 'src/components/TextInfo';
 
 export const Container = styled.div`
   height: 100%;
@@ -13,10 +12,6 @@ export const Container = styled.div`
 export const CustomTagCloud = styled(TagCloud)`
   display: ${({ displayTagCloud }) => displayTagCloud};
   margin-left: 20%;
-`;
-
-export const CustomTextInfo = styled(TextInfo)`
-  margin-left: -10%;
 `;
 
 export const SkillsContainer = styled.div`
