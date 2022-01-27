@@ -41,8 +41,8 @@ function Home() {
   return (
     <Container
       onClick={() => {
-        setDisplayCube(['visible', 'visible', 'visible']);
-        setDisplaySection(null);
+        // setDisplayCube(['visible', 'visible', 'visible']);
+        // setDisplaySection(null);
       }}
     >
       {displaySection === 0 && <About />}

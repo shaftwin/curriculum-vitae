@@ -15,5 +15,5 @@ export const TextContainer = styled.div`
 export const NetworkContainer = styled.div`
   display: flex;
   flex-direction: row;
-  margin-top: 20px;
+  margin-top: 30px;
 `;

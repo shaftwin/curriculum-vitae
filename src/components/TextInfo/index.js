@@ -7,7 +7,7 @@ const TextInfo = ({ className, texts, title, glowing }) => {
   return (
     <Container className={className}>
       {glowing && <Glowing title={title} />}
-      <BasicTitle>{title}</BasicTitle>
+      {!glowing && <BasicTitle>{title}</BasicTitle>}
       {texts.map((text) => (
         <Text key={text}>{text}</Text>
       ))}

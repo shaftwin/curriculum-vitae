@@ -36,7 +36,7 @@ export const SendButton = styled.input`
   width: 100%;
   max-width: 220px;
   height: 50px;
-  background-color: black;
+  background-color: #1d1d1d;
   color: #08fdd8;
   border: 1px solid #08fdd8;
   font-size: 14px;
@@ -44,6 +44,7 @@ export const SendButton = styled.input`
   line-height: 50px;
   text-align: center;
   margin-top: 20px;
+  cursor: pointer;
   &:hover {
     transition: 0.5s ease-in all;
     background-color: #08fdd8;

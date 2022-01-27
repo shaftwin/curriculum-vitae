@@ -44,7 +44,7 @@ const ContactForm = ({ className }) => {
           type="text"
           required
         />
-        <SendButton type="submit" value="Send" />
+        <SendButton type="submit" value="Send Message !" />
       </CustomForm>
     </Container>
   );

@@ -16,10 +16,16 @@ const glow = keyframes`
 export const GlowingContainer = styled.div`
   display: flex;
   flex: row;
+  margin-bottom: 30px;
 `;
 
 export const CustomLi = styled.div`
   list-style: none;
+  &:hover > div {
+    box-shadow: -1px -1px 4px rgba(8, 253, 216, 1),
+      4px 4px 6px rgba(0, 0, 0, 0.2), inset -1px -1px 4px rgba(8, 253, 216, 1),
+      inset 1px 1px 1px rgba(0, 0, 0, 0.1);
+  }
 `;
 
 export const Letter = styled.div`
@@ -32,17 +38,17 @@ export const Letter = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 46px;
+  font-size: 4.4rem;
   cursor: pointer;
   margin: 0 4px;
   border-radius: 20px;
-  box-shadow: -1px -1px 4px rgba(255, 255, 255, 0.05),
-    4px 4px 6px rgba(0, 0, 0, 0.2),
-    inset -1px -1px 4px rgba(255, 255, 255, 0.05),
+  box-shadow: -1px -1px 4px rgba(8, 253, 216, 0.5),
+    4px 4px 6px rgba(0, 0, 0, 0.2), inset -1px -1px 4px rgba(8, 253, 216, 0.5),
     inset 1px 1px 1px rgba(0, 0, 0, 0.1);
 `;
 
 export const HiddenInput = styled.input`
+  padding: 0;
   position: absolute;
   opacity: 0;
   cursor: pointer;
@@ -50,7 +56,7 @@ export const HiddenInput = styled.input`
   width: 80px;
   z-index: 100;
   &:checked ~ div {
-    box-shadow: inset 0 0 2px rgba(255, 255, 255, 0.05),
+    box-shadow: inset 0 0 2px rgba(8, 253, 216, 0.5),
       inset 4px 4px 6px rgba(0, 0, 0, 0.2);
     color: yellow;
     text-shadow: 0 0 15px yellow, 0 0 25px yellow;
