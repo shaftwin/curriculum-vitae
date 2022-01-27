@@ -1,11 +1,8 @@
 import styled from '@emotion/styled';
 
-export const Container = styled.div``;
-
-export const NetworkContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  margin-top: 20px;
+export const Container = styled.div`
+  width: 415px;
+  max-width: 415px;
 `;
 
 export const CustomForm = styled.form`
@@ -14,8 +11,6 @@ export const CustomForm = styled.form`
 `;
 
 export const CustomInput = styled.input`
-  width: 500px;
-  max-width: 500px;
   height: 50px;
   background: #2b2b2b;
   color: #8d8d8d;
@@ -28,8 +23,6 @@ export const CustomInput = styled.input`
 `;
 
 export const CustomTextarea = styled.textarea`
-  width: 500px;
-  max-width: 500px;
   height: 50px;
   background: #2b2b2b;
   color: #8d8d8d;
