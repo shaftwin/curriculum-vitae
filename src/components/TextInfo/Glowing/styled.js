@@ -35,7 +35,6 @@ export const Letter = styled.div`
   background: #18191f;
   color: #555;
   display: flex;
-  display: flex;
   justify-content: center;
   align-items: center;
   font-size: 4.4rem;
