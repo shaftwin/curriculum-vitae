@@ -4,6 +4,7 @@ import Cube from 'react-cube3d';
 import { Container, AbsoluteContainer } from './styled';
 
 const size = 35;
+const offsets = [-100, 0, 100];
 
 function getRandomFloat(min, max) {
   return Math.random() * (max - min) + min;
@@ -15,13 +16,14 @@ const FloatingCube = ({
   setDragging,
   cubeType,
   color,
-  resetPos,
   displayCube,
 }) => {
+  const defaultCubePos = window.innerHeight / 2 - size / 2 + offsets[cubeType];
   const [cubeRotationX, setCubeRotationX] = useState(0);
   const [cubeRotationY, setCubeRotationY] = useState(0);
   const [cubeX, setCubeX] = useState(100);
-  const [cubeY, setCubeY] = useState(1 + (cubeType + 1) * 100);
+  // const [cubeY, setCubeY] = useState(1 + (cubeType + 1) * 100);
+  const [cubeY, setCubeY] = useState(defaultCubePos);
   const [deltaX, setDeltaX] = useState(0);
   const [deltaY, setDeltaY] = useState(0);
   const [previousState, setPreviousState] = useState('visible');
@@ -32,10 +34,10 @@ const FloatingCube = ({
       setPreviousState(displayCube);
     } else if (displayCube === 'visible' && previousState === 'none') {
       setCubeX(100);
-      setCubeY(1 + (cubeType + 1) * 100);
+      setCubeY(defaultCubePos);
       setPreviousState('visible');
     }
-  }, [cubeType, displayCube, previousState, resetPos]);
+  }, [cubeType, displayCube, previousState]);
 
   useEffect(() => {
     dragImage.current = new Image();
