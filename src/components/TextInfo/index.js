@@ -1,16 +1,53 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
 import Glowing from 'src/components/TextInfo/Glowing';
-import { Container, Text, BasicTitle } from './styled';
+import { wordsShaker } from 'utils/methods/getRandomLetter';
+import {
+  BasicTitle,
+  Container,
+  Text,
+  TextAnimation,
+  TextsContainer,
+  TitleContaine,
+} from './styled';
 
-const TextInfo = ({ className, texts, title, glowing }) => {
+const TextInfo = ({
+  className,
+  texts,
+  text,
+  title,
+  glowing,
+  shaked,
+  spawnAnimation,
+}) => {
+  const [shakedTitle, setShakedTitle] = useState(title);
+  const [shakedText, setShakedText] = useState(text);
+
+  useEffect(() => {
+    if (shaked && title) {
+      wordsShaker(title, setShakedTitle);
+    }
+    if (shaked && text) {
+      wordsShaker(text, setShakedText);
+    }
+  }, [shaked, text, title]);
+
   return (
     <Container className={className}>
-      {glowing && <Glowing title={title} />}
-      {!glowing && <BasicTitle>{title}</BasicTitle>}
-      {texts.map((text) => (
-        <Text key={text}>{text}</Text>
-      ))}
+      <TitleContaine>
+        {glowing && <Glowing title={title} />}
+        {!glowing && (
+          <BasicTitle spawnAnimation={spawnAnimation}>
+            {shaked ? shakedTitle : title}
+          </BasicTitle>
+        )}
+      </TitleContaine>
+      <TextsContainer>
+        <TextAnimation spawnAnimation={spawnAnimation}>
+          {texts && texts.map((txt) => <Text key={txt}>{txt}</Text>)}
+          {text && shaked ? <Text>{shakedText}</Text> : <Text>{text}</Text>}
+        </TextAnimation>
+      </TextsContainer>
     </Container>
   );
 };

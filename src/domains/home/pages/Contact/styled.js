@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import TextInfo from 'src/components/TextInfo';
 
 export const Container = styled.div`
   height: 100%;
@@ -16,4 +17,8 @@ export const NetworkContainer = styled.div`
   display: flex;
   flex-direction: row;
   margin-top: 30px;
+`;
+
+export const CustomTextInfo = styled(TextInfo)`
+  min-height: 200px;
 `;

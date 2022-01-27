@@ -1,20 +1,25 @@
 /* eslint-disable max-len */
 import React from 'react';
+import { BsGithub, BsLinkedin } from 'react-icons/bs';
 import ContactForm from 'src/components/ContactForm';
 import Network from 'src/components/Network';
-import TextInfo from 'src/components/TextInfo';
-import { BsLinkedin, BsGithub } from 'react-icons/bs';
-import { Container, NetworkContainer, TextContainer } from './styled';
+import {
+  Container,
+  CustomTextInfo,
+  NetworkContainer,
+  TextContainer,
+} from './styled';
 
 const Contact = () => {
   return (
     <Container>
       <TextContainer>
-        <TextInfo
+        <CustomTextInfo
+          shaked
           title="Contact"
-          texts={[
-            'I’m interested in freelance opportunities – especially ambitious or large projects. However, if you have other request or question, don’t hesitate to use the form.',
-          ]}
+          text={
+            'I’m interested in freelance opportunities – especially ambitious or large projects. However, if you have other request or question, don’t hesitate to use the form.'
+          }
         />
         <NetworkContainer>
           <Network

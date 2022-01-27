@@ -16,23 +16,24 @@ const glow = keyframes`
 export const GlowingContainer = styled.div`
   display: flex;
   flex: row;
-  margin-bottom: 30px;
+  align-items: center;
+  height: 60px;
 `;
 
 export const CustomLi = styled.div`
   list-style: none;
-  &:hover > div {
+  /* &:hover > div {
     box-shadow: -1px -1px 4px rgba(8, 253, 216, 1),
       4px 4px 6px rgba(0, 0, 0, 0.2), inset -1px -1px 4px rgba(8, 253, 216, 1),
       inset 1px 1px 1px rgba(0, 0, 0, 0.1);
-  }
+  } */
 `;
 
 export const Letter = styled.div`
   position: relative;
-  height: 80px;
-  width: 80px;
-  background: #18191f;
+  height: 50px;
+  width: 50px;
+  /* background: #18191f; */
   color: #555;
   display: flex;
   justify-content: center;
@@ -40,10 +41,10 @@ export const Letter = styled.div`
   font-size: 4.4rem;
   cursor: pointer;
   margin: 0 4px;
-  border-radius: 20px;
-  box-shadow: -1px -1px 4px rgba(8, 253, 216, 0.5),
+  /* border-radius: 20px; */
+  /* box-shadow: -1px -1px 4px rgba(8, 253, 216, 0.5),
     4px 4px 6px rgba(0, 0, 0, 0.2), inset -1px -1px 4px rgba(8, 253, 216, 0.5),
-    inset 1px 1px 1px rgba(0, 0, 0, 0.1);
+    inset 1px 1px 1px rgba(0, 0, 0, 0.1); */
 `;
 
 export const HiddenInput = styled.input`
@@ -51,14 +52,17 @@ export const HiddenInput = styled.input`
   position: absolute;
   opacity: 0;
   cursor: pointer;
-  height: 80px;
-  width: 80px;
+  height: 50px;
+  width: 50px;
+  /* height: 32px;
+  width: 32px; */
   z-index: 100;
   &:checked ~ div {
-    box-shadow: inset 0 0 2px rgba(8, 253, 216, 0.5),
-      inset 4px 4px 6px rgba(0, 0, 0, 0.2);
+    /* box-shadow: inset 0 0 2px rgba(8, 253, 216, 0.5),
+      inset 4px 4px 6px rgba(0, 0, 0, 0.2); */
     color: yellow;
-    text-shadow: 0 0 15px yellow, 0 0 25px yellow;
+    /* text-shadow: 0 0 15px yellow, 0 0 25px yellow; */
+    text-shadow: 0 0 5px yellow, 0 0 7.5px yellow;
     animation: ${() =>
       css`
         ${glow} 3s linear infinite

@@ -62,7 +62,6 @@ export const CircleLoader = styled.div`
   border-radius: 50px;
   box-shadow: inset 0px 0px 20px 5px white, 0px 0px 20px 5px white;
   z-index: 0;
-  /* background-color: black; */
   animation: ${({ dragging }) =>
     dragging
       ? css`

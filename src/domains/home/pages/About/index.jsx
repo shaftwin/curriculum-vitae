@@ -6,6 +6,7 @@ const About = () => {
   return (
     <Container>
       <CustomTextInfo
+        spawnAnimation
         title="My, Myself & I"
         texts={[
           'I’m a Front-End Developer located in Poland. I have a serious passion for UI effects, animations and creating intuitive, dynamic user experiences.',
