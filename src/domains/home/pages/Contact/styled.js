@@ -17,6 +17,8 @@ export const NetworkContainer = styled.div`
   display: flex;
   flex-direction: row;
   margin-top: 30px;
+  /* Align with title */
+  margin-left: 21px;
 `;
 
 export const CustomTextInfo = styled(TextInfo)`
