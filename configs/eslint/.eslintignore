@@ -25,3 +25,5 @@ package.json
 *.graphql
 # CSS files
 *.css
+# PDF files
+*.pdf
