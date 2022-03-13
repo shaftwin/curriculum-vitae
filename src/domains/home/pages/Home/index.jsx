@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
+import { CgMenuGridR } from 'react-icons/cg';
 import About from 'src/domains/home/pages/About';
 import Contact from 'src/domains/home/pages/Contact';
 // import CellAnimation from 'src/components/CellAnimation';
 import Skills from 'src/domains/home/pages/Skills';
-import { Container, CustomFloatingCube, CircleLoader } from './styled';
+import {
+  CircleLoader,
+  Container,
+  CustomFloatingCube,
+  MenuIcon,
+} from './styled';
 
 function Home() {
+  const [isMenuOpen, setIsMenuOpen] = useState(undefined);
   const [dragging, setDragging] = useState(false);
   const centerX = window.innerWidth / 2;
   const centerY = window.innerHeight * 0.1;
@@ -48,12 +55,21 @@ function Home() {
       {displaySection === 0 && <About />}
       {displaySection === 1 && <Skills />}
       {displaySection === 2 && <Contact />}
+      <MenuIcon
+        isMenuOpen={isMenuOpen}
+        onClick={() =>
+          setIsMenuOpen(!!(isMenuOpen === undefined || isMenuOpen === false))
+        }
+      >
+        <CgMenuGridR color="#909096" size="3.5em" />
+      </MenuIcon>
       <CustomFloatingCube
         cubeType={0}
         setDragging={setDragging}
         displayCube={displayCube[0]}
         shouldHide={shouldHide}
         color={[0, 255, 196]}
+        isMenuOpen={isMenuOpen}
       />
       <CustomFloatingCube
         cubeType={1}
@@ -61,6 +77,7 @@ function Home() {
         displayCube={displayCube[1]}
         shouldHide={shouldHide}
         color={[145, 2, 102]}
+        isMenuOpen={isMenuOpen}
       />
       <CustomFloatingCube
         cubeType={2}
@@ -68,6 +85,7 @@ function Home() {
         displayCube={displayCube[2]}
         shouldHide={shouldHide}
         color={[255, 255, 0]}
+        isMenuOpen={isMenuOpen}
       />
       <CircleLoader dragging={dragging} />
     </Container>

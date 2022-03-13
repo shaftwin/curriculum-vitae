@@ -10,12 +10,25 @@ export const Container = styled.div`
   height: ${() => window.innerHeight}px;
 `;
 
-const fadeOut = keyframes`
+const fadeIn = keyframes`
   0% {
-    opacity: 1;visibility: visible;
+    opacity: 0;
+    visibility: hidden;
   }
   100% {
-    opacity: 0;visibility: hidden;
+    opacity: 1;
+    visibility: visible;
+  }
+`;
+
+const fadeOut = keyframes`
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
   }
 `;
 
@@ -31,16 +44,34 @@ const bounce = keyframes`
   }
 `;
 
+/* Use to perform animation when menu is clicked */
+const prevIsMenuOpen = [false, false, false];
+
 export const CustomFloatingCube = styled(FloatingCube)`
-  animation: ${({ displayCube }) =>
-    displayCube === 'none'
-      ? css`
-          ${fadeOut} 1s forwards
-        `
-      : 'none'};
   position: absolute;
   top: 0;
   left: 0;
+  /* Prevent first render to display cubes */
+  opacity: ${({ isMenuOpen }) => (isMenuOpen === undefined ? 0 : 1)};
+  /* Should be improved */
+  animation: ${({ displayCube, isMenuOpen, cubeType }) => {
+    /* Prevent first render to perform animation */
+    if (isMenuOpen === undefined) return null;
+    /* Prevent useless animation */
+    if (isMenuOpen !== prevIsMenuOpen[cubeType] || displayCube === 'none') {
+      prevIsMenuOpen[cubeType] = isMenuOpen;
+      /* Prevent displaying cube in cicle */
+      if (isMenuOpen && displayCube !== 'none') {
+        return css`
+          ${fadeIn} 1s forwards
+        `;
+      }
+      return css`
+        ${fadeOut} 1s forwards
+      `;
+    }
+    return null;
+  }};
 `;
 
 export const CustomTagCloud = styled(TagCloud)`
@@ -69,4 +100,35 @@ export const CircleLoader = styled.div`
         `
       : 'none'};
   backdrop-filter: blur(5px);
+`;
+
+const spinOn = keyframes`
+  100% {
+    transform:rotate(90deg); 
+  }
+`;
+
+const spinOff = keyframes`
+  100% {
+    transform:rotate(-90deg); 
+  }
+`;
+
+export const MenuIcon = styled.div`
+  width: 3.5rem;
+  height: 3.5rem;
+  position: absolute;
+  top: 50px;
+  left: 100px;
+  cursor: pointer;
+  animation: ${({ isMenuOpen }) => {
+    if (isMenuOpen === undefined) return null;
+    return isMenuOpen
+      ? css`
+          ${spinOn} 1s forwards
+        `
+      : css`
+          ${spinOff} 1s forwards
+        `;
+  }};
 `;
