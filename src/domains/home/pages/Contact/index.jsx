@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 import React from 'react';
 import { BsGithub, BsLinkedin } from 'react-icons/bs';
+import { VscFilePdf } from 'react-icons/vsc';
 import ContactForm from 'src/components/ContactForm';
 import Network from 'src/components/Network';
 import {
@@ -29,6 +30,11 @@ const Contact = () => {
           <Network
             icon={<BsGithub size="2em" />}
             link="https://github.com/shaftwin"
+          />
+          <Network
+            icon={<VscFilePdf size="2em" />}
+            link="/pdf/Resume2022PDF.pdf"
+            download
           />
         </NetworkContainer>
       </TextContainer>

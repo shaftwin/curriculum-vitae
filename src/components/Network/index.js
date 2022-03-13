@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Link } from './styled';
 
-const Network = ({ className, icon, link }) => {
+const Network = ({ className, icon, link, download }) => {
   return (
-    <Link className={className} href={link} target="_blank">
+    <Link className={className} href={link} target="_blank" download={download}>
       {icon}
     </Link>
   );
@@ -19,6 +19,10 @@ Network.propTypes = {
    * Required link
    */
   link: PropTypes.string.isRequired,
+  /**
+   * Optional link
+   */
+  download: PropTypes.bool.isRequired,
   /**
    * Optional custom style
    */
