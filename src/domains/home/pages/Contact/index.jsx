@@ -33,7 +33,7 @@ const Contact = () => {
           />
           <Network
             icon={<VscFilePdf size="2em" />}
-            link="/pdf/Resume2022PDF.pdf"
+            link="/assets/pdf/Resume2022PDF.pdf"
             download
           />
         </NetworkContainer>
