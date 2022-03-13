@@ -18,13 +18,14 @@ export const FloatingContainer = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
+  cursor: pointer;
   transform: translate3d(-50%, -50%, 0) scale(1);
   &:hover {
     background-color: rgba(255, 255, 255, 0.1);
     border: 1px solid #fff;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    border-radius: 2px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
     opacity: 1 !important;
     z-index: 1 !important;
   }
