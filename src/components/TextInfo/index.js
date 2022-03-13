@@ -21,14 +21,10 @@ const TextInfo = ({
   spawnAnimation,
 }) => {
   const [shakedTitle, setShakedTitle] = useState(title);
-  const [shakedText, setShakedText] = useState(text);
 
   useEffect(() => {
     if (shaked && title) {
       wordsShaker(title, setShakedTitle);
-    }
-    if (shaked && text) {
-      wordsShaker(text, setShakedText);
     }
   }, [shaked, text, title]);
 
@@ -45,7 +41,7 @@ const TextInfo = ({
       <TextsContainer>
         <TextAnimation spawnAnimation={spawnAnimation}>
           {texts && texts.map((txt) => <Text key={txt}>{txt}</Text>)}
-          {text && shaked ? <Text>{shakedText}</Text> : <Text>{text}</Text>}
+          <Text>{text}</Text>
         </TextAnimation>
       </TextsContainer>
     </Container>
