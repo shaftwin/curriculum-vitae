@@ -119,7 +119,7 @@ export const MenuIcon = styled.div`
   height: 3.5rem;
   position: absolute;
   top: 50px;
-  left: 100px;
+  left: 65px;
   cursor: pointer;
   animation: ${({ isMenuOpen }) => {
     if (isMenuOpen === undefined) return null;

@@ -21,7 +21,7 @@ const FloatingCube = ({
   const defaultCubePos = window.innerHeight / 2 - size / 2 + offsets[cubeType];
   const [cubeRotationX, setCubeRotationX] = useState(0);
   const [cubeRotationY, setCubeRotationY] = useState(0);
-  const [cubeX, setCubeX] = useState(100);
+  const [cubeX, setCubeX] = useState(65);
   // const [cubeY, setCubeY] = useState(1 + (cubeType + 1) * 100);
   const [cubeY, setCubeY] = useState(defaultCubePos);
   const [deltaX, setDeltaX] = useState(0);
@@ -33,11 +33,20 @@ const FloatingCube = ({
     if (displayCube === 'none') {
       setPreviousState(displayCube);
     } else if (displayCube === 'visible' && previousState === 'none') {
-      setCubeX(100);
+      setCubeX(65);
       setCubeY(defaultCubePos);
       setPreviousState('visible');
     }
   }, [cubeType, displayCube, previousState]);
+
+  useEffect(() => {
+    const onResize = () => {
+      setCubeY(window.innerHeight / 2 - size / 2 + offsets[cubeType]);
+    };
+
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
 
   useEffect(() => {
     dragImage.current = new Image();
