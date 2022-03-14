@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { CgMenuGridR } from 'react-icons/cg';
 import About from 'src/domains/home/pages/About';
 import Contact from 'src/domains/home/pages/Contact';
@@ -22,12 +22,28 @@ function Home() {
     'visible',
   ]);
   const [displaySection, setDisplaySection] = useState(null);
-  const [zone] = useState({
+  const [zone, setZone] = useState({
     xmin: centerX - 100 / 2,
     xmax: centerX + 100 / 2,
     ymin: centerY - 100 / 2,
     ymax: centerY + 100 / 2,
   });
+
+  useEffect(() => {
+    const onResize = () => {
+      const newCenterX = window.innerWidth / 2;
+      const newCenterY = window.innerHeight * 0.1;
+      setZone({
+        xmin: newCenterX - 100 / 2,
+        xmax: newCenterX + 100 / 2,
+        ymin: newCenterY - 100 / 2,
+        ymax: newCenterY + 100 / 2,
+      });
+    };
+
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
 
   const shouldHide = (cubeX, cubeY, type) => {
     if (
