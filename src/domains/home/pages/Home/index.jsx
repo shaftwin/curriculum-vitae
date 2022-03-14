@@ -68,7 +68,7 @@ function Home() {
         setDragging={setDragging}
         displayCube={displayCube[0]}
         shouldHide={shouldHide}
-        color={[0, 255, 196]}
+        color={[8, 253, 216]}
         isMenuOpen={isMenuOpen}
       />
       <CustomFloatingCube
@@ -76,7 +76,7 @@ function Home() {
         setDragging={setDragging}
         displayCube={displayCube[1]}
         shouldHide={shouldHide}
-        color={[145, 2, 102]}
+        color={[210, 108, 213]}
         isMenuOpen={isMenuOpen}
       />
       <CustomFloatingCube
@@ -84,7 +84,7 @@ function Home() {
         setDragging={setDragging}
         displayCube={displayCube[2]}
         shouldHide={shouldHide}
-        color={[255, 255, 0]}
+        color={[255, 34, 83]}
         isMenuOpen={isMenuOpen}
       />
       <CircleLoader dragging={dragging} />
