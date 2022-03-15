@@ -4,7 +4,7 @@ import Cube from 'react-cube3d';
 import { Container, AbsoluteContainer } from './styled';
 
 const size = 35;
-const offsets = [-100, 0, 100];
+const offsets = [-150, -50, 50, 150];
 
 function getRandomFloat(min, max) {
   return Math.random() * (max - min) + min;

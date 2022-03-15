@@ -45,7 +45,7 @@ const bounce = keyframes`
 `;
 
 /* Use to perform animation when menu is clicked */
-const prevIsMenuOpen = [false, false, false];
+const prevIsMenuOpen = [false, false, false, false];
 
 export const CustomFloatingCube = styled(FloatingCube)`
   position: absolute;

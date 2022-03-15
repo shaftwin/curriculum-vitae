@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { CgMenuGridR } from 'react-icons/cg';
 import About from 'src/domains/home/pages/About';
 import Contact from 'src/domains/home/pages/Contact';
+import Jobs from 'src/domains/home/pages/Jobs';
 // import CellAnimation from 'src/components/CellAnimation';
 import Skills from 'src/domains/home/pages/Skills';
 import {
@@ -17,6 +18,7 @@ function Home() {
   const centerX = window.innerWidth / 2;
   const centerY = window.innerHeight * 0.1;
   const [displayCube, setDisplayCube] = useState([
+    'visible',
     'visible',
     'visible',
     'visible',
@@ -70,7 +72,9 @@ function Home() {
     >
       {displaySection === 0 && <About />}
       {displaySection === 1 && <Skills />}
-      {displaySection === 2 && <Contact />}
+      {displaySection === 2 && <Jobs />}
+      {displaySection === 3 && <Contact />}
+      <Jobs />
       <MenuIcon
         isMenuOpen={isMenuOpen}
         onClick={() =>
@@ -84,7 +88,7 @@ function Home() {
         setDragging={setDragging}
         displayCube={displayCube[0]}
         shouldHide={shouldHide}
-        color={[8, 253, 216]}
+        color={[129, 216, 247]}
         isMenuOpen={isMenuOpen}
       />
       <CustomFloatingCube
@@ -92,7 +96,7 @@ function Home() {
         setDragging={setDragging}
         displayCube={displayCube[1]}
         shouldHide={shouldHide}
-        color={[210, 108, 213]}
+        color={[197, 113, 208]}
         isMenuOpen={isMenuOpen}
       />
       <CustomFloatingCube
@@ -100,7 +104,15 @@ function Home() {
         setDragging={setDragging}
         displayCube={displayCube[2]}
         shouldHide={shouldHide}
-        color={[255, 34, 83]}
+        color={[8, 253, 216]}
+        isMenuOpen={isMenuOpen}
+      />
+      <CustomFloatingCube
+        cubeType={3}
+        setDragging={setDragging}
+        displayCube={displayCube[3]}
+        shouldHide={shouldHide}
+        color={[3, 164, 241]}
         isMenuOpen={isMenuOpen}
       />
       <CircleLoader dragging={dragging} />
