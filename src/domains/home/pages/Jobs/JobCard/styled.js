@@ -7,6 +7,7 @@ export const Container = styled.div`
   padding: 2rem 2rem 1.5rem;
   box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%),
     0 1px 10px 0 rgb(0 0 0 / 12%);
+  cursor: pointer;
 `;
 
 export const CompanyName = styled.h3`
