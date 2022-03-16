@@ -74,7 +74,6 @@ function Home() {
       {displaySection === 1 && <Skills />}
       {displaySection === 2 && <Jobs />}
       {displaySection === 3 && <Contact />}
-      <Jobs />
       <MenuIcon
         isMenuOpen={isMenuOpen}
         onClick={() =>

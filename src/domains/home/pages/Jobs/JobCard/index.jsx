@@ -8,9 +8,10 @@ const JobCard = ({
   companyName,
   jobTitle,
   jobDescription,
+  onClick,
 }) => {
   return (
-    <Container className={className} borderColor={color}>
+    <Container onClick={onClick} className={className} borderColor={color}>
       <div>
         <CompanyName color={color}>{companyName}</CompanyName>
         <JobTitle>{jobTitle}</JobTitle>
