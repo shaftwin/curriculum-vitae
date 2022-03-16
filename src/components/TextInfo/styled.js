@@ -1,6 +1,14 @@
 import styled from '@emotion/styled';
 import { css, keyframes } from '@emotion/react';
 
+export const AbsoluteTitle = styled.div`
+  position: absolute;
+  font-size: 20rem;
+  color: rgba(255, 255, 255, 0.04);
+  left: 0;
+  top: 0;
+`;
+
 const showTopText = keyframes`
   0% {
     transform: translate3d(0, 100%, 0);
@@ -23,6 +31,7 @@ const showBottomText = keyframes`
 `;
 
 export const Container = styled.div`
+  position: relative;
   max-width: 415px;
   display: flex;
   flex-direction: column;

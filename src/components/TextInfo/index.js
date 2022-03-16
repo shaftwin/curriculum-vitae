@@ -9,6 +9,7 @@ import {
   TextAnimation,
   TextsContainer,
   TitleContaine,
+  // AbsoluteTitle,
 } from './styled';
 
 const TextInfo = ({
@@ -30,6 +31,7 @@ const TextInfo = ({
 
   return (
     <Container className={className}>
+      {/* <AbsoluteTitle>About</AbsoluteTitle> */}
       <TitleContaine>
         {glowing && <Glowing title={title} />}
         {!glowing && (
