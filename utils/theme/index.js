@@ -1,4 +1,4 @@
-export const global = {
+const theme = {
   colors: {
     white: '#FFFFFF',
     green: '#00DBC7',
@@ -49,3 +49,5 @@ export const global = {
     disabled: 'not-allowed',
   },
 };
+
+export default theme;

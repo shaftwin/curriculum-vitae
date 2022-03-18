@@ -1,30 +1,21 @@
 // import { getLCP, getFID, getCLS } from 'web-vitals';
 // import ReactGA from 'react-ga';
-import { ApolloProvider } from '@apollo/client';
 import { ThemeProvider } from '@emotion/react';
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { theme } from '../utils/theme/theme';
-import graphqlAppClient from '../configs/graphql';
-import { AuthProvider } from '../services/context/auth/auth';
-import { initSentry } from '../services/logs/sentry';
 import UnauthenticatedRoutes from '../services/router/UnauthenticatedRoutes';
 import { initTranslation } from '../services/translation/i18n';
+import theme from '../utils/theme';
 
 const App = () => {
-  initSentry();
   initTranslation();
 
   return (
-    <ApolloProvider client={graphqlAppClient}>
-      <ThemeProvider theme={theme}>
-        <AuthProvider>
-          <Router>
-            <UnauthenticatedRoutes />
-          </Router>
-        </AuthProvider>
-      </ThemeProvider>
-    </ApolloProvider>
+    <ThemeProvider theme={theme}>
+      <Router>
+        <UnauthenticatedRoutes />
+      </Router>
+    </ThemeProvider>
   );
 };
 
