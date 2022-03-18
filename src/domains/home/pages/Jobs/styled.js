@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import JobCard from 'src/domains/home/pages/Jobs/JobCard';
 
 export const Container = styled.div`
+  position: relative;
   height: 100%;
   display: flex;
   flex-direction: row;
@@ -12,72 +13,100 @@ export const Container = styled.div`
 
 export const Grid = styled.div`
   position: relative;
+  z-index: 1;
   width: 70%;
+  min-width: 900px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
 `;
 
-const fullSize = keyframes`
-  0% {
-    width: 43%;
-    height: 142px;
-  }
-  100% {
-    width: 100%;
-    height: 500px;
-  }
+export const ColumnContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 47%;
+  min-width: 300px;
+  margin-right: 10px;
 `;
 
 const rise = keyframes`
   0% {
     opacity: 0;
-    transform: translateY(0px);
+    transform: translateY(-30px);
   }
   100% {
     opacity: 1;
-    transform: translateY(30px);
-  }
-`;
-
-const fall = keyframes`
-  0% {
-    display: flex;
-    opacity: 1;
-    transform: translateY(30px);
-  }
-  100% {
-    opacity: 0;
     transform: translateY(0px);
-    display: none;
   }
-`;
+  `;
 
 export const CustomJobCard = styled(JobCard)`
-  width: 43%;
-  display: ${({ shouldHide }) => (shouldHide ? 'none' : 'flex')};
-  background-color: #1d1d1d;
+  z-index: 2;
   transition: opacity 0.7s ease-out, transform 0.7s;
-  animation: ${({ shouldExpand, shouldHide }) => {
-    if (shouldHide) {
-      return css`
-        ${fall} 0.5s forwards
-      `;
-    }
-    return shouldExpand
-      ? css`
-          ${fullSize} 2s forwards
-        `
-      : css`
-          ${rise} 2s forwards
-        `;
+  animation: ${({ displayModal }) => {
+    return (
+      displayModal === undefined &&
+      css`
+        ${rise} 2s forwards
+      `
+    );
   }};
-  margin-bottom: 4rem;
+  margin-bottom: 20px;
   :last-child {
     margin-bottom: 0rem;
   }
-  :nth-last-child(2) {
-    margin-bottom: 0rem;
+`;
+
+const riseAbsolute = keyframes`
+  0% {
+    visibility: 'hidden';
+    opacity: 0;
+    transform: translateY(30px);
   }
+  100% {
+    visibility: 'visible';
+    opacity: 1;
+    transform: translateY(0px);
+  }
+`;
+
+const fallAbsolute = keyframes`
+  0% {
+    z-index: 3;
+    opacity: 1;
+    visibility: 'visible';
+    transform: translateY(0px);
+  }
+  99.9% {
+    z-index: 3;
+    opacity: 0;
+    visibility: 'hidden';
+    transform: translateY(30px);
+  }
+  100% {
+    z-index: -1;
+  }
+`;
+
+export const JobModal = styled(JobCard)`
+  position: absolute;
+  z-index: 3;
+  width: 70%;
+  height: 50%;
+  overflow: hidden;
+  height: ${({ displayModal }) => displayModal === undefined && 0}px;
+  padding: ${({ displayModal }) => displayModal === undefined && 0}px;
+  border: ${({ displayModal }) => displayModal === undefined && 0};
+  animation: ${({ displayModal }) => {
+    if (displayModal === undefined) return null;
+    if (displayModal) {
+      return css`
+        ${riseAbsolute} 1s forwards
+      `;
+    }
+
+    return css`
+      ${fallAbsolute} 1s forwards
+    `;
+  }};
 `;

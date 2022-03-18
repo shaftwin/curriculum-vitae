@@ -5,6 +5,7 @@ import TagCloud from 'src/components/TagCloud';
 
 export const Container = styled.div`
   position: relative;
+  min-width: 1200px;
   background-color: #1d1d1d;
   width: ${() => window.innerWidth}px;
   height: ${() => window.innerHeight}px;
