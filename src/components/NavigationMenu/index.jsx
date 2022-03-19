@@ -1,6 +1,6 @@
 import { useTheme } from '@emotion/react';
 import PropTypes from 'prop-types';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { CgMenuGridR } from 'react-icons/cg';
 import { CircleLoader, CustomFloatingCube, MenuIcon } from './styled';
 
@@ -21,28 +21,29 @@ function NavigationMenu({ setCurrentPage }) {
   const centerX = 93;
   const centerY = 190;
 
-  const [zone, setZone] = useState({
+  const [zone] = useState({
     xmin: centerX - 100 / 2,
     xmax: centerX + 100 / 2,
     ymin: centerY - 100 / 2,
     ymax: centerY + 100 / 2,
   });
 
-  useEffect(() => {
-    const onResize = () => {
-      const newCenterX = window.innerWidth / 2;
-      const newCenterY = window.innerHeight * 0.1;
-      setZone({
-        xmin: newCenterX - 100 / 2,
-        xmax: newCenterX + 100 / 2,
-        ymin: newCenterY - 100 / 2,
-        ymax: newCenterY + 100 / 2,
-      });
-    };
+  // useFull only when working with percentage positions for circle loader
+  // useEffect(() => {
+  //   const onResize = () => {
+  //     const newCenterX = window.innerWidth / 2;
+  //     const newCenterY = window.innerHeight * 0.1;
+  //     setZone({
+  //       xmin: newCenterX - 100 / 2,
+  //       xmax: newCenterX + 100 / 2,
+  //       ymin: newCenterY - 100 / 2,
+  //       ymax: newCenterY + 100 / 2,
+  //     });
+  //   };
 
-    window.addEventListener('resize', onResize);
-    return () => window.removeEventListener('resize', onResize);
-  }, []);
+  //   window.addEventListener('resize', onResize);
+  //   return () => window.removeEventListener('resize', onResize);
+  // }, []);
 
   const dragEndCallback = (cubeX, cubeY, type) => {
     if (

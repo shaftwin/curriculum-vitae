@@ -85,6 +85,9 @@ const fallAbsolute = keyframes`
   }
   100% {
     z-index: -1;
+    opacity: 0;
+    visibility: 'hidden';
+    transform: translateY(30px);
   }
 `;
 
