@@ -58,33 +58,13 @@ export const CustomFloatingCube = styled(FloatingCube)`
           ${fadeIn} 1s forwards
         `;
       }
-      console.log('fadeOut triggered');
+
       return css`
         ${fadeOut} 1s forwards
       `;
     }
     return null;
   }};
-`;
-
-export const CircleLoader = styled.div`
-  position: absolute;
-  top: 10%;
-  left: 50%;
-  width: 100px;
-  height: 100px;
-  transform: translate(-50%, -50%);
-  border-radius: 50px;
-  box-shadow: inset 0px 0px 20px 5px ${({ theme }) => theme.colors.white},
-    0px 0px 20px 5px ${({ theme }) => theme.colors.white};
-  z-index: 0;
-  animation: ${({ dragging }) =>
-    dragging
-      ? css`
-          ${bounce} 3s infinite
-        `
-      : 'none'};
-  backdrop-filter: blur(5px);
 `;
 
 const spinOn = keyframes`
@@ -116,4 +96,53 @@ export const MenuIcon = styled.div`
           ${spinOff} 1s forwards
         `;
   }};
+`;
+
+/* Use to perform animation when menu is clicked */
+let prevIsMenuOpenCircle = false;
+
+export const CircleLoader = styled.div`
+  position: absolute;
+  top: 190px;
+  left: 93px;
+  width: 75px;
+  height: 75px;
+  transform: translate(-50%, -50%);
+  border-radius: 50px;
+  box-shadow: inset 0px 0px 5px 4px
+      ${({ theme, color }) =>
+        color
+          ? `rgb(${color[0]}, ${color[1]}, ${color[2]})`
+          : theme.colors.lightGrey},
+    0px 0px 5px 1px
+      ${({ theme, color }) =>
+        color
+          ? `rgb(${color[0]}, ${color[1]}, ${color[2]})`
+          : theme.colors.lightGrey};
+  z-index: 0;
+  /* Prevent first render to display cubes */
+  opacity: ${({ isMenuOpen }) => (isMenuOpen === undefined ? 0 : 1)};
+  animation: ${({ dragging, isMenuOpen }) => {
+    /* Prevent first render to perform animation */
+    if (isMenuOpen === undefined) return null;
+    if (isMenuOpen && isMenuOpen !== prevIsMenuOpenCircle) {
+      prevIsMenuOpenCircle = isMenuOpen;
+      return css`
+        ${fadeIn} 1s forwards
+      `;
+    }
+    if (!isMenuOpen && isMenuOpen !== prevIsMenuOpenCircle) {
+      prevIsMenuOpenCircle = isMenuOpen;
+      return css`
+        ${fadeOut} 1s forwards
+      `;
+    }
+
+    return dragging
+      ? css`
+          ${bounce} 2s infinite
+        `
+      : 'none';
+  }};
+  backdrop-filter: blur(5px);
 `;

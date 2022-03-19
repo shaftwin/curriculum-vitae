@@ -18,12 +18,15 @@ const FloatingCube = ({
   cubeIndex,
   color,
   displayCube,
+  setCircleColor,
 }) => {
-  const defaultCubePos = window.innerHeight / 2 - size / 2 + offsets[cubeIndex];
+  const defaultCubePos =
+    (window.innerHeight > 910 ? window.innerHeight : 910) / 2 -
+    size / 2 +
+    offsets[cubeIndex];
   const [cubeRotationX, setCubeRotationX] = useState(0);
   const [cubeRotationY, setCubeRotationY] = useState(0);
-  const [cubeX, setCubeX] = useState(65);
-  // const [cubeY, setCubeY] = useState(1 + (cubeIndex + 1) * 100);
+  const [cubeX, setCubeX] = useState(72);
   const [cubeY, setCubeY] = useState(defaultCubePos);
   const [deltaX, setDeltaX] = useState(0);
   const [deltaY, setDeltaY] = useState(0);
@@ -34,7 +37,7 @@ const FloatingCube = ({
     if (displayCube === 'none') {
       setPreviousState(displayCube);
     } else if (displayCube === 'visible' && previousState === 'none') {
-      setCubeX(65);
+      setCubeX(72);
       setCubeY(defaultCubePos);
       setPreviousState('visible');
     }
@@ -43,7 +46,9 @@ const FloatingCube = ({
 
   useEffect(() => {
     const onResize = () => {
+      if (window.innerHeight < 910) return null;
       setCubeY(window.innerHeight / 2 - size / 2 + offsets[cubeIndex]);
+      return null;
     };
 
     window.addEventListener('resize', onResize);
@@ -67,6 +72,7 @@ const FloatingCube = ({
 
   function startDrag(e) {
     setDragging(true);
+    setCircleColor(color || null);
     e.dataTransfer.setDragImage(dragImage.current, 0, 0);
   }
 
@@ -102,6 +108,7 @@ const FloatingCube = ({
         onDragEnd={(e) => {
           dragEndCallback(e.clientX, e.clientY, cubeIndex);
           setDragging(false);
+          setCircleColor(null);
         }}
       >
         <Cube
@@ -145,6 +152,10 @@ FloatingCube.propTypes = {
    */
   color: PropTypes.arrayOf(PropTypes.number),
   /**
+   * Optional setCircleColor
+   */
+  setCircleColor: PropTypes.func,
+  /**
    * Optional dragEndCallback
    */
   dragEndCallback: PropTypes.func,
@@ -158,6 +169,7 @@ FloatingCube.defaultProps = {
   className: null,
   color: null,
   dragEndCallback: () => null,
+  setCircleColor: () => null,
 };
 
 export default FloatingCube;
