@@ -4,11 +4,11 @@ export const Link = styled.a`
   display: flex;
   width: 32px;
   height: 32px;
-  color: #909096;
+  color: ${({ theme }) => theme.fontColors.terciary};
   transition: color 0.3s ease-in;
   text-decoration: none;
   &:hover {
-    color: #08fdd8;
+    color: ${({ theme }) => theme.fontColors.secondary};
   }
   &:not(:last-child) {
     margin-right: 10px;

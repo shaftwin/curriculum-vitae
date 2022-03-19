@@ -55,8 +55,7 @@ ContactForm.propTypes = {
 };
 
 ContactForm.defaultProps = {
-  templateColor: 'primary',
-  size: 'normal',
+  className: null,
 };
 
 export default ContactForm;

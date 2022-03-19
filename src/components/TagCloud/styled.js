@@ -7,8 +7,8 @@ export const Container = styled.div`
 `;
 
 export const FloatingText = styled.p`
-  font-size: 30px;
-  color: ${({ theme }) => theme.fontColor.secondary};
+  font-size: ${({ theme }) => theme.fontSize[30]};
+  color: ${({ theme }) => theme.fontColors.secondary};
   margin: 10px;
 `;
 
@@ -19,7 +19,7 @@ export const FloatingContainer = styled.div`
   cursor: pointer;
   transform: translate3d(-50%, -50%, 0) scale(1);
   &:hover {
-    background-color: ${({ theme }) => theme.backgroundColor.blackAlpha};
+    background-color: ${({ theme }) => theme.backgroundColors.blackAlpha};
     border: 1px solid ${({ theme }) => theme.colors.white};
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;

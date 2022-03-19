@@ -1,4 +1,5 @@
 /* eslint-disable max-len */
+import { useTheme } from '@emotion/react';
 import React, { useState } from 'react';
 import {
   Container,
@@ -9,6 +10,7 @@ import {
 } from './styled';
 
 const Jobs = () => {
+  const theme = useTheme();
   const [displayModal, setDisplayModal] = useState(undefined);
   const [modalColor, setModalColor] = useState(null);
 
@@ -20,9 +22,9 @@ const Jobs = () => {
             displayModal={displayModal}
             onClick={() => {
               setDisplayModal(true);
-              setModalColor('#8BF896');
+              setModalColor(theme.colors.green);
             }}
-            color="#8BF896"
+            color={theme.colors.green}
             companyName="Tekyn"
             jobTitle="Lead Developer"
             jobDescription="Lots of work done"
@@ -31,9 +33,9 @@ const Jobs = () => {
             displayModal={displayModal}
             onClick={() => {
               setDisplayModal(true);
-              setModalColor('#e4ee89');
+              setModalColor(theme.colors.yellow);
             }}
-            color="#e4ee89"
+            color={theme.colors.yellow}
             companyName="TrackTL"
             jobTitle="Frontend Developer"
             jobDescription="Lots of work done"
@@ -44,9 +46,9 @@ const Jobs = () => {
             displayModal={displayModal}
             onClick={() => {
               setDisplayModal(true);
-              setModalColor('#FFA500');
+              setModalColor(theme.colors.orange);
             }}
-            color="#FFA500"
+            color={theme.colors.orange}
             companyName="Sparted"
             jobTitle="FullStack Developer"
             jobDescription="Lots of work done"
@@ -55,9 +57,9 @@ const Jobs = () => {
             displayModal={displayModal}
             onClick={() => {
               setDisplayModal(true);
-              setModalColor('#FF2253');
+              setModalColor(theme.colors.red);
             }}
-            color="#FF2253"
+            color={theme.colors.red}
             companyName="Freelancer"
             jobTitle="FullStack Developer"
             jobDescription="Lots of work done"

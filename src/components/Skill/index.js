@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import theme from 'utils/theme';
 import { Container, Level, Progress, SkillName } from './styled';
 
 const Skill = ({ className, skillName, skillLevel, color }) => {
@@ -25,7 +26,7 @@ Skill.propTypes = {
   /**
    * Optional skill color
    */
-  color: PropTypes.string.isRequired,
+  color: PropTypes.string,
   /**
    * Optional custom style
    */
@@ -33,8 +34,8 @@ Skill.propTypes = {
 };
 
 Skill.defaultProps = {
-  templateColor: 'primary',
-  size: 'normal',
+  className: null,
+  color: theme.colors.red,
 };
 
 export default Skill;

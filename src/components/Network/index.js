@@ -22,7 +22,7 @@ Network.propTypes = {
   /**
    * Optional link
    */
-  download: PropTypes.bool.isRequired,
+  download: PropTypes.bool,
   /**
    * Optional custom style
    */
@@ -30,8 +30,8 @@ Network.propTypes = {
 };
 
 Network.defaultProps = {
-  templateColor: 'primary',
-  size: 'normal',
+  className: null,
+  download: false,
 };
 
 export default Network;

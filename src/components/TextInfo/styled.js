@@ -28,7 +28,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   border-radius: 20px 40px;
-  box-shadow: 0px 0px 10px 3px grey;
+  box-shadow: 0px 0px 10px 3px ${({ theme }) => theme.colors.lightGrey};
   padding: 20px;
 `;
 
@@ -44,8 +44,8 @@ export const TextsContainer = styled.div`
 `;
 
 export const BasicTitle = styled.h2`
-  color: ${({ theme }) => theme.fontColor.secondary};
-  font-size: 4.4rem;
+  color: ${({ theme }) => theme.fontColors.secondary};
+  font-size: ${({ theme }) => theme.fontSize[70]};
   animation: ${({ spawnAnimation }) =>
     spawnAnimation &&
     css`
@@ -54,8 +54,8 @@ export const BasicTitle = styled.h2`
 `;
 
 export const Text = styled.p`
-  color: ${({ theme }) => theme.fontColor.primary};
-  font-size: 1rem;
+  color: ${({ theme }) => theme.fontColors.primary};
+  font-size: ${({ theme }) => theme.fontSize[16]};
   line-height: 1.5;
   font-family: 'Open Sans', cursive;
   &:not(:last-child) {

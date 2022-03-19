@@ -8,14 +8,14 @@ export const Container = styled.div`
 `;
 
 export const SkillName = styled.h2`
-  color: #fff;
+  color: ${({ theme }) => theme.colors.white};
   margin-bottom: 7px;
-  font-size: 18px;
+  font-size: ${({ theme }) => theme.fontSize[18]};
   font-family: 'Hind Madurai', cursive;
 `;
 
 export const Progress = styled.div`
-  background-color: #373737;
+  background-color: ${({ theme }) => theme.backgroundColors.grey};
   height: 2px;
 `;
 
@@ -31,7 +31,7 @@ const growing = keyframes`
 export const Level = styled.div`
   height: 100%;
   width: ${({ skillLevel }) => `${skillLevel}%`};
-  background-color: ${({ color }) => color || `rgb(255, 34, 83)`};
+  background-color: ${({ color }) => color};
   animation: ${() =>
     css`
       ${growing} 2s forwards

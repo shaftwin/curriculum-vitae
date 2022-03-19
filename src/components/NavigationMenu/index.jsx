@@ -64,7 +64,7 @@ function NavigationMenu({ setCurrentPage }) {
           setIsMenuOpen(isMenuOpen === undefined || isMenuOpen === false)
         }
       >
-        <CgMenuGridR color={theme.colors.grey} size="3.5em" />
+        <CgMenuGridR color={theme.colors.lightGrey} size="3.5em" />
       </MenuIcon>
       <CustomFloatingCube
         cubeIndex={0}

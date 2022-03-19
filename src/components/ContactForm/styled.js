@@ -12,9 +12,9 @@ export const CustomForm = styled.form`
 
 export const CustomInput = styled.input`
   height: 50px;
-  background: #2b2b2b;
-  color: #8d8d8d;
-  font-size: 16px;
+  background: ${({ theme }) => theme.backgroundColors.grey2};
+  color: ${({ theme }) => theme.fontColors.contactInput};
+  font-size: ${({ theme }) => theme.fontSize[16]};
   border: 0;
   padding: 0 20px;
   &:nth-child(-n + 3) {
@@ -24,9 +24,9 @@ export const CustomInput = styled.input`
 
 export const CustomTextarea = styled.textarea`
   height: 50px;
-  background: #2b2b2b;
-  color: #8d8d8d;
-  font-size: 16px;
+  background: ${({ theme }) => theme.backgroundColors.grey2};
+  color: ${({ theme }) => theme.fontColors.contactInput};
+  font-size: ${({ theme }) => theme.fontSize[16]};
   border: 0;
   padding: 20px;
   min-height: 150px;
@@ -37,9 +37,9 @@ export const SendButton = styled.input`
   max-width: 220px;
   height: 50px;
   background-color: #1d1d1d;
-  color: #08fdd8;
-  border: 1px solid #08fdd8;
-  font-size: 14px;
+  color: ${({ theme }) => theme.fontColors.secondary};
+  border: 1px solid ${({ theme }) => theme.colors.turquoise};
+  font-size: ${({ theme }) => theme.fontSize[14]};
   letter-spacing: 4px;
   line-height: 50px;
   text-align: center;
@@ -47,7 +47,7 @@ export const SendButton = styled.input`
   cursor: pointer;
   &:hover {
     transition: 0.5s ease-in all;
-    background-color: #08fdd8;
-    color: black;
+    background-color: ${({ theme }) => theme.backgroundColors.turquoise};
+    color: ${({ theme }) => theme.colors.black};
   }
 `;
