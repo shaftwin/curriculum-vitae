@@ -58,7 +58,6 @@ export const Text = styled.p`
   color: ${({ theme }) => theme.fontColors.primary};
   font-size: ${({ theme }) => theme.fontSize[16]};
   line-height: 1.5;
-  font-family: 'Open Sans', cursive;
   &:not(:last-child) {
     margin-bottom: 1.5rem;
   }

@@ -11,7 +11,6 @@ export const SkillName = styled.h2`
   color: ${({ theme }) => theme.colors.white};
   margin-bottom: 7px;
   font-size: ${({ theme }) => theme.fontSize[18]};
-  font-family: 'Hind Madurai', cursive;
 `;
 
 export const Progress = styled.div`
