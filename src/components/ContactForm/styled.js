@@ -1,4 +1,6 @@
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
+import rise from 'src/domains/core/animations/rise/styled';
 
 export const Container = styled.div`
   width: 415px;
@@ -20,6 +22,14 @@ export const CustomInput = styled.input`
   &:nth-child(-n + 3) {
     margin-bottom: 20px;
   }
+  animation: ${({ displayModal }) => {
+    return (
+      displayModal === undefined &&
+      css`
+        ${rise} 2s forwards
+      `
+    );
+  }};
 `;
 
 export const CustomTextarea = styled.textarea`
@@ -30,6 +40,14 @@ export const CustomTextarea = styled.textarea`
   border: 0;
   padding: 20px;
   min-height: 150px;
+  animation: ${({ displayModal }) => {
+    return (
+      displayModal === undefined &&
+      css`
+        ${rise} 2s forwards
+      `
+    );
+  }};
 `;
 
 export const SendButton = styled.input`
@@ -50,4 +68,12 @@ export const SendButton = styled.input`
     background-color: ${({ theme }) => theme.backgroundColors.turquoise};
     color: ${({ theme }) => theme.colors.black};
   }
+  animation: ${({ displayModal }) => {
+    return (
+      displayModal === undefined &&
+      css`
+        ${rise} 2s forwards
+      `
+    );
+  }};
 `;

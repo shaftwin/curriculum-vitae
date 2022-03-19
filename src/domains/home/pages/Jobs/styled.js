@@ -1,5 +1,6 @@
 import { css, keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
+import rise from 'src/domains/core/animations/rise/styled';
 import JobCard from 'src/domains/home/pages/Jobs/JobCard';
 
 export const Container = styled.div`
@@ -28,17 +29,6 @@ export const ColumnContainer = styled.div`
   min-width: 300px;
   margin-right: 10px;
 `;
-
-const rise = keyframes`
-  0% {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0px);
-  }
-  `;
 
 export const CustomJobCard = styled(JobCard)`
   z-index: 2;

@@ -1,6 +1,8 @@
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import TagCloud from 'src/components/TagCloud';
 import TextInfo from 'src/components/TextInfo';
+import rise from 'src/domains/core/animations/rise/styled';
 
 export const Container = styled.div`
   height: 100%;
@@ -12,6 +14,14 @@ export const Container = styled.div`
 
 export const CustomTagCloud = styled(TagCloud)`
   margin-left: 20%;
+  animation: ${({ displayModal }) => {
+    return (
+      displayModal === undefined &&
+      css`
+        ${rise} 2s forwards
+      `
+    );
+  }};
 `;
 
 export const CustomTextInfo = styled(TextInfo)`
