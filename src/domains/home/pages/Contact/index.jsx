@@ -18,9 +18,9 @@ const Contact = () => {
         <CustomTextInfo
           shaked
           title="Contact"
-          text={
-            'I’m interested in freelance opportunities – especially ambitious or large projects. However, if you have other request or question, don’t hesitate to use the form.'
-          }
+          texts={[
+            'I’m interested in freelance opportunities – especially ambitious or large projects. However, if you have other request or question, don’t hesitate to use the form.',
+          ]}
         />
         <NetworkContainer>
           <Network

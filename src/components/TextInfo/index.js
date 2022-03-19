@@ -9,13 +9,11 @@ import {
   TextAnimation,
   TextsContainer,
   TitleContaine,
-  // AbsoluteTitle,
 } from './styled';
 
 const TextInfo = ({
   className,
   texts,
-  text,
   title,
   glowing,
   shaked,
@@ -27,11 +25,10 @@ const TextInfo = ({
     if (shaked && title) {
       wordsShaker(title, setShakedTitle);
     }
-  }, [shaked, text, title]);
+  }, [shaked, title]);
 
   return (
     <Container className={className}>
-      {/* <AbsoluteTitle>About</AbsoluteTitle> */}
       <TitleContaine>
         {glowing && <Glowing title={title} />}
         {!glowing && (
@@ -43,7 +40,6 @@ const TextInfo = ({
       <TextsContainer>
         <TextAnimation spawnAnimation={spawnAnimation}>
           {texts && texts.map((txt) => <Text key={txt}>{txt}</Text>)}
-          <Text>{text}</Text>
         </TextAnimation>
       </TextsContainer>
     </Container>
@@ -64,14 +60,24 @@ TextInfo.propTypes = {
    */
   glowing: PropTypes.bool,
   /**
+   * Optional spawnAnimation text animation bool
+   */
+  spawnAnimation: PropTypes.bool,
+  /**
+   * Optional shaked text animation bool
+   */
+  shaked: PropTypes.bool,
+  /**
    * Optional custom style
    */
   className: PropTypes.string,
 };
 
 TextInfo.defaultProps = {
-  templateColor: 'primary',
-  size: 'normal',
+  className: null,
+  shaked: false,
+  spawnAnimation: false,
+  glowing: false,
 };
 
 export default TextInfo;

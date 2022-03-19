@@ -1,14 +1,6 @@
 import styled from '@emotion/styled';
 import { css, keyframes } from '@emotion/react';
 
-export const AbsoluteTitle = styled.div`
-  position: absolute;
-  font-size: 20rem;
-  color: rgba(255, 255, 255, 0.04);
-  left: 0;
-  top: 0;
-`;
-
 const showTopText = keyframes`
   0% {
     transform: translate3d(0, 100%, 0);
@@ -36,7 +28,6 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   border-radius: 20px 40px;
-  border: 1px solid #2b2b2b;
   box-shadow: 0px 0px 10px 3px grey;
   padding: 20px;
 `;
@@ -49,11 +40,11 @@ export const TitleContaine = styled.div`
 export const TextsContainer = styled.div`
   overflow: hidden;
   padding-top: 10px;
-  border-top: 1px solid #08fdd8;
+  border-top: 1px solid ${({ theme }) => theme.colors.turquoise};
 `;
 
 export const BasicTitle = styled.h2`
-  color: #08fdd8;
+  color: ${({ theme }) => theme.fontColor.secondary};
   font-size: 4.4rem;
   animation: ${({ spawnAnimation }) =>
     spawnAnimation &&
@@ -63,7 +54,7 @@ export const BasicTitle = styled.h2`
 `;
 
 export const Text = styled.p`
-  color: white;
+  color: ${({ theme }) => theme.fontColor.primary};
   font-size: 1rem;
   line-height: 1.5;
   font-family: 'Open Sans', cursive;

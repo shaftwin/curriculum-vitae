@@ -67,7 +67,7 @@ function NavigationMenu({ setCurrentPage }) {
         <CgMenuGridR color={theme.colors.grey} size="3.5em" />
       </MenuIcon>
       <CustomFloatingCube
-        cubeType={0}
+        cubeIndex={0}
         setDragging={setDragging}
         displayCube={displayCube[0]}
         dragEndCallback={dragEndCallback}
@@ -75,7 +75,7 @@ function NavigationMenu({ setCurrentPage }) {
         isMenuOpen={isMenuOpen}
       />
       <CustomFloatingCube
-        cubeType={1}
+        cubeIndex={1}
         setDragging={setDragging}
         displayCube={displayCube[1]}
         dragEndCallback={dragEndCallback}
@@ -83,7 +83,7 @@ function NavigationMenu({ setCurrentPage }) {
         isMenuOpen={isMenuOpen}
       />
       <CustomFloatingCube
-        cubeType={2}
+        cubeIndex={2}
         setDragging={setDragging}
         displayCube={displayCube[2]}
         dragEndCallback={dragEndCallback}
@@ -91,7 +91,7 @@ function NavigationMenu({ setCurrentPage }) {
         isMenuOpen={isMenuOpen}
       />
       <CustomFloatingCube
-        cubeType={3}
+        cubeIndex={3}
         setDragging={setDragging}
         displayCube={displayCube[3]}
         dragEndCallback={dragEndCallback}

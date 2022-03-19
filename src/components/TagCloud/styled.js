@@ -2,15 +2,13 @@ import styled from '@emotion/styled';
 
 export const Container = styled.div`
   position: relative;
-  /* width: 500px; */
-  /* height: 700px; */
   align-items: center;
   justify-content: center;
 `;
 
 export const FloatingText = styled.p`
   font-size: 30px;
-  color: #08fdd8;
+  color: ${({ theme }) => theme.fontColor.secondary};
   margin: 10px;
 `;
 
@@ -21,8 +19,8 @@ export const FloatingContainer = styled.div`
   cursor: pointer;
   transform: translate3d(-50%, -50%, 0) scale(1);
   &:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid #fff;
+    background-color: ${({ theme }) => theme.backgroundColor.blackAlpha};
+    border: 1px solid ${({ theme }) => theme.colors.white};
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;

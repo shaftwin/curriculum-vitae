@@ -7,10 +7,17 @@ const theme = {
     lightBlueRGB: [129, 216, 247],
     blue: '',
     blueRGB: [3, 164, 241],
-    turquoise: '',
+    turquoise: '#08fdd8',
     turquoiseRGB: [8, 253, 216],
     pink: '',
     pinkRGB: [197, 113, 208],
+  },
+  fontColor: {
+    primary: '#fff',
+    secondary: '#08fdd8',
+  },
+  backgroundColor: {
+    blackAlpha: 'rgba(255, 255, 255, 0.1)',
   },
   fontSize: {
     10: '0.625rem', // 10px

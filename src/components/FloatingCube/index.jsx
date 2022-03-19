@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { useEffect, useRef, useState } from 'react';
 // import Cube, { Palette } from 'react-cube3d';
 import Cube from 'react-cube3d';
@@ -14,15 +15,15 @@ const FloatingCube = ({
   className,
   dragEndCallback,
   setDragging,
-  cubeType,
+  cubeIndex,
   color,
   displayCube,
 }) => {
-  const defaultCubePos = window.innerHeight / 2 - size / 2 + offsets[cubeType];
+  const defaultCubePos = window.innerHeight / 2 - size / 2 + offsets[cubeIndex];
   const [cubeRotationX, setCubeRotationX] = useState(0);
   const [cubeRotationY, setCubeRotationY] = useState(0);
   const [cubeX, setCubeX] = useState(65);
-  // const [cubeY, setCubeY] = useState(1 + (cubeType + 1) * 100);
+  // const [cubeY, setCubeY] = useState(1 + (cubeIndex + 1) * 100);
   const [cubeY, setCubeY] = useState(defaultCubePos);
   const [deltaX, setDeltaX] = useState(0);
   const [deltaY, setDeltaY] = useState(0);
@@ -37,16 +38,17 @@ const FloatingCube = ({
       setCubeY(defaultCubePos);
       setPreviousState('visible');
     }
-  }, [cubeType, displayCube, previousState]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [cubeIndex, displayCube, previousState]);
 
   useEffect(() => {
     const onResize = () => {
-      setCubeY(window.innerHeight / 2 - size / 2 + offsets[cubeType]);
+      setCubeY(window.innerHeight / 2 - size / 2 + offsets[cubeIndex]);
     };
 
     window.addEventListener('resize', onResize);
     return () => window.removeEventListener('resize', onResize);
-  }, []);
+  }, [cubeIndex]);
 
   useEffect(() => {
     dragImage.current = new Image();
@@ -98,7 +100,7 @@ const FloatingCube = ({
         onDragStart={startDrag}
         onDrag={onDrag}
         onDragEnd={(e) => {
-          dragEndCallback(e.clientX, e.clientY, cubeType);
+          dragEndCallback(e.clientX, e.clientY, cubeIndex);
           setDragging(false);
         }}
       >
@@ -125,6 +127,37 @@ const FloatingCube = ({
   );
 };
 
-FloatingCube.propTypes = {};
+FloatingCube.propTypes = {
+  /**
+   * Required setDragging
+   */
+  setDragging: PropTypes.func.isRequired,
+  /**
+   * Required displayCube
+   */
+  displayCube: PropTypes.bool.isRequired,
+  /**
+   * Required cubeIndex
+   */
+  cubeIndex: PropTypes.number.isRequired,
+  /**
+   * Optional color
+   */
+  color: PropTypes.arrayOf(PropTypes.number),
+  /**
+   * Optional dragEndCallback
+   */
+  dragEndCallback: PropTypes.func,
+  /**
+   * Optional custom style
+   */
+  className: PropTypes.string,
+};
+
+FloatingCube.defaultProps = {
+  className: null,
+  color: null,
+  dragEndCallback: () => null,
+};
 
 export default FloatingCube;
