@@ -46,18 +46,19 @@ export const CustomFloatingCube = styled(FloatingCube)`
   /* Prevent first render to display cubes */
   opacity: ${({ isMenuOpen }) => (isMenuOpen === undefined ? 0 : 1)};
   /* Should be improved */
-  animation: ${({ displayCube, isMenuOpen, cubeType }) => {
+  animation: ${({ displayCube, isMenuOpen, cubeIndex }) => {
     /* Prevent first render to perform animation */
     if (isMenuOpen === undefined) return null;
     /* Prevent useless animation */
-    if (isMenuOpen !== prevIsMenuOpen[cubeType] || displayCube === 'none') {
-      prevIsMenuOpen[cubeType] = isMenuOpen;
+    if (isMenuOpen !== prevIsMenuOpen[cubeIndex] || displayCube === 'none') {
+      prevIsMenuOpen[cubeIndex] = isMenuOpen;
       /* Prevent displaying cube in cicle */
       if (isMenuOpen && displayCube !== 'none') {
         return css`
           ${fadeIn} 1s forwards
         `;
       }
+      console.log('fadeOut triggered');
       return css`
         ${fadeOut} 1s forwards
       `;

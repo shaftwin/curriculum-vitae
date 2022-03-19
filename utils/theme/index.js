@@ -9,6 +9,7 @@ const theme = {
     blueRGB: [3, 164, 241],
     turquoise: '#08fdd8',
     turquoiseRGB: [8, 253, 216],
+    pink: '#C571D0',
     pinkRGB: [197, 113, 208],
     red: '#FF2253',
     green: '#8BF896',
