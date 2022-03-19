@@ -27,8 +27,9 @@ export const Container = styled.div`
   max-width: 415px;
   display: flex;
   flex-direction: column;
-  border-radius: 20px 40px;
-  box-shadow: 0px 0px 10px 3px ${({ theme }) => theme.colors.lightGrey};
+  /* Add border with blur effect */
+  /* border-radius: 20px 40px; */
+  /* box-shadow: 0px 0px 10px 3px ${({ theme }) => theme.colors.lightGrey}; */
   padding: 20px;
 `;
 
