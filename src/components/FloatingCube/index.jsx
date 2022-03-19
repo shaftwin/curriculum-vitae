@@ -12,7 +12,7 @@ function getRandomFloat(min, max) {
 
 const FloatingCube = ({
   className,
-  shouldHide,
+  dragEndCallback,
   setDragging,
   cubeType,
   color,
@@ -98,7 +98,7 @@ const FloatingCube = ({
         onDragStart={startDrag}
         onDrag={onDrag}
         onDragEnd={(e) => {
-          shouldHide(e.clientX, e.clientY, cubeType);
+          dragEndCallback(e.clientX, e.clientY, cubeType);
           setDragging(false);
         }}
       >
