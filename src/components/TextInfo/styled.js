@@ -74,14 +74,16 @@ export const TextsContainer = styled(beforeAfter)`
 export const BasicTitle = styled.h1`
   color: ${({ theme }) => theme.fontColors.secondary};
   font-size: ${({ theme }) => theme.fontSize[70]};
-  animation: ${() =>
+  animation: ${({ spawnAnimation }) =>
+    spawnAnimation &&
     css`
       ${showTopText} 1.5s forwards
     `};
 `;
 
 export const GlowingTitle = styled(Glowing)`
-  animation: ${() =>
+  animation: ${({ spawnAnimation }) =>
+    spawnAnimation &&
     css`
       ${showTopText} 1.5s forwards
     `};

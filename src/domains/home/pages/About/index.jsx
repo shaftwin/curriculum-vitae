@@ -9,6 +9,7 @@ const About = () => {
   return (
     <Container>
       <CustomTextInfo
+        spawnAnimation
         title={t('common:my.myself.i')}
         texts={[
           t('common:about.1'),
