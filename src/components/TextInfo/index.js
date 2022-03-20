@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
-import Glowing from 'src/components/TextInfo/Glowing';
 import { wordsShaker } from 'utils/methods/getRandomLetter';
 import {
   BasicTitle,
@@ -10,16 +9,10 @@ import {
   TextsContainer,
   TitleContaine,
   Divider,
+  GlowingTitle,
 } from './styled';
 
-const TextInfo = ({
-  className,
-  texts,
-  title,
-  glowing,
-  shaked,
-  spawnAnimation,
-}) => {
+const TextInfo = ({ className, texts, title, glowing, shaked }) => {
   const [shakedTitle, setShakedTitle] = useState(title);
 
   useEffect(() => {
@@ -31,16 +24,16 @@ const TextInfo = ({
   return (
     <Container className={className}>
       <TitleContaine glowing={glowing}>
-        {glowing && <Glowing title={title} />}
+        {glowing && <GlowingTitle spawnAnimation={true} title={title} />}
         {!glowing && (
-          <BasicTitle spawnAnimation={spawnAnimation}>
+          <BasicTitle spawnAnimation={true}>
             {shaked ? shakedTitle : title}
           </BasicTitle>
         )}
       </TitleContaine>
       <Divider />
       <TextsContainer>
-        <TextAnimation spawnAnimation={spawnAnimation}>
+        <TextAnimation spawnAnimation={true}>
           {texts && texts.map((txt) => <Text key={txt}>{txt}</Text>)}
         </TextAnimation>
       </TextsContainer>
@@ -62,10 +55,6 @@ TextInfo.propTypes = {
    */
   glowing: PropTypes.bool,
   /**
-   * Optional spawnAnimation text animation bool
-   */
-  spawnAnimation: PropTypes.bool,
-  /**
    * Optional shaked text animation bool
    */
   shaked: PropTypes.bool,
@@ -78,7 +67,6 @@ TextInfo.propTypes = {
 TextInfo.defaultProps = {
   className: null,
   shaked: false,
-  spawnAnimation: false,
   glowing: false,
 };
 
