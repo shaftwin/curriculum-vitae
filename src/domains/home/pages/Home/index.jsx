@@ -12,7 +12,6 @@ function Home() {
 
   return (
     <Container>
-      <Skills />
       {currentPage === 0 && <About />}
       {currentPage === 1 && <Skills />}
       {currentPage === 2 && <Jobs />}
