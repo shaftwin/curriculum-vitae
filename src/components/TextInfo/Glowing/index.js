@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
-import { GlowingContainer, CustomLi, HiddenInput, Letter } from './styled';
+import { GlowingContainer, CustomSpan, HiddenInput, Letter } from './styled';
 
 const Glowing = ({ title, className }) => {
   const [checked, setChecked] = useState(() =>
@@ -17,14 +17,14 @@ const Glowing = ({ title, className }) => {
     <GlowingContainer className={className}>
       {title.split('').map((letter, idx) => {
         return (
-          <CustomLi key={idx}>
+          <CustomSpan key={idx}>
             <HiddenInput
               onClick={() => updateGlowing(idx)}
               checked={checked[idx]}
               type="checkbox"
             />
             <Letter>{letter}</Letter>
-          </CustomLi>
+          </CustomSpan>
         );
       })}
     </GlowingContainer>

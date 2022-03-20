@@ -2,6 +2,7 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import Skill from 'src/components/Skill';
 import rise from 'src/domains/core/animations/rise/styled';
+import beforeAfter from 'src/domains/core/styles/beforeAfter/styled';
 
 export const Container = styled.div`
   height: 100%;
@@ -11,7 +12,7 @@ export const Container = styled.div`
   justify-content: center;
 `;
 
-export const SkillsContainer = styled.div`
+export const SkillsContainer = styled(beforeAfter)`
   display: flex;
   flex-direction: column;
   margin-right: 50px;
@@ -23,6 +24,16 @@ export const SkillsContainer = styled.div`
       `
     );
   }};
+  &:before {
+    content: '<div>';
+    top: -2rem;
+    left: -1rem;
+  }
+  &:after {
+    content: '</div>';
+    bottom: -2.8rem;
+    left: -1rem;
+  }
 `;
 
 export const CustomSkill = styled(Skill)`
