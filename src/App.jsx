@@ -4,7 +4,7 @@ import { ThemeProvider } from '@emotion/react';
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import UnauthenticatedRoutes from '../services/router/UnauthenticatedRoutes';
-import { initTranslation } from '../services/translation/i18n';
+import { initTranslation } from '../services/i18n';
 import theme from '../utils/theme';
 
 const App = () => {

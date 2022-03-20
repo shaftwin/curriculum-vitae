@@ -19,7 +19,7 @@ export const initTranslation = () => {
       // https://www.i18next.com/overview/configuration-options
       .init({
         debug: true,
-        fallbackLng: 'en',
+        fallbackLng: 'fr',
         interpolation: {
           escapeValue: false, // not needed for react as it escapes by default
           // To avoid translating before init i18n and crash app. According to

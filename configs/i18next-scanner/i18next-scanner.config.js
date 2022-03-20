@@ -3,8 +3,6 @@ module.exports = {
     './*.{js,jsx}',
     './src/components/**/*.{js,jsx}',
     './src/domains/**/*.{js,jsx}',
-    './src/hooks/**/*.{js,jsx}',
-    './src/services/**/*.{js,jsx}',
   ],
   output: './',
   options: {
@@ -16,7 +14,7 @@ module.exports = {
       extensions: ['.js', '.jsx'],
     },
     lngs: ['en', 'fr'],
-    ns: ['common', 'validation', 'error', 'glossary', 'log'],
+    ns: ['common', 'validation', 'error'],
     defaultLng: 'en',
     defaultNs: 'common',
     defaultValue: '__STRING_NOT_TRANSLATED__',
