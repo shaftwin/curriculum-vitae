@@ -66,7 +66,7 @@ const FloatingCube = ({
     const loop = setInterval(() => {
       setCubeRotationX(getRandomFloat(0, 359));
       setCubeRotationY(getRandomFloat(0, 359));
-    }, 10);
+    }, 500);
     return () => clearInterval(loop);
   }, []);
 
