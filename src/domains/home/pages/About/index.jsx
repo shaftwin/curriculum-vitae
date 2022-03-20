@@ -1,18 +1,21 @@
 /* eslint-disable max-len */
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Container, CustomTagCloud, CustomTextInfo } from './styled';
 
 const About = () => {
+  const { t } = useTranslation();
+
   return (
     <Container>
       <CustomTextInfo
         spawnAnimation
-        title="My, Myself & I"
+        title={t('common:my.myself.i')}
         texts={[
-          "I'm a web / mobile developer who move and work all around the world. For now I'm locate in French Alps",
-          'Independant and very meticulous, I like working on ambitious and respectful projects. Fan of outdour activities, especially snowboard, kite-surf, wakeboard and hiking.',
-          "I fuel a strong passion for my work, thinking that we can improve the futur with it. Learning lover, I've also gave my time to share my knowledges to those who were curious enough.",
-          "I'm convinced of the open source benefit and I'm tring to play my part to this endless process.",
+          t('common:about.1'),
+          t('common:about.2'),
+          t('common:about.3'),
+          t('common:about.4'),
         ]}
       />
       <CustomTagCloud />

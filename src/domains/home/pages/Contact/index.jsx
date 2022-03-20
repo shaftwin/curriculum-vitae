@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { BsGithub, BsLinkedin } from 'react-icons/bs';
 import { VscFilePdf } from 'react-icons/vsc';
 import ContactForm from 'src/components/ContactForm';
@@ -13,15 +14,15 @@ import {
 } from './styled';
 
 const Contact = () => {
+  const { t } = useTranslation();
+
   return (
     <Container>
       <TextContainer>
         <CustomTextInfo
           shaked
           title="Contact"
-          texts={[
-            'I’m interested in freelance opportunities – especially ambitious or large projects. However, if you have other request or question, don’t hesitate to contact me.',
-          ]}
+          texts={[t('common:contact.1')]}
         />
         <NetworkContainer>
           <Network

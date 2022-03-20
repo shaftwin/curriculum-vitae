@@ -17,7 +17,7 @@ export const TextContainer = styled.div`
 export const NetworkContainer = styled.div`
   display: flex;
   flex-direction: row;
-  margin-top: 30px;
+  margin-top: 45px;
   /* Align with title */
   margin-left: 21px;
 `;

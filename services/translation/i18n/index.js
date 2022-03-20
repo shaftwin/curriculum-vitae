@@ -1,15 +1,11 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import enCommon from './translations/en/common.json';
-import frCommon from './translations/fr/common.json';
-import enValidation from './translations/en/validation.json';
-import frValidation from './translations/fr/validation.json';
 import enError from './translations/en/error.json';
+import enValidation from './translations/en/validation.json';
+import frCommon from './translations/fr/common.json';
 import frError from './translations/fr/error.json';
-import enGlossary from './translations/en/glossary.json';
-import frGlossary from './translations/fr/glossary.json';
-import enLog from './translations/en/log.json';
-import frLog from './translations/fr/log.json';
+import frValidation from './translations/fr/validation.json';
 
 export const initTranslation = () => {
   return (
@@ -37,15 +33,11 @@ export const initTranslation = () => {
             common: enCommon,
             validation: enValidation,
             error: enError,
-            glossary: enGlossary,
-            log: enLog,
           },
           fr: {
             common: frCommon,
             validation: frValidation,
             error: frError,
-            glossary: frGlossary,
-            log: frLog,
           },
         },
       })

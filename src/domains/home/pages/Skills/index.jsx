@@ -1,11 +1,13 @@
 /* eslint-disable max-len */
 import { useTheme } from '@emotion/react';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import TextInfo from 'src/components/TextInfo';
 import { Container, SkillsContainer, CustomSkill } from './styled';
 
 const Skills = () => {
   const theme = useTheme();
+  const { t } = useTranslation();
 
   return (
     <Container>
@@ -53,9 +55,9 @@ const Skills = () => {
         title="Skills"
         glowing
         texts={[
-          'Since beginning my journey as a developer nearly 10 years ago, I’ve worked for different startups as employee or freelancer.',
-          "I felt in love with NodeJS universe, I'm now able to buid small and large projects with high quality, including frontend and backend parts. I'm doing my best to respect the client needs and to provide the best user experience in my developed products.",
-          "I used to manage developers as a team lead, organizing and prioritizing work to respect deadlines. I'm really concerned about best practices that I'm trying to apply and improve every day.",
+          t('common:skills.1'),
+          t('common:skills.2'),
+          t('common:skills.3'),
         ]}
       />
     </Container>
