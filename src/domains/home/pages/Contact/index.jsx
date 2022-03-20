@@ -6,6 +6,7 @@ import ContactForm from 'src/components/ContactForm';
 import Network from 'src/components/Network';
 import {
   Container,
+  CustomContactForm,
   CustomTextInfo,
   NetworkContainer,
   TextContainer,
@@ -38,7 +39,7 @@ const Contact = () => {
           />
         </NetworkContainer>
       </TextContainer>
-      <ContactForm />
+      <CustomContactForm as={ContactForm} />
     </Container>
   );
 };

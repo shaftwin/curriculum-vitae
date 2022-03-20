@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import TextInfo from 'src/components/TextInfo';
+import beforeAfter from 'src/domains/core/styles/beforeAfter/styled';
 
 export const Container = styled.div`
   height: 100%;
@@ -23,4 +24,17 @@ export const NetworkContainer = styled.div`
 
 export const CustomTextInfo = styled(TextInfo)`
   min-height: 200px;
+`;
+
+export const CustomContactForm = styled(beforeAfter)`
+  &:before {
+    content: '<form>';
+    top: -2.5rem;
+    left: -1rem;
+  }
+  &:after {
+    content: '</form>';
+    bottom: -2.5rem;
+    left: -1rem;
+  }
 `;

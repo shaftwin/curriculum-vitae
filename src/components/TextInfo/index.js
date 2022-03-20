@@ -9,6 +9,7 @@ import {
   TextAnimation,
   TextsContainer,
   TitleContaine,
+  Divider,
 } from './styled';
 
 const TextInfo = ({
@@ -29,7 +30,7 @@ const TextInfo = ({
 
   return (
     <Container className={className}>
-      <TitleContaine>
+      <TitleContaine glowing={glowing}>
         {glowing && <Glowing title={title} />}
         {!glowing && (
           <BasicTitle spawnAnimation={spawnAnimation}>
@@ -37,6 +38,7 @@ const TextInfo = ({
           </BasicTitle>
         )}
       </TitleContaine>
+      <Divider />
       <TextsContainer>
         <TextAnimation spawnAnimation={spawnAnimation}>
           {texts && texts.map((txt) => <Text key={txt}>{txt}</Text>)}

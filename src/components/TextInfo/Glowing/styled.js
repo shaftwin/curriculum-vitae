@@ -13,14 +13,14 @@ const glow = keyframes`
   }
 `;
 
-export const GlowingContainer = styled.div`
+export const GlowingContainer = styled.ul`
   display: flex;
   flex: row;
   align-items: center;
   height: 60px;
 `;
 
-export const CustomLi = styled.div`
+export const CustomLi = styled.li`
   list-style: none;
   /* &:hover > div {
     box-shadow: -1px -1px 4px rgba(8, 253, 216, 1),

@@ -23,6 +23,7 @@ const theme = {
     contactInput: '#8d8d8d',
     notGlowingLetter: '#555',
     glowingLetter: '#e4ee89',
+    tag: '#515152',
   },
   backgroundColors: {
     dark: '#1d1d1d',
