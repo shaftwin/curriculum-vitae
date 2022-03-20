@@ -9,9 +9,10 @@ const About = () => {
         spawnAnimation
         title="My, Myself & I"
         texts={[
-          'I’m a Front-End Developer located in Poland. I have a serious passion for UI effects, animations and creating intuitive, dynamic user experiences.',
-          'Well-organised person, problem solver, independent employee with high attention to detail. Fan of MMA, outdoor activities, TV series and English literature. A family person and father of two fractious boys,',
-          'Interested in the entire frontend spectrum and working on ambitious projects with positive people.',
+          "I'm a web / mobile developer who move and work all around the world. For now I'm locate in French Alps",
+          'Independant and very meticulous, I like working on ambitious and respectful projects. Fan of outdour activities, especially snowboard, kite-surf, wakeboard and hiking.',
+          "I fuel a strong passion for my work, thinking that we can improve the futur with it. Learning lover, I've also gave my time to share my knowledges to those who were curious enough.",
+          "I'm convinced of the open source benefit and I'm tring to play my part to this endless process.",
         ]}
       />
       <CustomTagCloud />

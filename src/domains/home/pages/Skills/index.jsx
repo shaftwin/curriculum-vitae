@@ -53,9 +53,9 @@ const Skills = () => {
         title="Skills"
         glowing
         texts={[
-          'Since beginning my journey as a freelance developer nearly 10 years ago, I’ve done remote work for agencies, consulted for startups, and collaborated with talented people to create web products for both business and consumer use.',
-          'I create successful responsive websites that are fast, easy to use, and built with best practices. The main area of my expertise is front-end development, HTML, CSS, JS, building small and medium web apps, custom plugins, features, animations, and coding interactive layouts.',
-          'I also have full-stack developer experience with popular open-source CMS like (WordPress, Drupal, Magento, Keystone.js and others).',
+          'Since beginning my journey as a developer nearly 10 years ago, I’ve worked for different startups as employee or freelancer.',
+          "I felt in love with NodeJS universe, I'm now able to buid small and large projects with high quality, including frontend and backend parts. I'm doing my best to respect the client needs and to provide the best user experience in my developed products.",
+          "I used to manage developers as a team lead, organizing and prioritizing work to respect deadlines. I'm really concerned about best practices that I'm trying to apply and improve every day.",
         ]}
       />
     </Container>
