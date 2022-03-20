@@ -1,6 +1,6 @@
 import { useTheme } from '@emotion/react';
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { CgMenuGridR } from 'react-icons/cg';
 import { CircleLoader, CustomFloatingCube, MenuIcon } from './styled';
 
@@ -15,19 +15,18 @@ function NavigationMenu({ setCurrentPage }) {
     'visible',
     'visible',
   ]);
+  const centerX = 93;
+  const centerY = 190;
+  const [zone, setZone] = useState({
+    xmin: centerX - 75 / 2,
+    xmax: centerX + 75 / 2,
+    ymin: centerY - 75 / 2,
+    ymax: centerY + 75 / 2,
+  });
+
   // this is for center position
   // const centerX = window.innerWidth / 2;
   // const centerY = window.innerHeight * 0.1;
-  const centerX = 93;
-  const centerY = 190;
-
-  const [zone] = useState({
-    xmin: centerX - 100 / 2,
-    xmax: centerX + 100 / 2,
-    ymin: centerY - 100 / 2,
-    ymax: centerY + 100 / 2,
-  });
-
   // useFull only when working with percentage positions for circle loader
   // useEffect(() => {
   //   const onResize = () => {
@@ -44,6 +43,24 @@ function NavigationMenu({ setCurrentPage }) {
   //   window.addEventListener('resize', onResize);
   //   return () => window.removeEventListener('resize', onResize);
   // }, []);
+
+  // Used to calculate zone position when page is scrolled
+  useEffect(() => {
+    const onScroll = () => {
+      const newCenterX = 93 - window.pageXOffset;
+      const newCenterY = 190 - window.pageYOffset;
+
+      setZone({
+        xmin: newCenterX - 75 / 2,
+        xmax: newCenterX + 75 / 2,
+        ymin: newCenterY - 75 / 2,
+        ymax: newCenterY + 75 / 2,
+      });
+    };
+
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   const dragEndCallback = (cubeX, cubeY, type) => {
     if (

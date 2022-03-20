@@ -5,7 +5,6 @@ import TextInfo from 'src/components/TextInfo';
 import rise from 'src/domains/core/animations/rise/styled';
 
 export const Container = styled.div`
-  height: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;

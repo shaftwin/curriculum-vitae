@@ -53,6 +53,9 @@ const theme = {
   width: {
     defaultScreen: '1200px',
   },
+  height: {
+    defaultScreen: '800px',
+  },
 };
 
 export default theme;
