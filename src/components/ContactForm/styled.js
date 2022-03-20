@@ -38,7 +38,7 @@ export const CustomTextarea = styled.textarea`
   color: ${({ theme }) => theme.fontColors.contactInput};
   font-size: ${({ theme }) => theme.fontSize[16]};
   border: 0;
-  padding: 20px;
+  padding: 0 20px;
   min-height: 150px;
   animation: ${({ displayModal }) => {
     return (

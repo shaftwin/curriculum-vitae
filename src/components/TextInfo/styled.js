@@ -31,7 +31,7 @@ export const Container = styled.div`
   /* Add border with blur effect */
   /* border-radius: 20px 40px; */
   /* box-shadow: 0px 0px 10px 3px ${({ theme }) => theme.colors.lightGrey}; */
-  padding: 20px;
+  padding: 0 20px;
 `;
 
 export const Divider = styled.div`
