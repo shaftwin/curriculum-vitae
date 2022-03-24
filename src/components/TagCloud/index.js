@@ -4,9 +4,12 @@ import TECH_WORDS from 'src/components/TagCloud/mocks/words.mock';
 import { Container, FloatingContainer, FloatingText } from './styled';
 
 const config = {
-  radius: 100,
-  size: 4 * 100, // * radius
-  depth: 4 * 100, // * radius
+  // radius: 100,
+  // size: 4 * 100, // * radius
+  // depth: 4 * 100, // * radius
+  radius: 65,
+  size: 4 * 65, // * radius
+  depth: 4 * 65, // * radius
   direction: 135,
   initSpeed: 32,
   maxSpeed: 1,

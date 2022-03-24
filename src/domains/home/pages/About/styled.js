@@ -5,14 +5,15 @@ import TextInfo from 'src/components/TextInfo';
 import rise from 'src/domains/core/animations/rise/styled';
 
 export const Container = styled.div`
+  height: 100%;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  padding: 40px 20px 200px 20px;
+  overflow: auto;
 `;
 
 export const CustomTagCloud = styled(TagCloud)`
-  margin-left: 20%;
+  margin-top: 175px;
   animation: ${({ displayModal }) => {
     return (
       displayModal === undefined &&
@@ -24,6 +25,6 @@ export const CustomTagCloud = styled(TagCloud)`
 `;
 
 export const CustomTextInfo = styled(TextInfo)`
-  max-width: 475px;
-  margin-left: -10%;
+  /* max-width: 475px; */
+  /* margin-left: -10%; */
 `;

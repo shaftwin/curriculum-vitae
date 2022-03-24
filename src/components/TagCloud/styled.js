@@ -7,7 +7,8 @@ export const Container = styled.div`
 `;
 
 export const FloatingText = styled.p`
-  font-size: ${({ theme }) => theme.fontSize[30]};
+  font-size: ${({ theme }) => theme.fontSize[16]};
+  /* font-size: ${({ theme }) => theme.fontSize[30]}; */
   color: ${({ theme }) => theme.fontColors.secondary};
   margin: 10px;
 `;
@@ -16,8 +17,8 @@ export const FloatingContainer = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
-  cursor: pointer;
   transform: translate3d(-50%, -50%, 0) scale(1);
+  cursor: pointer;
   &:hover {
     background-color: ${({ theme }) => theme.backgroundColors.blackAlpha};
     border: 1px solid ${({ theme }) => theme.colors.white};
