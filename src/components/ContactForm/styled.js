@@ -3,7 +3,6 @@ import styled from '@emotion/styled';
 import rise from 'src/domains/core/animations/rise/styled';
 
 export const Container = styled.div`
-  width: 415px;
   max-width: 415px;
 `;
 

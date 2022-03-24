@@ -12,11 +12,13 @@ function Home() {
 
   return (
     <Container>
-      {currentPage === 0 && <About />}
+      <Contact />
+      {/* <Skills /> */}
+      {/* {currentPage === 0 && <About />}
       {currentPage === 1 && <Skills />}
       {currentPage === 2 && <Jobs />}
-      {currentPage === 3 && <Contact />}
-      <NavigationMenu setCurrentPage={setCurrentPage} />
+      {currentPage === 3 && <Contact />} */}
+      {/* <NavigationMenu setCurrentPage={setCurrentPage} /> */}
     </Container>
   );
 }

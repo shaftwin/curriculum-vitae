@@ -7,7 +7,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "webpack serve --config ./configs/webpack/webpack.config.js --hot --open --env mode=development",
+    "start": "webpack serve --config ./configs/webpack/webpack.config.js --hot --open --env mode=development --host 0.0.0.0 --port 3000",
     "build": "webpack --config ./configs/webpack/webpack.config.js --mode production --env mode=production",
     "lint": "yarn eslint -c ./configs/eslint/.eslintrc.js './**/*' --ignore-path ./configs/eslint/.eslintignore",
     "lint:fix": "npm run lint -- --fix",

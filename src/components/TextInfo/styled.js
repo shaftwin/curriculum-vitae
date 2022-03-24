@@ -24,56 +24,30 @@ const showBottomText = keyframes`
   }
 `;
 
+// Mobile First
 export const Container = styled.div`
   position: relative;
-  max-width: 415px;
   display: flex;
   flex-direction: column;
-  /* Add border with blur effect */
-  /* border-radius: 20px 40px; */
-  /* box-shadow: 0px 0px 10px 3px ${({ theme }) => theme.colors.lightGrey}; */
-  padding: 0 20px;
 `;
 
-export const Divider = styled.div`
-  width: 100%;
-  border-top: 1px solid ${({ theme }) => theme.colors.turquoise};
-  margin-left: 20px;
-`;
-
+// Mobile First
 export const TitleContaine = styled(beforeAfter)`
   overflow: hidden;
-  padding: ${({ glowing }) => (glowing ? '40px 20px 55px 20px' : '40px 20px')};
+  padding: 20px 17px;
   &:before {
     content: '<h1>';
-    top: ${({ glowing }) => (glowing ? '0.9rem' : '1.5rem')};
+    top: ${({ glowing }) => (glowing ? '0rem' : '1rem')};
     left: 0rem;
   }
   &:after {
     content: '</h1>';
-    bottom: ${({ glowing }) => (glowing ? '0.9rem' : '1rem')};
+    bottom: ${({ glowing }) => (glowing ? '-0.5rem' : '0rem')};
     left: 0rem;
   }
 `;
 
-export const TextsContainer = styled(beforeAfter)`
-  overflow: hidden;
-  padding: 50px 20px 38px 20px;
-  &:before {
-    content: '<p>';
-    top: 1.2rem;
-    left: 0rem;
-  }
-  &:after {
-    content: '</p>';
-    bottom: 0rem;
-    left: 0rem;
-  }
-`;
-
-export const BasicTitle = styled.h1`
-  color: ${({ theme }) => theme.fontColors.secondary};
-  font-size: ${({ theme }) => theme.fontSize[70]};
+export const GlowingTitle = styled(Glowing)`
   animation: ${({ spawnAnimation }) =>
     spawnAnimation &&
     css`
@@ -81,7 +55,38 @@ export const BasicTitle = styled.h1`
     `};
 `;
 
-export const GlowingTitle = styled(Glowing)`
+// Mobile First
+export const Divider = styled.div`
+  margin: 10px 0 10px 20px;
+  border-top: 1px solid ${({ theme }) => theme.colors.turquoise};
+`;
+
+export const TextsContainer = styled(beforeAfter)`
+  overflow: hidden;
+  padding: 20px;
+  &:before {
+    content: '<p>';
+    top: 0rem;
+    left: 0rem;
+  }
+  &:after {
+    content: '</p>';
+    bottom: -0.5rem;
+    left: 0rem;
+  }
+`;
+
+export const TextAnimation = styled.div`
+  animation: ${({ spawnAnimation }) =>
+    spawnAnimation &&
+    css`
+      ${showBottomText} 3s forwards
+    `};
+`;
+
+export const BasicTitle = styled.h1`
+  color: ${({ theme }) => theme.fontColors.secondary};
+  font-size: ${({ theme }) => theme.fontSize[70]};
   animation: ${({ spawnAnimation }) =>
     spawnAnimation &&
     css`
@@ -96,12 +101,4 @@ export const Text = styled.p`
   &:not(:last-child) {
     margin-bottom: 1.5rem;
   }
-`;
-
-export const TextAnimation = styled.div`
-  animation: ${({ spawnAnimation }) =>
-    spawnAnimation &&
-    css`
-      ${showBottomText} 3s forwards
-    `};
 `;

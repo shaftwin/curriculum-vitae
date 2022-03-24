@@ -41,8 +41,11 @@ const theme = {
     15: '0.938rem', // 15px
     16: '1rem', // 16px
     18: '1.125rem', // 18px
+    24: '1.5rem', // 24px
     27: '1.6875rem', // 27px
     30: '1.875rem', // 30px
+    45: '2.8125rem', // 45px
+    60: '3.75rem', // 60px
     70: '4.4rem', // 70px
   },
   fontWeight: {
@@ -57,5 +60,8 @@ const theme = {
     defaultScreen: '800px',
   },
 };
+
+// eslint-disable-next-line no-unused-vars
+const mobileTheme = {};
 
 export default theme;

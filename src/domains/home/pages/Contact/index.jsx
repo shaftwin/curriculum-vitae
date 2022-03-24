@@ -24,23 +24,23 @@ const Contact = () => {
           title="Contact"
           texts={[t('common:contact.1')]}
         />
-        <NetworkContainer>
-          <Network
-            icon={<BsLinkedin size="2em" />}
-            link="https://www.linkedin.com/in/florian-champin-neault/"
-          />
-          <Network
-            icon={<BsGithub size="2em" />}
-            link="https://github.com/shaftwin"
-          />
-          <Network
-            icon={<VscFilePdf size="2em" />}
-            link="/assets/pdf/Resume2022PDF.pdf"
-            download
-          />
-        </NetworkContainer>
       </TextContainer>
       <CustomContactForm as={ContactForm} />
+      <NetworkContainer>
+        <Network
+          icon={<BsLinkedin size="2em" />}
+          link="https://www.linkedin.com/in/florian-champin-neault/"
+        />
+        <Network
+          icon={<BsGithub size="2em" />}
+          link="https://github.com/shaftwin"
+        />
+        <Network
+          icon={<VscFilePdf size="2em" />}
+          link="/assets/pdf/Resume2022PDF.pdf"
+          download
+        />
+      </NetworkContainer>
     </Container>
   );
 };

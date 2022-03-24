@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 import { css, keyframes } from '@emotion/react';
 
 export const Container = styled.div`
-  min-width: 415px;
   display: flex;
   flex-direction: column;
 `;

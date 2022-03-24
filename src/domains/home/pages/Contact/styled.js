@@ -5,21 +5,18 @@ import beforeAfter from 'src/domains/core/styles/beforeAfter/styled';
 export const Container = styled.div`
   height: 100%;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  padding: 40px 20px 60px 20px;
+  overflow: auto;
 `;
 
-export const TextContainer = styled.div`
-  margin-right: 50px;
-`;
+export const TextContainer = styled.div``;
 
 export const NetworkContainer = styled.div`
   display: flex;
   flex-direction: row;
-  margin-top: 45px;
   /* Align with title */
-  margin-left: 21px;
+  margin: 30px 0 0 21px;
 `;
 
 export const CustomTextInfo = styled(TextInfo)`
@@ -27,6 +24,7 @@ export const CustomTextInfo = styled(TextInfo)`
 `;
 
 export const CustomContactForm = styled(beforeAfter)`
+  margin: 40px 20px 20px 20px;
   &:before {
     content: '<form>';
     top: -2.5rem;

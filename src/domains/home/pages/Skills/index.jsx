@@ -1,9 +1,9 @@
 /* eslint-disable max-len */
 import { useTheme } from '@emotion/react';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import TextInfo from 'src/components/TextInfo';
-import { Container, SkillsContainer, CustomSkill } from './styled';
+import { useTranslation } from 'react-i18next';
+import { Container, CustomSkill, SkillsContainer } from './styled';
 
 const Skills = () => {
   const theme = useTheme();
@@ -11,6 +11,15 @@ const Skills = () => {
 
   return (
     <Container>
+      <TextInfo
+        title="Skills"
+        glowing
+        texts={[
+          t('common:skills.1'),
+          t('common:skills.2'),
+          t('common:skills.3'),
+        ]}
+      />
       <SkillsContainer>
         <CustomSkill
           skillName="NodeJS"
@@ -51,15 +60,6 @@ const Skills = () => {
           color={theme.colors.turquoise}
         />
       </SkillsContainer>
-      <TextInfo
-        title="Skills"
-        glowing
-        texts={[
-          t('common:skills.1'),
-          t('common:skills.2'),
-          t('common:skills.3'),
-        ]}
-      />
     </Container>
   );
 };
