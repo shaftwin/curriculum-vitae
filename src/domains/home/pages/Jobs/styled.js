@@ -7,16 +7,16 @@ export const Container = styled.div`
   position: relative;
   height: 100%;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  padding: 40px 20px 60px 20px;
+  overflow: auto;
 `;
 
 export const Grid = styled.div`
   position: relative;
   z-index: 1;
-  width: 70%;
-  min-width: 900px;
+  /* width: 70%; */
+  /* min-width: 900px; */
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -28,6 +28,7 @@ export const ColumnContainer = styled.div`
   width: 47%;
   min-width: 300px;
   margin-right: 10px;
+  margin-top: 20px;
 `;
 
 export const CustomJobCard = styled(JobCard)`
@@ -83,6 +84,10 @@ const fallAbsolute = keyframes`
 
 export const JobModal = styled(JobCard)`
   position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
   z-index: 3;
   width: 70%;
   height: 50%;
