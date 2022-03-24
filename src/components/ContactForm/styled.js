@@ -3,7 +3,8 @@ import styled from '@emotion/styled';
 import rise from 'src/domains/core/animations/rise/styled';
 
 export const Container = styled.div`
-  max-width: 415px;
+  max-width: 80%;
+  /* max-width: 415px; */
 `;
 
 export const CustomForm = styled.form`
@@ -12,6 +13,8 @@ export const CustomForm = styled.form`
 `;
 
 export const CustomInput = styled.input`
+  /* Mobile */
+  width: 100%;
   height: 50px;
   background: ${({ theme }) => theme.backgroundColors.grey2};
   color: ${({ theme }) => theme.fontColors.contactInput};
@@ -32,6 +35,8 @@ export const CustomInput = styled.input`
 `;
 
 export const CustomTextarea = styled.textarea`
+  /* Mobile */
+  width: 100%;
   height: 50px;
   background: ${({ theme }) => theme.backgroundColors.grey2};
   color: ${({ theme }) => theme.fontColors.contactInput};
