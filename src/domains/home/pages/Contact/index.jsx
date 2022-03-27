@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import React from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BsGithub, BsLinkedin } from 'react-icons/bs';
 import { VscFilePdf } from 'react-icons/vsc';
@@ -16,9 +16,32 @@ import {
 const Contact = () => {
   const { t } = useTranslation();
 
+  const networkContainerDOMPosition = useCallback(() => {
+    const textContainerNode = document.getElementById('TextContainer');
+    const containerNode = document.getElementById('Container');
+    // Resize to 1024 or more
+    if (window.innerWidth >= 1024 && containerNode.childNodes.length === 3) {
+      textContainerNode.appendChild(containerNode.childNodes[2]);
+    } else if (
+      window.innerWidth < 1024 &&
+      textContainerNode.childNodes.length === 2
+    ) {
+      // Resize less than 1024 and avoid first time
+      containerNode.appendChild(textContainerNode.childNodes[1]);
+    }
+  }, []);
+
+  useEffect(() => networkContainerDOMPosition(), [networkContainerDOMPosition]);
+
+  useEffect(() => {
+    window.addEventListener('resize', networkContainerDOMPosition);
+    return () =>
+      window.removeEventListener('resize', networkContainerDOMPosition);
+  }, [networkContainerDOMPosition]);
+
   return (
-    <Container>
-      <TextContainer>
+    <Container id="Container">
+      <TextContainer id="TextContainer">
         <CustomTextInfo
           shaked
           title="Contact"

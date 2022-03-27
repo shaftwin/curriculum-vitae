@@ -8,9 +8,19 @@ export const Container = styled.div`
   flex-direction: column;
   padding: 40px 20px 60px 20px;
   overflow: auto;
+  @media screen and (min-width: 1024px) {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 20px 20px 20px;
+  }
 `;
 
-export const TextContainer = styled.div``;
+export const TextContainer = styled.div`
+  @media screen and (min-width: 1024px) {
+    margin-right: 20px;
+  }
+`;
 
 export const NetworkContainer = styled.div`
   display: flex;
@@ -21,6 +31,9 @@ export const NetworkContainer = styled.div`
 
 export const CustomTextInfo = styled(TextInfo)`
   min-height: 200px;
+  @media screen and (min-width: 1024px) {
+    max-width: 415px;
+  }
 `;
 
 export const CustomContactForm = styled(beforeAfter)`
@@ -34,5 +47,8 @@ export const CustomContactForm = styled(beforeAfter)`
     content: '</form>';
     bottom: -2.5rem;
     left: -1rem;
+  }
+  @media screen and (min-width: 1024px) {
+    min-width: 415px;
   }
 `;

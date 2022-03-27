@@ -16,6 +16,7 @@ export const CustomInput = styled.input`
   /* Mobile */
   width: 100%;
   height: 50px;
+  box-sizing: border-box;
   background: ${({ theme }) => theme.backgroundColors.grey2};
   color: ${({ theme }) => theme.fontColors.contactInput};
   font-size: ${({ theme }) => theme.fontSize[16]};
@@ -38,6 +39,7 @@ export const CustomTextarea = styled.textarea`
   /* Mobile */
   width: 100%;
   height: 50px;
+  box-sizing: border-box;
   background: ${({ theme }) => theme.backgroundColors.grey2};
   color: ${({ theme }) => theme.fontColors.contactInput};
   font-size: ${({ theme }) => theme.fontSize[16]};
