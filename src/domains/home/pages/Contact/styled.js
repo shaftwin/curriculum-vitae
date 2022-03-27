@@ -18,7 +18,7 @@ export const Container = styled.div`
 
 export const TextContainer = styled.div`
   @media screen and (min-width: 1024px) {
-    margin-right: 20px;
+    margin-right: 50px;
   }
 `;
 
