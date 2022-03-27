@@ -108,6 +108,7 @@ export const JobModal = styled(JobCard)`
   width: 70%;
   height: 50%;
   overflow: hidden;
+  /* TODO Hide height of inside h1 h2 and p */
   height: ${({ displayModal }) => displayModal === undefined && 0}px;
   padding: ${({ displayModal }) => displayModal === undefined && 0}px;
   border: ${({ displayModal }) => displayModal === undefined && 0};
