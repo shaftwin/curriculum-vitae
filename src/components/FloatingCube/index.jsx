@@ -26,7 +26,7 @@ const FloatingCube = ({
     offsets[cubeIndex];
   const [cubeRotationX, setCubeRotationX] = useState(0);
   const [cubeRotationY, setCubeRotationY] = useState(0);
-  const [cubeX, setCubeX] = useState(72);
+  const [cubeX, setCubeX] = useState(57);
   const [cubeY, setCubeY] = useState(defaultCubePos);
   const [deltaX, setDeltaX] = useState(0);
   const [deltaY, setDeltaY] = useState(0);
@@ -37,7 +37,7 @@ const FloatingCube = ({
     if (displayCube === 'none') {
       setPreviousState(displayCube);
     } else if (displayCube === 'visible' && previousState === 'none') {
-      setCubeX(72);
+      setCubeX(57);
       setCubeY(defaultCubePos);
       setPreviousState('visible');
     }

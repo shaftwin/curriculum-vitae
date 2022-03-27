@@ -15,7 +15,7 @@ function NavigationMenu({ setCurrentPage }) {
     'visible',
     'visible',
   ]);
-  const centerX = 93;
+  const centerX = 78;
   const centerY = 190;
   const [zone, setZone] = useState({
     xmin: centerX - 75 / 2,

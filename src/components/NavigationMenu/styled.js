@@ -85,7 +85,7 @@ export const MenuIcon = styled.div`
   position: absolute;
   z-index: 10;
   top: 50px;
-  left: 65px;
+  left: 50px;
   cursor: pointer;
   animation: ${({ isMenuOpen }) => {
     if (isMenuOpen === undefined) return null;
@@ -105,7 +105,7 @@ let prevIsMenuOpenCircle = false;
 export const CircleLoader = styled.div`
   position: absolute;
   top: 190px;
-  left: 93px;
+  left: 78px;
   width: 75px;
   height: 75px;
   transform: translate(-50%, -50%);
