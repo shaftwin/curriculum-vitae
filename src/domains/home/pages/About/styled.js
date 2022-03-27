@@ -10,10 +10,16 @@ export const Container = styled.div`
   flex-direction: column;
   padding: 40px 20px 200px 20px;
   overflow: auto;
+  @media screen and (min-width: 1024px) {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 20px 20px 20px;
+  }
 `;
 
 export const CustomTagCloud = styled(TagCloud)`
-  margin-top: 175px;
+  margin-top: 200px;
   animation: ${({ displayModal }) => {
     return (
       displayModal === undefined &&
@@ -22,9 +28,21 @@ export const CustomTagCloud = styled(TagCloud)`
       `
     );
   }};
+  @media screen and (min-width: 760px) {
+    margin-top: 250px;
+  }
+  @media screen and (min-width: 1024px) {
+    margin-top: 200px;
+    margin-left: 25%;
+  }
+  @media screen and (min-width: 1350px) {
+    margin-left: 20%;
+  }
 `;
 
 export const CustomTextInfo = styled(TextInfo)`
-  /* max-width: 475px; */
-  /* margin-left: -10%; */
+  @media screen and (min-width: 1024px) {
+    max-width: 475px;
+    margin-left: -10%;
+  }
 `;
