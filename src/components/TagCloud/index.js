@@ -3,19 +3,39 @@ import React, { useEffect, useRef, useState } from 'react';
 import TECH_WORDS from 'src/components/TagCloud/mocks/words.mock';
 import { Container, FloatingContainer, FloatingText } from './styled';
 
-const config = {
-  // radius: 100,
-  // size: 4 * 100, // * radius
-  // depth: 4 * 100, // * radius
-  radius: 65,
-  size: 4 * 65, // * radius
-  depth: 4 * 65, // * radius
-  direction: 135,
-  initSpeed: 32,
-  maxSpeed: 1,
-};
-
 const TagCloud = ({ words = TECH_WORDS, className }) => {
+  const [prevConfig, setPrevConfig] = useState(() => {
+    let delta = window.innerWidth - 375;
+    if (delta > 649) {
+      delta = 1024 - 375;
+    } else if (delta < 0) {
+      delta = 0;
+    }
+    return {
+      radius: 65 + delta / 18.5,
+      size: 4 * (65 + delta / 18.5), // * radius
+      depth: 4 * (65 + delta / 18.5), // * radius
+      direction: 135,
+      initSpeed: 32,
+      maxSpeed: 1,
+    };
+  });
+  const [config, setConfig] = useState(() => {
+    let delta = window.innerWidth - 375;
+    if (delta > 649) {
+      delta = 1024 - 375;
+    } else if (delta < 0) {
+      delta = 0;
+    }
+    return {
+      radius: 65 + delta / 18.5,
+      size: 4 * (65 + delta / 18.5), // * radius
+      depth: 4 * (65 + delta / 18.5), // * radius
+      direction: 135,
+      initSpeed: 32,
+      maxSpeed: 1,
+    };
+  });
   const refArray = useRef([]);
   const [items, setItems] = useState(() => {
     const newArray = [];
@@ -33,6 +53,43 @@ const TagCloud = ({ words = TECH_WORDS, className }) => {
 
     return newArray;
   });
+
+  // Used to calculate config radius / size / depth when window is resized
+  useEffect(() => {
+    const onResizeConfig = () => {
+      let delta = window.innerWidth - 375;
+      if (delta > 649) {
+        delta = 1024 - 375;
+      } else if (delta < 0) {
+        delta = 0;
+      }
+
+      setConfig({
+        ...config,
+        radius: 65 + delta / 18.5,
+        size: 4 * (65 + delta / 18.5),
+        depth: 4 * (65 + delta / 18.5),
+      });
+    };
+
+    window.addEventListener('resize', onResizeConfig);
+    return () => window.removeEventListener('resize', onResizeConfig);
+  }, [config]);
+
+  // Used to resize cloud when window is resized
+  useEffect(() => {
+    const newArray = [];
+
+    items.forEach((item) => {
+      newArray.push({
+        x: (config.size * item.x) / prevConfig.size,
+        y: (config.size * item.y) / prevConfig.size,
+        z: (config.size * item.z) / prevConfig.size,
+      });
+    });
+    setItems(newArray);
+    setPrevConfig(config);
+  }, [config]);
 
   const [mouseX0] = useState(
     config.initSpeed * Math.sin(config.direction * (Math.PI / 180)),
@@ -122,7 +179,18 @@ const TagCloud = ({ words = TECH_WORDS, className }) => {
     }, 1);
 
     return () => clearTimeout(loop);
-  }, [items, mouseX, mouseX0, mouseY, mouseY0]);
+  }, [
+    config,
+    config.depth,
+    config.maxSpeed,
+    config.radius,
+    config.size,
+    items,
+    mouseX,
+    mouseX0,
+    mouseY,
+    mouseY0,
+  ]);
 
   return (
     <Container className={className} onMouseMove={resetMousePos} id="container">
