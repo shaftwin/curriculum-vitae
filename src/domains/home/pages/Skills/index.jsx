@@ -1,9 +1,13 @@
 /* eslint-disable max-len */
 import { useTheme } from '@emotion/react';
 import React from 'react';
-import TextInfo from 'src/components/TextInfo';
 import { useTranslation } from 'react-i18next';
-import { Container, CustomSkill, SkillsContainer } from './styled';
+import {
+  Container,
+  CustomSkill,
+  CustomTextInfo,
+  SkillsContainer,
+} from './styled';
 
 const Skills = () => {
   const theme = useTheme();
@@ -11,7 +15,7 @@ const Skills = () => {
 
   return (
     <Container>
-      <TextInfo
+      <CustomTextInfo
         title="Skills"
         glowing
         texts={[
