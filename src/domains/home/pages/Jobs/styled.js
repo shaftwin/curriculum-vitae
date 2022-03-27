@@ -10,25 +10,40 @@ export const Container = styled.div`
   flex-direction: column;
   padding: 40px 20px 60px 20px;
   overflow: auto;
+  @media screen and (min-width: 1350px) {
+    justify-content: center;
+    padding: 20px 20px 20px 20px;
+  }
 `;
 
 export const Grid = styled.div`
   position: relative;
   z-index: 1;
-  /* width: 70%; */
-  /* min-width: 900px; */
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  flex-wrap: wrap;
+  align-items: center;
+  @media screen and (min-width: 1350px) {
+    min-width: 1350px;
+    height: 100%;
+    flex-direction: row;
+  }
 `;
 
 export const ColumnContainer = styled.div`
+  width: 75%;
   display: flex;
   flex-direction: column;
-  width: 47%;
   min-width: 300px;
-  margin-right: 10px;
   margin-top: 20px;
+  max-width: 500px;
+  @media screen and (min-width: 1350px) {
+    width: 47%;
+    margin-top: 0px;
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+  }
 `;
 
 export const CustomJobCard = styled(JobCard)`
