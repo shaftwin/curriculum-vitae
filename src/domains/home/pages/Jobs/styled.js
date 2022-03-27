@@ -101,9 +101,10 @@ export const JobModal = styled(JobCard)`
   position: absolute;
   left: 0;
   right: 0;
-  margin-left: auto;
-  margin-right: auto;
-  z-index: 3;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+  z-index: 20;
   width: 70%;
   height: 50%;
   overflow: hidden;
