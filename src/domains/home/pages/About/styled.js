@@ -32,7 +32,7 @@ export const CustomTagCloud = styled(TagCloud)`
     margin-top: 250px;
   }
   @media screen and (min-width: 1024px) {
-    margin-top: 200px;
+    margin-top: 100px;
     margin-left: 25%;
   }
   @media screen and (min-width: 1350px) {
