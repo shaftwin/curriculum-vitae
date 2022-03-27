@@ -83,6 +83,7 @@ export const MenuIcon = styled.div`
   width: 3.5rem;
   height: 3.5rem;
   position: absolute;
+  z-index: 10;
   top: 50px;
   left: 65px;
   cursor: pointer;
