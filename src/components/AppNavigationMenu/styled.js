@@ -94,3 +94,30 @@ export const NavItem = styled.a`
     border-top: 1px solid ${({ theme }) => theme.colors.grey};
   }
 `;
+
+export const LanguageContainer = styled.div`
+  width: 100px;
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+`;
+
+export const Language = styled.span`
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
+  color: ${({ theme, isSelected }) =>
+    isSelected ? theme.colors.turquoise : theme.colors.lightGrey};
+  &:hover {
+    color: ${({ theme }) => theme.colors.turquoise};
+  }
+`;
+
+export const Divider = styled.span`
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
+  color: ${({ theme }) => theme.colors.lightGrey};
+  margin: 0 10px;
+  &:hover {
+    color: ${({ theme }) => theme.colors.turquoise};
+  }
+`;

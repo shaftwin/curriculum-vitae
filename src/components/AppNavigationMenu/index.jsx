@@ -10,11 +10,14 @@ import {
   NavContainer,
   NavigationContainer,
   NavItem,
+  LanguageContainer,
+  Language,
+  Divider,
 } from './styled';
 
 function AppNavigationMenu({ setCurrentPage, innerWidth }) {
   const theme = useTheme();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(undefined);
 
   return (
@@ -40,7 +43,7 @@ function AppNavigationMenu({ setCurrentPage, innerWidth }) {
             color={theme.colors.lightBlue}
             backgroundColor={theme.backgroundColors.lightBlueAlpha}
           >
-            {t('common:about')}
+            {t('common:my.myself.i')}
           </NavItem>
           <NavItem
             onClick={() => {
@@ -73,6 +76,21 @@ function AppNavigationMenu({ setCurrentPage, innerWidth }) {
             {t('common:contact')}
           </NavItem>
         </NavContainer>
+        <LanguageContainer>
+          <Language
+            isSelected={i18n.language === 'fr'}
+            onClick={() => i18n.changeLanguage('fr')}
+          >
+            Fr
+          </Language>
+          <Divider>/</Divider>
+          <Language
+            isSelected={i18n.language === 'en'}
+            onClick={() => i18n.changeLanguage('en')}
+          >
+            En
+          </Language>
+        </LanguageContainer>
       </NavigationContainer>
     </>
   );

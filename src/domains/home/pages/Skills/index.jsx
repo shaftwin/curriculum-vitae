@@ -16,7 +16,7 @@ const Skills = () => {
   return (
     <Container>
       <CustomTextInfo
-        title="Skills"
+        title={t('common:skill', { count: 2 })}
         glowing
         texts={[
           t('common:skills.1'),

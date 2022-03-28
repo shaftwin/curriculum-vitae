@@ -44,7 +44,7 @@ const Contact = () => {
       <TextContainer id="TextContainer">
         <CustomTextInfo
           shaked
-          title="Contact"
+          title={t('common:contact')}
           texts={[t('common:contact.1')]}
         />
       </TextContainer>
