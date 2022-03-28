@@ -102,6 +102,8 @@ export const LanguageContainer = styled.div`
   left: 0;
   right: 0;
   margin: 0 auto;
+  display: flex;
+  justify-content: center;
 `;
 
 export const Language = styled.span`
