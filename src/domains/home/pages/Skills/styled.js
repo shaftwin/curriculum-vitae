@@ -11,7 +11,7 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   overflow: auto;
-  padding: 40px 20px 60px 20px;
+  padding: 40px 30px 60px 30px;
   @media screen and (min-width: 1024px) {
     flex-direction: row-reverse;
     justify-content: center;

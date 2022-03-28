@@ -2,10 +2,7 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import rise from 'src/domains/core/animations/rise/styled';
 
-export const Container = styled.div`
-  max-width: 80%;
-  /* max-width: 415px; */
-`;
+export const Container = styled.div``;
 
 export const CustomForm = styled.form`
   display: flex;

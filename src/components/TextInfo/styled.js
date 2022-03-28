@@ -34,7 +34,7 @@ export const Container = styled.div`
 // Mobile First
 export const TitleContaine = styled(beforeAfter)`
   overflow: hidden;
-  padding: 20px 17px;
+  padding: 20px ${({ glowing }) => (glowing ? '7' : '17')}px;
   &:before {
     content: '<h1>';
     top: ${({ glowing }) => (glowing ? '0rem' : '1rem')};

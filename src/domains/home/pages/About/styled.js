@@ -8,7 +8,7 @@ export const Container = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  padding: 40px 20px 200px 20px;
+  padding: 40px 30px 200px 30px;
   overflow: auto;
   @media screen and (min-width: 1024px) {
     flex-direction: row;

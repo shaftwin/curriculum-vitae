@@ -1,12 +1,17 @@
 {
+  "about": "About",
   "about.1": "Hi, I'm FLorian, I'm a web / mobile developer who move and work all around the world. For now I'm locate in French Alps",
   "about.2": "Independant and very meticulous, I like working on ambitious and respectful projects. Fan of outdour activities, especially snowboard, kite-surf, wakeboard and hiking.",
   "about.3": "I fuel a strong passion for my work, thinking that we can improve the futur with it. Learning lover, I've also gave my time to share my knowledges to those who were curious enough.",
   "about.4": "I'm convinced of the open source benefit and I'm tring to play my part in this endless process.",
+  "contact": "Contact",
   "contact.1": "I’m interested in freelance opportunities – especially ambitious or large projects. However, if you have other request or question, don’t hesitate to contact me.",
+  "job": "Job",
+  "job_plural": "Jobs",
   "my.myself.i": "My, Myself & I",
+  "skill": "Skill",
+  "skill_plural": "Skills",
   "skills.1": "Since beginning my journey as a developer nearly 10 years ago, I’ve worked for different startups as employee or freelancer.",
   "skills.2": "I felt in love with NodeJS universe, I'm now able to buid small and large projects with high quality, including frontend and backend parts. I'm doing my best to respect the client needs and to provide the best user experience in my developed products.",
   "skills.3": "I used to manage developers as a team lead, organizing and prioritizing work to respect deadlines. I'm really concerned about best practices that I'm trying to apply and improve every day."
 }
-

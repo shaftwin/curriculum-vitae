@@ -4,9 +4,12 @@ const theme = {
     grey: '#373737',
     lightGrey: '#909096',
     dark: '#1d1d1d',
+    darkBlue: '#181818',
     white: '#fff',
     lightBlueRGB: [129, 216, 247],
+    lightBlue: '#81D8F7',
     blueRGB: [3, 164, 241],
+    blue: '#03A4F1',
     turquoise: '#08fdd8',
     turquoiseRGB: [8, 253, 216],
     pink: '#C571D0',
@@ -31,6 +34,10 @@ const theme = {
     grey: '#373737',
     grey2: '#2b2b2b',
     turquoise: '#08fdd8',
+    lightBlueAlpha: '#81D8F750',
+    blueAlpha: '#03A4F150',
+    pinkAlpha: '#C571D050',
+    turquoiseAlpha: '#08fdd850',
   },
   fontSize: {
     10: '0.625rem', // 10px
