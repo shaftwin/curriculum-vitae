@@ -96,8 +96,31 @@ const fallAbsolute = keyframes`
   }
 `;
 
+export const JobModalContainer = styled.div`
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: ${({ displayModal }) =>
+    displayModal === undefined || displayModal === false ? -1 : 19};
+  animation: ${({ displayModal }) => {
+    if (displayModal === undefined) return null;
+    if (displayModal) {
+      return css`
+        ${riseAbsolute} 1s forwards
+      `;
+    }
+
+    return css`
+      ${fallAbsolute} 1s forwards
+    `;
+  }};
+  background-color: ${({ theme }) => theme.backgroundColors.darkAlpha};
+`;
+
 export const JobModal = styled(JobCard)`
-  position: absolute;
+  position: fixed;
   left: 0;
   right: 0;
   bottom: 0;

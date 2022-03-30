@@ -30,6 +30,7 @@ const theme = {
   },
   backgroundColors: {
     dark: '#1d1d1d',
+    darkAlpha: '#1d1d1dbb',
     blackAlpha: 'rgba(255, 255, 255, 0.1)',
     grey: '#373737',
     grey2: '#2b2b2b',
