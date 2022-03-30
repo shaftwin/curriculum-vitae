@@ -16,8 +16,10 @@ const theme = {
     pinkRGB: [197, 113, 208],
     red: '#FF2253',
     green: '#8BF896',
-    yellow: '#e4ee89',
     orange: '#FFA500',
+    purple: '#AA9BFF',
+    babyBlue: '#90C4FF',
+    electricBlue: '#75EAF5',
   },
   fontColors: {
     primary: '#fff',

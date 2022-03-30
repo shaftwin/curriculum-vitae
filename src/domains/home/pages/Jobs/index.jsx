@@ -37,9 +37,9 @@ const Jobs = () => {
             displayModal={displayModal}
             onClick={() => {
               setDisplayModal(true);
-              setModalColor(theme.colors.green);
+              setModalColor(theme.colors.pink);
             }}
-            color={theme.colors.green}
+            color={theme.colors.pink}
             companyName="Tekyn"
             jobTitle="Lead Developer"
             jobDescription="Lots of work done"
@@ -48,9 +48,9 @@ const Jobs = () => {
             displayModal={displayModal}
             onClick={() => {
               setDisplayModal(true);
-              setModalColor(theme.colors.yellow);
+              setModalColor(theme.colors.purple);
             }}
-            color={theme.colors.yellow}
+            color={theme.colors.purple}
             companyName="TrackTL"
             jobTitle="Frontend Developer"
             jobDescription="Lots of work done"
@@ -61,9 +61,9 @@ const Jobs = () => {
             displayModal={displayModal}
             onClick={() => {
               setDisplayModal(true);
-              setModalColor(theme.colors.orange);
+              setModalColor(theme.colors.babyBlue);
             }}
-            color={theme.colors.orange}
+            color={theme.colors.babyBlue}
             companyName="Sparted"
             jobTitle="FullStack Developer"
             jobDescription="Lots of work done"
@@ -72,9 +72,9 @@ const Jobs = () => {
             displayModal={displayModal}
             onClick={() => {
               setDisplayModal(true);
-              setModalColor(theme.colors.red);
+              setModalColor(theme.colors.electricBlue);
             }}
-            color={theme.colors.red}
+            color={theme.colors.electricBlue}
             companyName="Freelancer"
             jobTitle="FullStack Developer"
             jobDescription="Lots of work done"
