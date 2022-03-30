@@ -61,9 +61,9 @@ const Jobs = () => {
             displayModal={displayModal}
             onClick={() => {
               setDisplayModal(true);
-              setModalColor(theme.colors.babyBlue);
+              setModalColor(theme.colors.blue);
             }}
-            color={theme.colors.babyBlue}
+            color={theme.colors.blue}
             companyName="Sparted"
             jobTitle="FullStack Developer"
             jobDescription="Lots of work done"

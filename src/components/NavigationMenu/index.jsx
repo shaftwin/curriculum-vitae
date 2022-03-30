@@ -98,7 +98,7 @@ function NavigationMenu({ setCurrentPage, currentPage }) {
         setDragging={setDragging}
         displayCube={displayCube[0]}
         dragEndCallback={dragEndCallback}
-        color={theme.colors.lightBlueRGB}
+        color={theme.colors.pinkRGB}
         isMenuOpen={isMenuOpen}
         setCircleColor={setCircleColor}
       />
@@ -107,7 +107,7 @@ function NavigationMenu({ setCurrentPage, currentPage }) {
         setDragging={setDragging}
         displayCube={displayCube[1]}
         dragEndCallback={dragEndCallback}
-        color={theme.colors.pinkRGB}
+        color={theme.colors.purpleRGB}
         isMenuOpen={isMenuOpen}
         setCircleColor={setCircleColor}
       />
@@ -116,7 +116,7 @@ function NavigationMenu({ setCurrentPage, currentPage }) {
         setDragging={setDragging}
         displayCube={displayCube[2]}
         dragEndCallback={dragEndCallback}
-        color={theme.colors.turquoiseRGB}
+        color={theme.colors.blueRGB}
         isMenuOpen={isMenuOpen}
         setCircleColor={setCircleColor}
       />
@@ -125,7 +125,7 @@ function NavigationMenu({ setCurrentPage, currentPage }) {
         setDragging={setDragging}
         displayCube={displayCube[3]}
         dragEndCallback={dragEndCallback}
-        color={theme.colors.blueRGB}
+        color={theme.colors.electricBlueRGB}
         isMenuOpen={isMenuOpen}
         setCircleColor={setCircleColor}
       />
