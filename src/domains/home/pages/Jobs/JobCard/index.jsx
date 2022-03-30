@@ -1,32 +1,27 @@
 import PropTypes from 'prop-types';
 /* eslint-disable max-len */
-import React, { forwardRef } from 'react';
+import React from 'react';
 import theme from 'utils/theme';
 import { CompanyName, Container, JobDescription, JobTitle } from './styled';
 
-const JobCard = forwardRef(
-  (
-    { className, color, companyName, jobTitle, jobDescription, onClick },
-    ref,
-  ) => {
-    return (
-      <Container
-        ref={ref}
-        onClick={onClick}
-        className={className}
-        borderColor={color}
-      >
-        <div>
-          <CompanyName color={color}>{companyName}</CompanyName>
-          <JobTitle>{jobTitle}</JobTitle>
-          <JobDescription>{jobDescription}</JobDescription>
-        </div>
-      </Container>
-    );
-  },
-);
-
-JobCard.displayName = 'JobCard';
+const JobCard = ({
+  className,
+  color,
+  companyName,
+  jobTitle,
+  jobDescription,
+  onClick,
+}) => {
+  return (
+    <Container onClick={onClick} className={className} borderColor={color}>
+      <div>
+        <CompanyName color={color}>{companyName}</CompanyName>
+        <JobTitle>{jobTitle}</JobTitle>
+        <JobDescription>{jobDescription}</JobDescription>
+      </div>
+    </Container>
+  );
+};
 
 JobCard.propTypes = {
   /**
