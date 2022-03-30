@@ -4,16 +4,16 @@ import React, { useEffect, useState } from 'react';
 import { CgMenuGridR } from 'react-icons/cg';
 import { CircleLoader, CustomFloatingCube, MenuIcon } from './styled';
 
-function NavigationMenu({ setCurrentPage }) {
+function NavigationMenu({ setCurrentPage, currentPage }) {
   const theme = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(undefined);
   const [dragging, setDragging] = useState(false);
   const [circleColor, setCircleColor] = useState(null);
   const [displayCube, setDisplayCube] = useState([
-    'visible',
-    'visible',
-    'visible',
-    'visible',
+    currentPage === 0 ? 'none' : 'visible',
+    currentPage === 1 ? 'none' : 'visible',
+    currentPage === 2 ? 'none' : 'visible',
+    currentPage === 3 ? 'none' : 'visible',
   ]);
   const centerX = 78;
   const centerY = 190;
@@ -134,6 +134,7 @@ function NavigationMenu({ setCurrentPage }) {
 }
 
 NavigationMenu.propTypes = {
+  currentPage: PropTypes.number.isRequired,
   setCurrentPage: PropTypes.func.isRequired,
 };
 

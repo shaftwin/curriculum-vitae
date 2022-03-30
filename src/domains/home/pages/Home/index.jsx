@@ -28,9 +28,17 @@ function Home() {
       {currentPage === 1 && <Skills />}
       {currentPage === 2 && <Jobs />}
       {currentPage === 3 && <Contact />}
-      {innerWidth >= 1200 && <NavigationMenu setCurrentPage={setCurrentPage} />}
+      {innerWidth >= 1200 && (
+        <NavigationMenu
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
+      )}
       {innerWidth < 1200 && (
-        <AppNavigationMenu setCurrentPage={setCurrentPage} />
+        <AppNavigationMenu
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
       )}
     </Container>
   );

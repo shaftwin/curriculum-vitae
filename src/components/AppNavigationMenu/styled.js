@@ -81,10 +81,13 @@ export const NavItem = styled.a`
   width: 100%;
   display: block;
   font-size: ${({ theme }) => theme.fontSize[18]};
-  color: ${({ theme }) => theme.colors.lightGrey};
+  color: ${({ isCurrentPage, color, theme }) =>
+    isCurrentPage ? color : theme.colors.lightGrey};
   line-height: 4rem;
   border-bottom: 1px solid ${({ theme }) => theme.colors.grey};
   transition: color 0.2s ease-in, background-color 0.2s ease-in;
+  background-color: ${({ isCurrentPage, backgroundColor }) =>
+    isCurrentPage ? backgroundColor : 'transparent'};
   &:hover {
     color: ${({ color }) => color};
     background-color: ${({ backgroundColor }) => backgroundColor};
@@ -118,7 +121,4 @@ export const Divider = styled.span`
   font-weight: ${({ theme }) => theme.fontWeight.bold};
   color: ${({ theme }) => theme.colors.lightGrey};
   margin: 0 10px;
-  &:hover {
-    color: ${({ theme }) => theme.colors.turquoise};
-  }
 `;

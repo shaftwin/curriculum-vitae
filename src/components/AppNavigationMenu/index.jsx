@@ -15,7 +15,7 @@ import {
   NavItem,
 } from './styled';
 
-function AppNavigationMenu({ setCurrentPage }) {
+function AppNavigationMenu({ currentPage, setCurrentPage }) {
   const theme = useTheme();
   const { t, i18n } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(undefined);
@@ -42,6 +42,7 @@ function AppNavigationMenu({ setCurrentPage }) {
             }}
             color={theme.colors.lightBlue}
             backgroundColor={theme.backgroundColors.lightBlueAlpha}
+            isCurrentPage={currentPage === 0}
           >
             {t('common:my.myself.i')}
           </NavItem>
@@ -52,6 +53,7 @@ function AppNavigationMenu({ setCurrentPage }) {
             }}
             color={theme.colors.pink}
             backgroundColor={theme.backgroundColors.pinkAlpha}
+            isCurrentPage={currentPage === 1}
           >
             {t('common:skill', { count: 2 })}
           </NavItem>
@@ -62,6 +64,7 @@ function AppNavigationMenu({ setCurrentPage }) {
             }}
             color={theme.colors.turquoise}
             backgroundColor={theme.backgroundColors.turquoiseAlpha}
+            isCurrentPage={currentPage === 2}
           >
             {t('common:job', { count: 2 })}
           </NavItem>
@@ -72,6 +75,7 @@ function AppNavigationMenu({ setCurrentPage }) {
             }}
             color={theme.colors.blue}
             backgroundColor={theme.backgroundColors.blueAlpha}
+            isCurrentPage={currentPage === 3}
           >
             {t('common:contact')}
           </NavItem>
@@ -97,6 +101,7 @@ function AppNavigationMenu({ setCurrentPage }) {
 }
 
 AppNavigationMenu.propTypes = {
+  currentPage: PropTypes.number.isRequired,
   setCurrentPage: PropTypes.func.isRequired,
 };
 
