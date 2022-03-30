@@ -35,7 +35,6 @@ export const MenuIcon = styled.div`
 `;
 
 export const NavigationContainer = styled.div`
-  display: ${({ innerWidth }) => (innerWidth > 1024 ? 'none' : 'visible')};
   opacity: ${({ isMenuOpen }) => (isMenuOpen ? 1 : 0)};
   position: fixed;
   top: 0;

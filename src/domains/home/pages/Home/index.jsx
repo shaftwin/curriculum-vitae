@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
-import NavigationMenu from 'src/components/NavigationMenu';
 import AppNavigationMenu from 'src/components/AppNavigationMenu';
+import NavigationMenu from 'src/components/NavigationMenu';
 import About from 'src/domains/home/pages/About';
 import Contact from 'src/domains/home/pages/Contact';
 import Jobs from 'src/domains/home/pages/Jobs';
@@ -28,11 +28,10 @@ function Home() {
       {currentPage === 1 && <Skills />}
       {currentPage === 2 && <Jobs />}
       {currentPage === 3 && <Contact />}
-      {innerWidth > 1024 && <NavigationMenu setCurrentPage={setCurrentPage} />}
-      <AppNavigationMenu
-        innerWidth={innerWidth}
-        setCurrentPage={setCurrentPage}
-      />
+      {innerWidth >= 1200 && <NavigationMenu setCurrentPage={setCurrentPage} />}
+      {innerWidth < 1200 && (
+        <AppNavigationMenu setCurrentPage={setCurrentPage} />
+      )}
     </Container>
   );
 }

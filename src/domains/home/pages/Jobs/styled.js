@@ -10,7 +10,7 @@ export const Container = styled.div`
   flex-direction: column;
   padding: 60px 30px 60px 30px;
   overflow: auto;
-  @media screen and (min-width: 1350px) {
+  @media screen and (min-width: 1300px) {
     justify-content: center;
     padding: 20px 20px 20px 20px;
   }
@@ -23,8 +23,7 @@ export const Grid = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  @media screen and (min-width: 1350px) {
-    min-width: 1350px;
+  @media screen and (min-width: 1300px) {
     height: 100%;
     flex-direction: row;
   }
@@ -37,7 +36,7 @@ export const ColumnContainer = styled.div`
   min-width: 300px;
   margin-top: 20px;
   max-width: 500px;
-  @media screen and (min-width: 1350px) {
+  @media screen and (min-width: 1300px) {
     width: 47%;
     margin-top: 0px;
     &:not(:last-child) {

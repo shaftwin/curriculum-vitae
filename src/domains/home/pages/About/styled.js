@@ -10,7 +10,7 @@ export const Container = styled.div`
   flex-direction: column;
   padding: 40px 30px 200px 30px;
   overflow: auto;
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1200px) {
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -31,7 +31,7 @@ export const CustomTagCloud = styled(TagCloud)`
   @media screen and (min-width: 760px) {
     margin-top: 250px;
   }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1200px) {
     margin-top: 100px;
     margin-left: 25%;
   }
@@ -41,7 +41,7 @@ export const CustomTagCloud = styled(TagCloud)`
 `;
 
 export const CustomTextInfo = styled(TextInfo)`
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1200px) {
     max-width: 475px;
     margin-left: -10%;
   }

@@ -8,7 +8,7 @@ export const Container = styled.div`
   flex-direction: column;
   padding: 40px 30px 60px 30px;
   overflow: auto;
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1200px) {
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -17,7 +17,7 @@ export const Container = styled.div`
 `;
 
 export const TextContainer = styled.div`
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1200px) {
     margin-right: 50px;
   }
 `;
@@ -31,7 +31,7 @@ export const NetworkContainer = styled.div`
 
 export const CustomTextInfo = styled(TextInfo)`
   min-height: 200px;
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1200px) {
     max-width: 415px;
   }
 `;
@@ -48,7 +48,7 @@ export const CustomContactForm = styled(beforeAfter)`
     bottom: -2.5rem;
     left: -1rem;
   }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1200px) {
     min-width: 415px;
   }
 `;

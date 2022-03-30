@@ -12,7 +12,7 @@ export const Container = styled.div`
   align-items: center;
   overflow: auto;
   padding: 40px 30px 60px 30px;
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1200px) {
     flex-direction: row-reverse;
     justify-content: center;
     align-items: center;
@@ -21,7 +21,7 @@ export const Container = styled.div`
 `;
 
 export const CustomTextInfo = styled(TextInfo)`
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1200px) {
     max-width: 475px;
   }
 `;
@@ -49,7 +49,7 @@ export const SkillsContainer = styled(beforeAfter)`
     bottom: -2.2rem;
     left: 0rem;
   }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1200px) {
     margin-top: 0px;
     margin-right: 50px;
     max-width: 450px;

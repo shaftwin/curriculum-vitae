@@ -6,16 +6,16 @@ import { CgMenuGridR } from 'react-icons/cg';
 import {
   CloseIconContainer,
   CustomVscChromeClose,
+  Divider,
+  Language,
+  LanguageContainer,
   MenuIcon,
   NavContainer,
   NavigationContainer,
   NavItem,
-  LanguageContainer,
-  Language,
-  Divider,
 } from './styled';
 
-function AppNavigationMenu({ setCurrentPage, innerWidth }) {
+function AppNavigationMenu({ setCurrentPage }) {
   const theme = useTheme();
   const { t, i18n } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(undefined);
@@ -30,7 +30,7 @@ function AppNavigationMenu({ setCurrentPage, innerWidth }) {
       >
         <CgMenuGridR color={theme.colors.lightGrey} size="3.5em" />
       </MenuIcon>
-      <NavigationContainer isMenuOpen={isMenuOpen} innerWidth={innerWidth}>
+      <NavigationContainer isMenuOpen={isMenuOpen}>
         <CloseIconContainer onClick={() => setIsMenuOpen(false)}>
           <CustomVscChromeClose size="3.5em" />
         </CloseIconContainer>
@@ -98,7 +98,6 @@ function AppNavigationMenu({ setCurrentPage, innerWidth }) {
 
 AppNavigationMenu.propTypes = {
   setCurrentPage: PropTypes.func.isRequired,
-  innerWidth: PropTypes.number.isRequired,
 };
 
 export default AppNavigationMenu;
