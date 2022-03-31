@@ -13,8 +13,12 @@ export const Container = styled.div`
   @media screen and (min-width: 1200px) {
     flex-direction: row;
     justify-content: center;
-    align-items: center;
-    padding: 20px 20px 20px 20px;
+    align-items: unset;
+    padding: 40px 20px 40px 20px;
+    @media screen and (min-height: 700px) {
+      align-items: center;
+      padding: 20px 20px 20px 20px;
+    }
   }
 `;
 
@@ -38,11 +42,24 @@ export const CustomTagCloud = styled(TagCloud)`
   @media screen and (min-width: 1350px) {
     margin-left: 20%;
   }
+  @media screen and (max-height: 500px) and (min-width: 1200px) {
+    margin-top: 400px;
+  }
+  @media screen and (min-height: 500px) and (min-width: 1200px) {
+    margin-top: 300px;
+  }
+  @media screen and (min-height: 700px) and (min-width: 1200px) {
+    margin-top: 200px;
+  }
 `;
 
 export const CustomTextInfo = styled(TextInfo)`
   @media screen and (min-width: 1200px) {
     max-width: 475px;
     margin-left: -10%;
+    min-height: 685px;
+    @media screen and (min-height: 700px) {
+      min-height: unset;
+    }
   }
 `;
