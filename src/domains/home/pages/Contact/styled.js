@@ -11,14 +11,22 @@ export const Container = styled.div`
   @media screen and (min-width: 1200px) {
     flex-direction: row;
     justify-content: center;
-    align-items: center;
-    padding: 20px 20px 20px 20px;
+    padding: 80px 20px 80px 20px;
+    @media screen and (min-height: 550px) {
+      align-items: center;
+      padding: 20px 20px 20px 20px;
+    }
   }
 `;
 
 export const TextContainer = styled.div`
   @media screen and (min-width: 1200px) {
     margin-right: 50px;
+    margin-top: 50px;
+    @media screen and (min-height: 550px) {
+      height: unset;
+      margin-top: 0px;
+    }
   }
 `;
 
@@ -50,5 +58,9 @@ export const CustomContactForm = styled(beforeAfter)`
   }
   @media screen and (min-width: 1200px) {
     min-width: 415px;
+    height: 430px;
+    @media screen and (min-height: 550px) {
+      height: unset;
+    }
   }
 `;

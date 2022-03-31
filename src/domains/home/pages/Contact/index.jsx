@@ -20,10 +20,10 @@ const Contact = () => {
     const textContainerNode = document.getElementById('TextContainer');
     const containerNode = document.getElementById('Container');
     // Resize to 1024 or more
-    if (window.innerWidth >= 1024 && containerNode.childNodes.length === 3) {
+    if (window.innerWidth >= 1200 && containerNode.childNodes.length === 3) {
       textContainerNode.appendChild(containerNode.childNodes[2]);
     } else if (
-      window.innerWidth < 1024 &&
+      window.innerWidth < 1200 &&
       textContainerNode.childNodes.length === 2
     ) {
       // Resize less than 1024 and avoid first time
