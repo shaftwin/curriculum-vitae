@@ -7,4 +7,7 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   background-color: ${({ theme }) => theme.backgroundColors.dark};
+  @media screen and (min-width: 1200px) {
+    min-height: 680px;
+  }
 `;

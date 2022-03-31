@@ -44,7 +44,8 @@ export const CustomFloatingCube = styled(FloatingCube)`
   top: 0;
   left: 0;
   /* Prevent first render to display cubes */
-  opacity: ${({ isMenuOpen }) => (isMenuOpen === undefined ? 0 : 1)};
+  opacity: ${({ isMenuOpen }) =>
+    isMenuOpen === undefined || isMenuOpen === false ? 0 : 1};
   /* Should be improved */
   animation: ${({ displayCube, isMenuOpen, cubeIndex }) => {
     /* Prevent first render to perform animation */
@@ -127,7 +128,8 @@ export const CircleLoader = styled.div`
           : theme.colors.lightGrey};
   z-index: 0;
   /* Prevent first render to display cubes */
-  opacity: ${({ isMenuOpen }) => (isMenuOpen === undefined ? 0 : 1)};
+  opacity: ${({ isMenuOpen }) =>
+    isMenuOpen === undefined || isMenuOpen === false ? 0 : 1};
   animation: ${({ dragging, isMenuOpen }) => {
     /* Prevent first render to perform animation */
     if (isMenuOpen === undefined) return null;
