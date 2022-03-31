@@ -26,6 +26,10 @@ export const Grid = styled.div`
   @media screen and (min-width: 1300px) {
     height: 100%;
     flex-direction: row;
+    align-items: unset;
+    @media screen and (min-height: 540px) {
+      align-items: center;
+    }
   }
 `;
 
