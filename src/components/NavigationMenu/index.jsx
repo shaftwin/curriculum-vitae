@@ -6,6 +6,8 @@ import { CircleLoader, CustomFloatingCube, MenuIcon } from './styled';
 
 function NavigationMenu({ setCurrentPage, currentPage }) {
   const theme = useTheme();
+  // TODO Need to clear this state, it change from undefined to false without knowing how
+  // TODO Need to clear css animation
   const [isMenuOpen, setIsMenuOpen] = useState(undefined);
   const [dragging, setDragging] = useState(false);
   const [circleColor, setCircleColor] = useState(null);
@@ -82,9 +84,7 @@ function NavigationMenu({ setCurrentPage, currentPage }) {
     <>
       <MenuIcon
         isMenuOpen={isMenuOpen}
-        onClick={() =>
-          setIsMenuOpen(isMenuOpen === undefined || isMenuOpen === false)
-        }
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
       >
         <CgMenuGridR size="3.5em" />
       </MenuIcon>

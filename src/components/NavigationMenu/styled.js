@@ -41,11 +41,10 @@ const prevIsMenuOpen = [false, false, false, false];
 
 export const CustomFloatingCube = styled(FloatingCube)`
   position: absolute;
-  top: 0;
-  left: 0;
   /* Prevent first render to display cubes */
   opacity: ${({ isMenuOpen }) =>
     isMenuOpen === undefined || isMenuOpen === false ? 0 : 1};
+  visibility: ${({ isMenuOpen }) => isMenuOpen === false && 'hidden'};
   /* Should be improved */
   animation: ${({ displayCube, isMenuOpen, cubeIndex }) => {
     /* Prevent first render to perform animation */

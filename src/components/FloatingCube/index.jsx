@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import Cube from 'react-cube3d';
-import { Container, AbsoluteContainer } from './styled';
+import { AbsoluteContainer } from './styled';
 
 const size = 35;
 const offsets = [-150, -50, 50, 150];
@@ -18,6 +18,7 @@ const FloatingCube = ({
   color,
   displayCube,
   setCircleColor,
+  isMenuOpen,
 }) => {
   const defaultCubePos =
     (window.innerHeight > 910 ? window.innerHeight : 910) / 2 -
@@ -31,6 +32,35 @@ const FloatingCube = ({
   const [deltaY, setDeltaY] = useState(0);
   const [previousState, setPreviousState] = useState('visible');
   const dragImage = useRef(null);
+  const [savedPosition, setSavedPosition] = useState(null);
+
+  // Used to re-position cubes to prev pos when menu is opened
+  const shouldShowPosition = useCallback(() => {
+    let prevPos;
+    if (isMenuOpen && savedPosition) {
+      setCubeX(savedPosition.x);
+      setCubeY(savedPosition.y);
+      setSavedPosition(prevPos);
+    }
+  }, [isMenuOpen]);
+
+  // Used to position cubes top left when Menu is closed
+  // This prevent useless page scroll when menu is closed
+  const shouldHidePosition = useCallback(() => {
+    let prevPos;
+    if (!isMenuOpen) {
+      prevPos = { x: cubeX, y: cubeY };
+      setCubeX(0);
+      setCubeY(0);
+      setSavedPosition(prevPos);
+    }
+  }, [isMenuOpen]);
+
+  // Used to position cubes top left when Menu is closed on first render
+  // This prevent useless page scroll when menu is closed
+  useEffect(() => {
+    shouldHidePosition();
+  }, []);
 
   useEffect(() => {
     if (displayCube === 'none') {
@@ -96,40 +126,41 @@ const FloatingCube = ({
   };
 
   return (
-    <Container className={className}>
-      <AbsoluteContainer
-        onMouseDown={onMouseDown}
-        cubeX={cubeX}
-        cubeY={cubeY}
-        draggable
-        onDragStart={startDrag}
-        onDrag={onDrag}
-        onDragEnd={(e) => {
-          dragEndCallback(e.clientX, e.clientY, cubeIndex);
-          setDragging(false);
-          setCircleColor(null);
+    <AbsoluteContainer
+      className={className}
+      onAnimationStart={shouldShowPosition}
+      onAnimationEnd={shouldHidePosition}
+      onMouseDown={onMouseDown}
+      cubeX={cubeX}
+      cubeY={cubeY}
+      draggable
+      onDragStart={startDrag}
+      onDrag={onDrag}
+      onDragEnd={(e) => {
+        dragEndCallback(e.clientX, e.clientY, cubeIndex);
+        setDragging(false);
+        setCircleColor(null);
+      }}
+    >
+      <Cube
+        // noShadow
+        shadow={{
+          x: '35%',
+          y: '70%',
         }}
-      >
-        <Cube
-          // noShadow
-          shadow={{
-            x: '35%',
-            y: '70%',
-          }}
-          size={size}
-          speed={{
-            x: 0.0,
-            y: 0.0,
-          }}
-          x={cubeRotationX}
-          y={cubeRotationY}
-          palette={{
-            color: color || [190, 10, 0],
-            shading: [200, 250, 200],
-          }}
-        />
-      </AbsoluteContainer>
-    </Container>
+        size={size}
+        speed={{
+          x: 0.0,
+          y: 0.0,
+        }}
+        x={cubeRotationX}
+        y={cubeRotationY}
+        palette={{
+          color: color || [190, 10, 0],
+          shading: [200, 250, 200],
+        }}
+      />
+    </AbsoluteContainer>
   );
 };
 
@@ -162,9 +193,14 @@ FloatingCube.propTypes = {
    * Optional custom style
    */
   className: PropTypes.string,
+  /**
+   * Optional isMenuOpen, used to repositionning cube when menu is closed to avoid page scroll
+   */
+  isMenuOpen: PropTypes.boolean,
 };
 
 FloatingCube.defaultProps = {
+  isMenuOpen: false,
   className: null,
   color: null,
   dragEndCallback: () => null,
