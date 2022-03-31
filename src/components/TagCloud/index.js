@@ -142,6 +142,7 @@ const TagCloud = ({ words, className }) => {
       const newArray = [];
       items.forEach((item, index) => {
         const currentRef = refArray.current[index];
+        if (!currentRef) return null;
         const rx1 = item.x;
         const ry1 = item.y * sc[1] + item.z * -sc[0]; // + pos.z * -sc[0];
         const rz1 = item.y * sc[0] + item.z * sc[1]; // + pos.z * sc[1];
@@ -173,6 +174,7 @@ const TagCloud = ({ words, className }) => {
         currentRef.style.filter = `alpha(opacity=${100 * alpha})`;
         currentRef.style.opacity = alpha;
         currentRef.style.zIndex = index + 1;
+        return null;
       });
       setItems(newArray);
     }, 1);
