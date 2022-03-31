@@ -90,7 +90,7 @@ const FloatingCube = ({
 
     window.addEventListener('resize', onResize);
     return () => window.removeEventListener('resize', onResize);
-  }, [cubeIndex]);
+  }, [cubeIndex, isMenuOpen]);
 
   useEffect(() => {
     dragImage.current = new Image();
