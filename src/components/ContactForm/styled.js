@@ -19,9 +19,7 @@ export const CustomInput = styled.input`
   font-size: ${({ theme }) => theme.fontSize[16]};
   border: 0;
   padding: 0 20px;
-  &:nth-child(-n + 3) {
-    margin-bottom: 20px;
-  }
+  margin-bottom: 20px;
   animation: ${({ displayModal }) => {
     return (
       displayModal === undefined &&
@@ -41,7 +39,7 @@ export const CustomTextarea = styled.textarea`
   color: ${({ theme }) => theme.fontColors.contactInput};
   font-size: ${({ theme }) => theme.fontSize[16]};
   border: 0;
-  padding: 0 20px;
+  padding: 15px 20px;
   min-height: 150px;
   animation: ${({ displayModal }) => {
     return (

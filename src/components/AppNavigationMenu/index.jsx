@@ -28,7 +28,7 @@ function AppNavigationMenu({ currentPage, setCurrentPage }) {
           setIsMenuOpen(isMenuOpen === undefined || isMenuOpen === false)
         }
       >
-        <CgMenuGridR color={theme.colors.lightGrey} size="3.5em" />
+        <CgMenuGridR size="3.5em" />
       </MenuIcon>
       <NavigationContainer isMenuOpen={isMenuOpen}>
         <CloseIconContainer onClick={() => setIsMenuOpen(false)}>

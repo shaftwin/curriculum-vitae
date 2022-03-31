@@ -22,6 +22,11 @@ export const MenuIcon = styled.div`
   top: 10px;
   right: 10px;
   cursor: pointer;
+  transition: color 0.2s ease-in;
+  color: ${({ theme }) => theme.colors.lightGrey};
+  &:hover {
+    color: ${({ theme }) => theme.colors.white};
+  }
   animation: ${({ isMenuOpen }) => {
     if (isMenuOpen === undefined) return null;
     return isMenuOpen

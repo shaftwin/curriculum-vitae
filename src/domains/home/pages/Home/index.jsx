@@ -10,7 +10,7 @@ import Skills from 'src/domains/home/pages/Skills';
 import { Container } from './styled';
 
 function Home() {
-  const [currentPage, setCurrentPage] = useState(null);
+  const [currentPage, setCurrentPage] = useState(-1);
   const [innerWidth, setInnerWidth] = useState(window.innerWidth);
 
   useEffect(() => {

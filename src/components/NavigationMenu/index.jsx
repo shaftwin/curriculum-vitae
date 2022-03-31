@@ -86,7 +86,7 @@ function NavigationMenu({ setCurrentPage, currentPage }) {
           setIsMenuOpen(isMenuOpen === undefined || isMenuOpen === false)
         }
       >
-        <CgMenuGridR color={theme.colors.lightGrey} size="3.5em" />
+        <CgMenuGridR size="3.5em" />
       </MenuIcon>
       <CircleLoader
         color={circleColor}

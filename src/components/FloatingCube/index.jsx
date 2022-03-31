@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React, { useEffect, useRef, useState } from 'react';
-// import Cube, { Palette } from 'react-cube3d';
 import Cube from 'react-cube3d';
 import { Container, AbsoluteContainer } from './styled';
 
@@ -142,7 +141,7 @@ FloatingCube.propTypes = {
   /**
    * Required displayCube
    */
-  displayCube: PropTypes.bool.isRequired,
+  displayCube: PropTypes.string.isRequired,
   /**
    * Required cubeIndex
    */

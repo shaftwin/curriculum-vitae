@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { useEffect, useRef, useState } from 'react';
-import TECH_WORDS from 'src/components/TagCloud/mocks/words.mock';
 import { Container, FloatingContainer, FloatingText } from './styled';
 
-const TagCloud = ({ words = TECH_WORDS, className }) => {
+const TagCloud = ({ words, className }) => {
   const [prevConfig, setPrevConfig] = useState(() => {
     let delta = window.innerWidth - 375;
     if (delta > 649) {
@@ -213,7 +212,12 @@ const TagCloud = ({ words = TECH_WORDS, className }) => {
 };
 
 TagCloud.propTypes = {
-  words: PropTypes.arrayOf(PropTypes.string).isRequired,
+  words: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      callback: PropTypes.func.isRequired,
+    }),
+  ).isRequired,
   className: PropTypes.string,
 };
 

@@ -19,7 +19,7 @@ const Glowing = ({ title, className }) => {
         return (
           <CustomSpan key={idx}>
             <HiddenInput
-              onClick={() => updateGlowing(idx)}
+              onChange={() => updateGlowing(idx)}
               checked={checked[idx]}
               type="checkbox"
             />

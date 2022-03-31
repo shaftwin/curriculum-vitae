@@ -97,6 +97,11 @@ export const MenuIcon = styled.div`
           ${spinOff} 1s forwards
         `;
   }};
+  transition: color 0.2s ease-in;
+  color: ${({ theme }) => theme.colors.lightGrey};
+  &:hover {
+    color: ${({ theme }) => theme.colors.white};
+  }
 `;
 
 /* Use to perform animation when menu is clicked */
