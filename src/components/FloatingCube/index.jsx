@@ -204,7 +204,7 @@ FloatingCube.propTypes = {
   /**
    * Optional isMenuOpen, used to repositionning cube when menu is closed to avoid page scroll
    */
-  isMenuOpen: PropTypes.boolean,
+  isMenuOpen: PropTypes.bool,
 };
 
 FloatingCube.defaultProps = {
