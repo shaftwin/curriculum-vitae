@@ -76,7 +76,15 @@ const FloatingCube = ({
   useEffect(() => {
     const onResize = () => {
       if (window.innerHeight < 910) return null;
-      setCubeY(window.innerHeight / 2 - size / 2 + offsets[cubeIndex]);
+      // Prevent resize to messup cube position when menu is closed
+      if (!isMenuOpen) {
+        savedPosition({
+          x: savedPosition.x,
+          y: window.innerHeight / 2 - size / 2 + offsets[cubeIndex],
+        });
+      } else {
+        setCubeY(window.innerHeight / 2 - size / 2 + offsets[cubeIndex]);
+      }
       return null;
     };
 
