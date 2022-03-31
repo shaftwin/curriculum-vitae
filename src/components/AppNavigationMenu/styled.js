@@ -49,7 +49,7 @@ export const NavigationContainer = styled.div`
   z-index: ${({ isMenuOpen }) => (isMenuOpen ? 11 : -1)};
   background-color: ${({ theme }) => theme.colors.darkBlue};
   cursor: pointer;
-  transition: opacity 0.5s ease-in-out, z-index 0.25s ease-in-out;
+  transition: opacity 0.5s ease-in-out, z-index 0.3s ease-in-out;
 `;
 
 export const CloseIconContainer = styled.div`
@@ -97,7 +97,7 @@ export const NavItem = styled.a`
     color: ${({ color }) => color};
     background-color: ${({ backgroundColor }) => backgroundColor};
   }
-  &:first-child {
+  &:first-of-type {
     border-top: 1px solid ${({ theme }) => theme.colors.grey};
   }
 `;
