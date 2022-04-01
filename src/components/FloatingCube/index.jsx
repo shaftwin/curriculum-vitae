@@ -170,7 +170,7 @@ FloatingCube.propTypes = {
 };
 
 FloatingCube.defaultProps = {
-  isMenuOpen: false,
+  isMenuOpen: undefined,
   className: null,
   color: null,
   dragEndCallback: () => null,

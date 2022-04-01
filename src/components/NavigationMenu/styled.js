@@ -1,6 +1,7 @@
 import { css, keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 import FloatingCube from 'src/components/FloatingCube';
+import Language from 'src/components/Language';
 
 const fadeIn = keyframes`
   0% {
@@ -43,12 +44,14 @@ export const CustomFloatingCube = styled(FloatingCube)`
   position: absolute;
   z-index: 10;
   /* Prevent first render to display cubes */
-  opacity: ${({ isMenuOpen }) => (isMenuOpen === false ? 0 : 1)};
-  visibility: ${({ isMenuOpen }) => isMenuOpen === false && 'hidden'};
+  opacity: ${({ isMenuOpen }) =>
+    isMenuOpen === undefined || isMenuOpen === false ? 0 : 1};
+  visibility: ${({ isMenuOpen }) =>
+    (isMenuOpen === undefined || isMenuOpen === false) && 'hidden'};
   /* Should be improved */
   animation: ${({ displayCube, isMenuOpen, cubeIndex }) => {
     /* Prevent first render to perform animation */
-    if (isMenuOpen === false) return null;
+    if (isMenuOpen === undefined) return null;
     /* Prevent useless animation */
     if (isMenuOpen !== prevIsMenuOpen[cubeIndex] || displayCube === 'none') {
       prevIsMenuOpen[cubeIndex] = isMenuOpen;
@@ -152,4 +155,29 @@ export const CircleLoader = styled.div`
       : 'none';
   }};
   backdrop-filter: blur(5px);
+`;
+
+export const AbsoluteLanguage = styled(Language)`
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  opacity: ${({ isMenuOpen }) =>
+    isMenuOpen === undefined || isMenuOpen === false ? 0 : 1};
+  visibility: ${({ isMenuOpen }) =>
+    (isMenuOpen === undefined || isMenuOpen === false) && 'hidden'};
+  /* Should be improved */
+  animation: ${({ isMenuOpen }) => {
+    if (isMenuOpen === undefined) return null;
+    if (isMenuOpen === false) {
+      return css`
+        ${fadeOut} 1s forwards
+      `;
+    }
+    return css`
+      ${fadeIn} 1s forwards
+    `;
+  }};
 `;

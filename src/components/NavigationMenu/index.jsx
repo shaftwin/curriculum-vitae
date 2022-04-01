@@ -2,7 +2,12 @@ import { useTheme } from '@emotion/react';
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import { CgMenuGridR } from 'react-icons/cg';
-import { CircleLoader, CustomFloatingCube, MenuIcon } from './styled';
+import {
+  CircleLoader,
+  CustomFloatingCube,
+  MenuIcon,
+  AbsoluteLanguage,
+} from './styled';
 
 function NavigationMenu({ setCurrentPage, currentPage }) {
   const theme = useTheme();
@@ -106,6 +111,7 @@ function NavigationMenu({ setCurrentPage, currentPage }) {
         isMenuOpen={isMenuOpen}
         setCircleColor={setCircleColor}
       />
+      <AbsoluteLanguage isMenuOpen={isMenuOpen} />
     </>
   );
 }

@@ -30,6 +30,8 @@ function Home() {
       {currentPage === 1 && <Skills />}
       {currentPage === 2 && <Jobs />}
       {currentPage === 3 && <Contact />}
+      {/* TODO Ternary had trigger an arror about  */}
+      {/* Can't perform a React state update on an unmounted component. */}
       {innerWidth >= 1200 && innerHeight >= 650 ? (
         <NavigationMenu
           currentPage={currentPage}
