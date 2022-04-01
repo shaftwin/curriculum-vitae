@@ -12,10 +12,12 @@ import { Container } from './styled';
 function Home() {
   const [currentPage, setCurrentPage] = useState(-1);
   const [innerWidth, setInnerWidth] = useState(window.innerWidth);
+  const [innerHeight, setInnerHeight] = useState(window.innerHeight);
 
   useEffect(() => {
     const onResize = () => {
       setInnerWidth(window.innerWidth);
+      setInnerHeight(window.innerHeight);
     };
 
     window.addEventListener('resize', onResize);
@@ -28,13 +30,12 @@ function Home() {
       {currentPage === 1 && <Skills />}
       {currentPage === 2 && <Jobs />}
       {currentPage === 3 && <Contact />}
-      {innerWidth >= 1200 && (
+      {innerWidth >= 1200 && innerHeight >= 650 ? (
         <NavigationMenu
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
         />
-      )}
-      {innerWidth < 1200 && (
+      ) : (
         <AppNavigationMenu
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
