@@ -4,11 +4,9 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { CgMenuGridR } from 'react-icons/cg';
 import {
+  AbsoluteLanguage,
   CloseIconContainer,
   CustomVscChromeClose,
-  Divider,
-  Language,
-  LanguageContainer,
   MenuIcon,
   NavContainer,
   NavigationContainer,
@@ -17,7 +15,7 @@ import {
 
 function AppNavigationMenu({ currentPage, setCurrentPage }) {
   const theme = useTheme();
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(undefined);
 
   return (
@@ -80,21 +78,7 @@ function AppNavigationMenu({ currentPage, setCurrentPage }) {
             {t('common:contact')}
           </NavItem>
         </NavContainer>
-        <LanguageContainer>
-          <Language
-            isSelected={i18n.language === 'fr'}
-            onClick={() => i18n.changeLanguage('fr')}
-          >
-            Fr
-          </Language>
-          <Divider>/</Divider>
-          <Language
-            isSelected={i18n.language === 'en'}
-            onClick={() => i18n.changeLanguage('en')}
-          >
-            En
-          </Language>
-        </LanguageContainer>
+        <AbsoluteLanguage />
       </NavigationContainer>
     </>
   );

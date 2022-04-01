@@ -1,6 +1,7 @@
 import { css, keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 import { VscChromeClose } from 'react-icons/vsc';
+import Language from 'src/components/Language';
 
 const spinOn = keyframes`
   100% {
@@ -48,7 +49,6 @@ export const NavigationContainer = styled.div`
   right: 0;
   z-index: ${({ isMenuOpen }) => (isMenuOpen ? 11 : -1)};
   background-color: ${({ theme }) => theme.colors.darkBlue};
-  cursor: pointer;
   transition: opacity 0.5s ease-in-out, z-index 0.3s ease-in-out;
 `;
 
@@ -65,7 +65,6 @@ export const CloseIconContainer = styled.div`
 export const CustomVscChromeClose = styled(VscChromeClose)`
   width: 3rem;
   height: 3rem;
-  cursor: pointer;
   color: ${({ theme }) => theme.colors.lightGrey};
   transition: color 0.2s ease-in;
   &:hover {
@@ -82,8 +81,9 @@ export const NavContainer = styled.nav`
 `;
 
 export const NavItem = styled.a`
-  text-align: center;
   width: 100%;
+  cursor: pointer;
+  text-align: center;
   display: block;
   font-size: ${({ theme }) => theme.fontSize[18]};
   color: ${({ isCurrentPage, color, theme }) =>
@@ -102,8 +102,7 @@ export const NavItem = styled.a`
   }
 `;
 
-export const LanguageContainer = styled.div`
-  width: 100px;
+export const AbsoluteLanguage = styled(Language)`
   position: absolute;
   bottom: 50px;
   left: 0;
@@ -111,19 +110,4 @@ export const LanguageContainer = styled.div`
   margin: 0 auto;
   display: flex;
   justify-content: center;
-`;
-
-export const Language = styled.span`
-  font-weight: ${({ theme }) => theme.fontWeight.bold};
-  color: ${({ theme, isSelected }) =>
-    isSelected ? theme.colors.turquoise : theme.colors.lightGrey};
-  &:hover {
-    color: ${({ theme }) => theme.colors.turquoise};
-  }
-`;
-
-export const Divider = styled.span`
-  font-weight: ${({ theme }) => theme.fontWeight.bold};
-  color: ${({ theme }) => theme.colors.lightGrey};
-  margin: 0 10px;
 `;
