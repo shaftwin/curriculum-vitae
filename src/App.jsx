@@ -6,6 +6,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import UnauthenticatedRoutes from '../services/router/UnauthenticatedRoutes';
 import { initTranslation } from '../services/i18n';
 import theme from '../utils/theme';
+import '../global.css';
 
 const App = () => {
   initTranslation();
