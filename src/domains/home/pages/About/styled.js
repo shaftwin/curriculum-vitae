@@ -55,7 +55,7 @@ export const CustomTagCloud = styled(TagCloud)`
 
 export const CustomTextInfo = styled(TextInfo)`
   @media screen and (min-width: 1200px) {
-    max-width: 475px;
+    max-width: 505px;
     margin-left: -10%;
     min-height: 685px;
     @media screen and (min-height: 700px) {
