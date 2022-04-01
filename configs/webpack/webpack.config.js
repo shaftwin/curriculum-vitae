@@ -37,11 +37,7 @@ module.exports = (env) => {
         },
         {
           test: /\.(png|svg|jpg|gif)$/,
-          // use: ['file-loader'],
-          loader: 'file-loader',
-          options: {
-            outputPath: '.output/static/images',
-          },
+          use: ['file-loader'],
         },
       ],
     },
