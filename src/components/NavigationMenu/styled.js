@@ -43,13 +43,12 @@ export const CustomFloatingCube = styled(FloatingCube)`
   position: absolute;
   z-index: 10;
   /* Prevent first render to display cubes */
-  opacity: ${({ isMenuOpen }) =>
-    isMenuOpen === undefined || isMenuOpen === false ? 0 : 1};
+  opacity: ${({ isMenuOpen }) => (isMenuOpen === false ? 0 : 1)};
   visibility: ${({ isMenuOpen }) => isMenuOpen === false && 'hidden'};
   /* Should be improved */
   animation: ${({ displayCube, isMenuOpen, cubeIndex }) => {
     /* Prevent first render to perform animation */
-    if (isMenuOpen === undefined) return null;
+    if (isMenuOpen === false) return null;
     /* Prevent useless animation */
     if (isMenuOpen !== prevIsMenuOpen[cubeIndex] || displayCube === 'none') {
       prevIsMenuOpen[cubeIndex] = isMenuOpen;

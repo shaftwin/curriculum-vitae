@@ -6,8 +6,6 @@ import { CircleLoader, CustomFloatingCube, MenuIcon } from './styled';
 
 function NavigationMenu({ setCurrentPage, currentPage }) {
   const theme = useTheme();
-  // TODO Need to clear this state, it change from undefined to false without knowing how
-  // TODO Need to clear css animation
   const [isMenuOpen, setIsMenuOpen] = useState(undefined);
   const [dragging, setDragging] = useState(false);
   const [circleColor, setCircleColor] = useState(null);
@@ -26,27 +24,6 @@ function NavigationMenu({ setCurrentPage, currentPage }) {
     ymax: centerY + 75 / 2,
   });
 
-  // this is for center position
-  // const centerX = window.innerWidth / 2;
-  // const centerY = window.innerHeight * 0.1;
-  // useFull only when working with percentage positions for circle loader
-  // useEffect(() => {
-  //   const onResize = () => {
-  //     const newCenterX = window.innerWidth / 2;
-  //     const newCenterY = window.innerHeight * 0.1;
-  //     setZone({
-  //       xmin: newCenterX - 100 / 2,
-  //       xmax: newCenterX + 100 / 2,
-  //       ymin: newCenterY - 100 / 2,
-  //       ymax: newCenterY + 100 / 2,
-  //     });
-  //   };
-
-  //   window.addEventListener('resize', onResize);
-  //   return () => window.removeEventListener('resize', onResize);
-  // }, []);
-
-  // Used to calculate zone position when page is scrolled
   useEffect(() => {
     const onScroll = () => {
       const newCenterX = 93 - window.pageXOffset;

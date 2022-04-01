@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Cube from 'react-cube3d';
 import { AbsoluteContainer } from './styled';
 
@@ -32,35 +32,6 @@ const FloatingCube = ({
   const [deltaY, setDeltaY] = useState(0);
   const [previousState, setPreviousState] = useState('visible');
   const dragImage = useRef(null);
-  const [savedPosition, setSavedPosition] = useState(null);
-
-  // Used to re-position cubes to prev pos when menu is opened
-  const shouldShowPosition = useCallback(() => {
-    let prevPos;
-    if (isMenuOpen && savedPosition) {
-      setCubeX(savedPosition.x);
-      setCubeY(savedPosition.y);
-      setSavedPosition(prevPos);
-    }
-  }, [isMenuOpen]);
-
-  // Used to position cubes top left when Menu is closed
-  // This prevent useless page scroll when menu is closed
-  const shouldHidePosition = useCallback(() => {
-    let prevPos;
-    if (!isMenuOpen) {
-      prevPos = { x: cubeX, y: cubeY };
-      setCubeX(0);
-      setCubeY(0);
-      setSavedPosition(prevPos);
-    }
-  }, [isMenuOpen]);
-
-  // Used to position cubes top left when Menu is closed on first render
-  // This prevent useless page scroll when menu is closed
-  useEffect(() => {
-    shouldHidePosition();
-  }, []);
 
   useEffect(() => {
     if (displayCube === 'none') {
@@ -75,16 +46,9 @@ const FloatingCube = ({
 
   useEffect(() => {
     const onResize = () => {
+      // Because no scroll occure when this height is reached
       if (window.innerHeight < 910) return null;
-      // Prevent resize to messup cube position when menu is closed
-      if (!isMenuOpen) {
-        savedPosition({
-          x: savedPosition.x,
-          y: window.innerHeight / 2 - size / 2 + offsets[cubeIndex],
-        });
-      } else {
-        setCubeY(window.innerHeight / 2 - size / 2 + offsets[cubeIndex]);
-      }
+      setCubeY(window.innerHeight / 2 - size / 2 + offsets[cubeIndex]);
       return null;
     };
 
@@ -136,8 +100,6 @@ const FloatingCube = ({
   return (
     <AbsoluteContainer
       className={className}
-      onAnimationStart={shouldShowPosition}
-      onAnimationEnd={shouldHidePosition}
       onMouseDown={onMouseDown}
       cubeX={cubeX}
       cubeY={cubeY}
