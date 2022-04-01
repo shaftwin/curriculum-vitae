@@ -7,9 +7,13 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   background-color: ${({ theme }) => theme.backgroundColors.dark};
-  /*TODO Generate double scroll bar with very small screens  */
-  /* min-height: 700px;
-  @media screen and (min-height: 700px) {
-    min-height: unset;
-  } */
+  background-image: ${({ currentPage, innerWidth }) => {
+    if (currentPage !== -1) return 'unset';
+
+    return innerWidth >= 1200
+      ? "url('/assets/svg/Background.svg')"
+      : "url('/assets/svg/Robot.svg')";
+  }};
+  background-repeat: no-repeat;
+  background-position: center;
 `;

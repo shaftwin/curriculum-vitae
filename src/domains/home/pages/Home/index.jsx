@@ -25,7 +25,7 @@ function Home() {
   }, []);
 
   return (
-    <Container>
+    <Container currentPage={currentPage} innerWidth={innerWidth}>
       {currentPage === 0 && <About />}
       {currentPage === 1 && <Skills />}
       {currentPage === 2 && <Jobs />}
