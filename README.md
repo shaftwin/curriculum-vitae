@@ -22,10 +22,13 @@
       <img src="https://img.shields.io/badge/compiler-babel-yellow">
   </a>
   <a href="https://jestjs.io/">
-      <img src="https://img.shields.io/badge/Test-jest-brightgreen">
+      <img src="https://img.shields.io/badge/test-jest-brightgreen">
   </a>
   <a href="https://testing-library.com/docs/react-testing-library/intro/">
-      <img src="https://img.shields.io/badge/Test-react testing library-brightgreen">
+      <img src="https://img.shields.io/badge/test-react testing library-brightgreen">
+  </a>
+  <a href="https://cucumber.io/">
+      <img src="https://img.shields.io/badge/test-cucumber-brightgreen">
   </a>
   <a href="https://emotion.sh/docs/introduction">
       <img src="https://img.shields.io/badge/style-emotion-orange">
