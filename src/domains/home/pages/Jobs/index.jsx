@@ -42,8 +42,8 @@ const Jobs = () => {
               setModalColor(theme.colors.pink);
             }}
             color={theme.colors.pink}
-            companyName="Tekyn"
-            jobTitle="Lead Developer"
+            companyName={t('common:tekyn.name')}
+            jobTitle={t('common:lead.dev')}
             jobDescription={t('common:tekyn.resume')}
           />
           <CustomJobCard
@@ -53,8 +53,8 @@ const Jobs = () => {
               setModalColor(theme.colors.purple);
             }}
             color={theme.colors.purple}
-            companyName="TrackTL"
-            jobTitle="Frontend Developer"
+            companyName={t('common:tracktl.name')}
+            jobTitle={t('common:frontend.dev')}
             jobDescription={t('common:tracktl.resume')}
           />
         </ColumnContainer>
@@ -66,8 +66,8 @@ const Jobs = () => {
               setModalColor(theme.colors.blue);
             }}
             color={theme.colors.blue}
-            companyName="Sparted"
-            jobTitle="FullStack Developer"
+            companyName={t('common:sparted.name')}
+            jobTitle={t('common:fullstack.dev')}
             jobDescription={t('common:sparted.resume')}
           />
           <CustomJobCard
@@ -77,9 +77,9 @@ const Jobs = () => {
               setModalColor(theme.colors.electricBlue);
             }}
             color={theme.colors.electricBlue}
-            companyName="Freelancer"
-            jobTitle="FullStack Developer"
-            jobDescription="Small and large project designed and developped."
+            companyName={t('common:freelancer')}
+            jobTitle={t('common:fullstack.dev')}
+            jobDescription={t('common:freelancer.resume')}
           />
         </ColumnContainer>
       </Grid>

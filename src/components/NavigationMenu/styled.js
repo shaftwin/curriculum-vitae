@@ -159,6 +159,7 @@ export const CircleLoader = styled.div`
 
 export const AbsoluteLanguage = styled(Language)`
   position: absolute;
+  z-index: 10;
   top: 20px;
   left: 30px;
   margin: 0 auto;
