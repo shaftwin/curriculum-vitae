@@ -101,7 +101,7 @@ $ yarn storybook
 | Features                     | Status    |
 |------------------------------|:---------:|
 | Dynamic Navigation Menu      | ✔️         |
-| TagCloud Animation.          | ✔️         |
+| TagCloud Animation           | ✔️         |
 | Multiple Fonts Animation     | ✔️         |
 | Contact Form (w/ herotofu)   | ✔️         |
 | Web / Mobile View            | ✔️         |
