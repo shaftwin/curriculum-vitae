@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 import { useTheme } from '@emotion/react';
 import React, { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   ColumnContainer,
   Container,
@@ -11,6 +12,7 @@ import {
 } from './styled';
 
 const Jobs = () => {
+  const { t } = useTranslation();
   const theme = useTheme();
   const [displayModal, setDisplayModal] = useState(undefined);
   const [modalColor, setModalColor] = useState(null);
@@ -42,7 +44,7 @@ const Jobs = () => {
             color={theme.colors.pink}
             companyName="Tekyn"
             jobTitle="Lead Developer"
-            jobDescription="Lots of work done"
+            jobDescription={t('common:tekyn.resume')}
           />
           <CustomJobCard
             displayModal={displayModal}
@@ -53,7 +55,7 @@ const Jobs = () => {
             color={theme.colors.purple}
             companyName="TrackTL"
             jobTitle="Frontend Developer"
-            jobDescription="Lots of work done"
+            jobDescription={t('common:tracktl.resume')}
           />
         </ColumnContainer>
         <ColumnContainer>
@@ -66,7 +68,7 @@ const Jobs = () => {
             color={theme.colors.blue}
             companyName="Sparted"
             jobTitle="FullStack Developer"
-            jobDescription="Lots of work done"
+            jobDescription={t('common:sparted.resume')}
           />
           <CustomJobCard
             displayModal={displayModal}
@@ -77,7 +79,7 @@ const Jobs = () => {
             color={theme.colors.electricBlue}
             companyName="Freelancer"
             jobTitle="FullStack Developer"
-            jobDescription="Lots of work done"
+            jobDescription="Small and large project designed and developped."
           />
         </ColumnContainer>
       </Grid>
