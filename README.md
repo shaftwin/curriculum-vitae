@@ -42,6 +42,9 @@
   <a href="https://typicode.github.io/husky/#/">
       <img src="https://img.shields.io/badge/git-husky-lightgrey">
   </a>
+  <a href="https://vercel.com/">
+      <img src="https://img.shields.io/badge/deployment-vercel-white">
+  </a>
 </p>
 <br>
 
