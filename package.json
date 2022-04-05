@@ -1,9 +1,9 @@
 {
-  "name": "tekyn-react-webapp",
+  "name": "curriculum-vitae",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@gitlab.com:tekyn/tekyn-web/tekyn-react-webapp.git",
-  "author": "Florian Champin <florian@tekyn.com>",
+  "repository": "https://github.com/shaftwin/curriculum-vitae.git",
+  "author": "Florian Champin Néault <florian.champin.néault@gmail.com>",
   "license": "MIT",
   "private": true,
   "scripts": {
@@ -17,7 +17,6 @@
     "storybook": "start-storybook -c ./configs/.storybook -p 6006",
     "build-storybook": "build-storybook -c ./configs/.storybook",
     "locales:extract": "i18next-scanner --config ./configs/i18next-scanner/i18next-scanner.config.js",
-    "upload-s3-dev": "aws s3 sync ./ s3://tekyn-webapp-dev --exclude='*' --include='source.zip'",
     "prepare": "husky install"
   },
   "dependencies": {
